@@ -1,16 +1,14 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import ValuePropSection from "@/components/ValuePropSection";
-import ProblemSolutionNew from "@/components/ProblemSolutionNew";
-import CoreFeatures from "@/components/CoreFeatures";
-import HowItWorks from "@/components/HowItWorks";
-import PricingSnapshot from "@/components/PricingSnapshot";
-import CaseStudyHighlight from "@/components/CaseStudyHighlight";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import LeadMagnetSection from "@/components/LeadMagnetSection";
 import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
+import FeaturesSection from "@/components/FeaturesSection";
+import ProductsSection from "@/components/ProductsSection";
+import ContactUs from "@/components/ContactUs";
+import AboutMaxBiz from "@/components/about/AboutMaxBiz";
 
 const Index = () => {
   return (
@@ -18,16 +16,16 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
-        <ValuePropSection />
-        <ProblemSolutionNew />
-        <CoreFeatures />
-        <HowItWorks />
-        <PricingSnapshot />
-        <CaseStudyHighlight />
+
+        <FeaturesSection />
+        <ProductsSection />
+        <AboutMaxBiz />
+
         <TestimonialsSection />
         <LeadMagnetSection />
         <FAQSection />
         <CTASection />
+        <ContactUs />
       </main>
       <Footer />
     </div>
