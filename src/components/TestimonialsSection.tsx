@@ -56,13 +56,13 @@ export default function TestimonialsSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((t, idx) => (
-            <div key={idx} className="relative rounded-2xl bg-white p-6 pt-16 shadow-sm border border-border/70 feature-card overflow-hidden z-10">
+            <div key={idx} className="relative rounded-2xl bg-white p-6 pt-16 shadow-sm border border-border/70 feature-card ">
               {/* Avatar center top */}
               <div className="absolute inset-x-0 -top-10 flex justify-center">
                 <div className="w-20 h-20 rounded-full bg-muted overflow-hidden ring-4 ring-white shadow-md">
                   {t.avatarUrl ? (
                     // Pakai <img>. Jika pakai Next.js, ganti ke <Image> sesuai kebutuhan.
-                    <img src={t.avatarUrl} alt={t.name} className="z-99 relative w-full h-full object-cover" loading="lazy" width={160} height={160} />
+                    <img src={t.avatarUrl} alt={t.name} className="z-99 w-full h-full object-cover" loading="lazy" width={160} height={160} />
                   ) : (
                     <div className="w-full h-full grid place-items-center text-lg font-semibold text-foreground">{t.avatar}</div>
                   )}
