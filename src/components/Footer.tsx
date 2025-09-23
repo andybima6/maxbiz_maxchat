@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { MapPin, Phone, Mail, MessageCircle, Download } from "lucide-react";
+import logo from "@/assets/logo_maxbiz.svg";
 
 const Footer = () => {
   const footerLinks = {
@@ -18,16 +19,13 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
-                <span className="text-sm font-bold text-primary-foreground">E</span>
+              <div className="flex h-12 w-12 items-center justify-center ">
+                <img src={logo} alt="MaxBiz Logo" className="" />
               </div>
-              <span className="text-xl font-bold">ERPIndo</span>
+              <span className="text-xl font-bold">MaxBiz</span>
             </div>
-            <p className="text-background/70 max-w-sm">
-              Platform ERP modern yang dirancang khusus untuk kebutuhan bisnis Indonesia. 
-              Integrasikan seluruh operasi bisnis dalam satu sistem yang mudah digunakan.
-            </p>
-            
+            <p className="text-background/70 max-w-sm">Platform ERP modern yang dirancang khusus untuk kebutuhan bisnis Indonesia. Integrasikan seluruh operasi bisnis dalam satu sistem yang mudah digunakan.</p>
+
             {/* Contact Info */}
             <div className="space-y-3 pt-4">
               <div className="flex items-center space-x-3 text-sm text-background/70">
@@ -40,7 +38,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3 text-sm text-background/70">
                 <Mail className="w-4 h-4" />
-                <span>hello@erpindo.com</span>
+                <span>hello@MaxBiz.com</span>
               </div>
               <div className="flex items-center space-x-3 text-sm text-background/70">
                 <MessageCircle className="w-4 h-4" />
@@ -56,10 +54,7 @@ const Footer = () => {
               <ul className="space-y-2">
                 {links.map((link) => (
                   <li key={link}>
-                    <a 
-                      href={`#${link.toLowerCase().replace(/\s+/g, '-')}`}
-                      className="text-sm text-background/70 hover:text-primary transition-colors"
-                    >
+                    <a href={`#${link.toLowerCase().replace(/\s+/g, "-")}`} className="text-sm text-background/70 hover:text-primary transition-colors">
                       {link}
                     </a>
                   </li>
@@ -70,15 +65,9 @@ const Footer = () => {
           {/* Newsletter Signup */}
           <div className="space-y-4">
             <h4 className="font-semibold text-background">Newsletter & E-book</h4>
-            <p className="text-sm text-background/70 max-w-sm">
-              Dapatkan tips bisnis digital dan e-book "10 Hal sebelum Pilih ERP" gratis.
-            </p>
+            <p className="text-sm text-background/70 max-w-sm">Dapatkan tips bisnis digital dan e-book "10 Hal sebelum Pilih ERP" gratis.</p>
             <div className="space-y-3">
-              <Input 
-                type="email" 
-                placeholder="Email Anda"
-                className="bg-background/10 border-background/20 text-background placeholder:text-background/50"
-              />
+              <Input type="email" placeholder="Email Anda" className="bg-background/10 border-background/20 text-background placeholder:text-background/50" />
               <Button variant="hero" size="sm" className="w-full">
                 <Download className="w-4 h-4 mr-2" />
                 Dapatkan E-book
@@ -90,14 +79,18 @@ const Footer = () => {
         {/* Bottom Footer */}
         <div className="py-6 border-t border-background/10">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-sm text-background/70">
-              © 2024 ERPIndo. All rights reserved. Made with ❤️ in Indonesia.
-            </p>
+            <p className="text-sm text-background/70">© 2024 MaxBiz. All rights reserved. Made with ❤️ in Indonesia.</p>
             <div className="flex items-center space-x-6">
               <div className="flex space-x-6 text-sm text-background/70">
-                <a href="#privacy" className="hover:text-primary transition-colors">Privacy</a>
-                <a href="#terms" className="hover:text-primary transition-colors">Terms</a>
-                <a href="#cookies" className="hover:text-primary transition-colors">Cookies</a>
+                <a href="#privacy" className="hover:text-primary transition-colors">
+                  Privacy
+                </a>
+                <a href="#terms" className="hover:text-primary transition-colors">
+                  Terms
+                </a>
+                <a href="#cookies" className="hover:text-primary transition-colors">
+                  Cookies
+                </a>
               </div>
               <div className="flex items-center space-x-2 text-xs text-background/50">
                 <span>🔒 SSL Secured</span>

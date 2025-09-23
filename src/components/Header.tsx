@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import logo from "@/assets/logo_maxbiz.svg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,20 +24,16 @@ const Header = () => {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
-              <span className="text-sm font-bold text-primary-foreground">E</span>
+            <div className="flex h-12 w-12 items-center justify-center ">
+              <img src={logo} alt="MaxBiz Logo" className="" />
             </div>
-            <span className="text-xl font-bold text-foreground">ERPIndo</span>
+            <span className="text-xl font-bold text-foreground">MaxBiz</span>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-              >
+              <a key={item.label} href={item.href} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
                 {item.label}
               </a>
             ))}
@@ -44,48 +41,30 @@ const Header = () => {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-3">
-            <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-              <button
-                onClick={() => setLanguage(language === "ID" ? "EN" : "ID")}
-                className="px-2 py-1 rounded hover:bg-muted transition-colors"
-              >
+            {/* <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+              <button onClick={() => setLanguage(language === "ID" ? "EN" : "ID")} className="px-2 py-1 rounded hover:bg-muted transition-colors">
                 {language}
               </button>
-            </div>
-            <Button variant="ghost" size="sm">
+            </div> */}
+            {/* <Button variant="ghost" size="sm">
               Masuk
-            </Button>
+            </Button> */}
             <Button variant="hero" size="sm" className="gap-2">
               📞 Demo Gratis
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
+          <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
         </div>
 
         {/* Mobile Navigation */}
-        <div className={cn(
-          "md:hidden transition-all duration-300 ease-in-out",
-          isMenuOpen 
-            ? "max-h-96 opacity-100 border-b border-border/40 pb-4" 
-            : "max-h-0 opacity-0 overflow-hidden"
-        )}>
+        <div className={cn("md:hidden transition-all duration-300 ease-in-out", isMenuOpen ? "max-h-96 opacity-100 border-b border-border/40 pb-4" : "max-h-0 opacity-0 overflow-hidden")}>
           <nav className="flex flex-col space-y-3 pt-4">
             {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
+              <a key={item.label} href={item.href} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors py-2" onClick={() => setIsMenuOpen(false)}>
                 {item.label}
               </a>
             ))}
