@@ -4,7 +4,7 @@ import Advantages from "./Advantages";
 
 const AboutMaxBiz = () => {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen" id="tentang">
       <AboutHero />
       <VisionMission />
       <Advantages />
