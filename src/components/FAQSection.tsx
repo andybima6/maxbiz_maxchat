@@ -1,9 +1,5 @@
-import { 
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import AnimatedElement from "./AnimatedElement";
 
 const FAQSection = () => {
   const faqs = [
@@ -39,30 +35,42 @@ const FAQSection = () => {
       <div className="container-custom">
         <div className="max-w-4xl mx-auto">
           <div className="text-center space-y-4 mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">Pertanyaan yang Sering Diajukan</h2>
-            <p className="text-lg text-muted-foreground">Temukan jawaban untuk pertanyaan umum tentang MaxBiz</p>
+            <AnimatedElement animation="fade-in-up" delay={300}>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground">Pertanyaan yang Sering Diajukan</h2>
+            </AnimatedElement>
+            <AnimatedElement animation="fade-in-up" delay={400}>
+              <p className="text-lg text-muted-foreground">Temukan jawaban untuk pertanyaan umum tentang MaxBiz</p>
+            </AnimatedElement>
           </div>
 
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="feature-card rounded-xl px-6 border-0">
-                <AccordionTrigger className="text-left hover:no-underline py-6">
-                  <span className="text-lg font-semibold text-foreground pr-4">{faq.question}</span>
-                </AccordionTrigger>
-                <AccordionContent className="pb-6 text-muted-foreground leading-relaxed">{faq.answer}</AccordionContent>
-              </AccordionItem>
+              <AnimatedElement key={index} animation="fade-in-up" delay={index * 200}>
+                <AccordionItem key={index} value={`item-${index}`} className="feature-card rounded-xl px-6 border-0">
+                  <AccordionTrigger className="text-left hover:no-underline py-6">
+                    <span className="text-lg font-semibold text-foreground pr-4">{faq.question}</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="pb-6 text-muted-foreground leading-relaxed">{faq.answer}</AccordionContent>
+                </AccordionItem>
+              </AnimatedElement>
             ))}
           </Accordion>
 
           <div className="text-center mt-12">
-            <p className="text-muted-foreground mb-6">Masih ada pertanyaan lain?</p>
+            <AnimatedElement animation="fade-in-up" delay={500}>
+              <p className="text-muted-foreground mb-6">Masih ada pertanyaan lain?</p>
+            </AnimatedElement>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://wa.me/6281234567890" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-secondary text-secondary-foreground rounded-lg font-medium hover:bg-secondary/90 transition-colors">
-                💬 Chat WhatsApp
-              </a>
-              <a href="mailto:hello@MaxBiz.com" className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-border rounded-lg font-medium hover:bg-muted transition-colors">
-                📧 Email Support
-              </a>
+              <AnimatedElement animation="fade-in-up" delay={600}>
+                <a href="https://wa.me/6281234567890" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-secondary text-secondary-foreground rounded-lg font-medium hover:bg-secondary/90 transition-colors">
+                  💬 Chat WhatsApp
+                </a>
+              </AnimatedElement>
+              <AnimatedElement animation="fade-in-up" delay={700}>
+                <a href="mailto:hello@MaxBiz.com" className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-border rounded-lg font-medium hover:bg-muted transition-colors">
+                  📧 Email Support
+                </a>
+              </AnimatedElement>
             </div>
           </div>
         </div>

@@ -12,6 +12,7 @@ import { useToast } from "@/hooks/use-toast";
 import businessConsultation from "@/assets/business-consultation.jpg";
 import customerSupport from "@/assets/customer-support.jpg";
 import digitalPattern from "@/assets/digital-pattern.jpg";
+import AnimatedElement from "./AnimatedElement";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Nama harus minimal 2 karakter" }),
@@ -66,7 +67,7 @@ const ContactUs = () => {
   ];
 
   return (
-    <section className="relative py-20 px-4 bg-gradient-to-br from-background to-muted overflow-hidden">
+    <section className="relative py-20 px-4 bg-gradient-to-br from-background to-muted overflow-hidden" id="kontak">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <img src={digitalPattern} alt="" className="w-full h-full object-cover" />
@@ -74,13 +75,21 @@ const ContactUs = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header with Hero Image */}
+
         <div className="text-center mb-16">
           <div className="relative mb-8">
             <div className="absolute inset-0 bg-gradient-hero opacity-10 rounded-3xl transform rotate-3"></div>
-            <img src={businessConsultation} alt="Tim MaxBiz sedang berkonsultasi dengan klien" className="relative w-full max-w-4xl mx-auto h-64 md:h-80 object-cover rounded-3xl shadow-elegant" />
+
+            <AnimatedElement animation="bounce-in" delay={200}>
+              <img src={businessConsultation} alt="Tim MaxBiz sedang berkonsultasi dengan klien" className="relative w-full max-w-4xl mx-auto h-64 md:h-80 object-cover rounded-3xl shadow-elegant" />
+            </AnimatedElement>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">Hubungi Kami</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">Ingin tahu lebih banyak tentang solusi kami? Tim MaxBiz siap membantu Anda setiap langkah dalam perjalanan digitalisasi bisnis Anda.</p>
+          <AnimatedElement animation="fade-in-up" delay={400}>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">Hubungi Kami</h2>
+          </AnimatedElement>
+          <AnimatedElement animation="fade-in-down" delay={500}>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">Ingin tahu lebih banyak tentang solusi kami? Tim MaxBiz siap membantu Anda setiap langkah dalam perjalanan digitalisasi bisnis Anda.</p>
+          </AnimatedElement>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-12 items-start">
@@ -89,116 +98,122 @@ const ContactUs = () => {
             <div className="relative">
               {/* Support Representative Image */}
               <div className="mb-8">
-                <img src={customerSupport} alt="Customer support representative" className="w-full h-80 object-cover rounded-2xl shadow-elegant" />
-                <div className="absolute -bottom-12 -right-4 bg-gradient-hero text-primary-foreground p-4 rounded-xl shadow-glow">
-                  
-                  <div className="text-center">
-                    
-                    <div className="text-lg font-bold">24/7</div>
-                    <div className="text-sm">Support</div>
+                <AnimatedElement animation="fade-in-up" delay={100}>
+                  <img src={customerSupport} alt="Customer support representative" className="w-full h-80 object-cover rounded-2xl shadow-elegant" />
+                </AnimatedElement>
+                <AnimatedElement animation="fade-in-up" delay={300}>
+                  <div className="absolute -bottom-12 -right-4 bg-gradient-hero text-primary-foreground p-4 rounded-xl shadow-glow z-10 ">
+                    <div className="text-center">
+                      <div className="text-lg font-bold">24/7</div>
+                      <div className="text-sm">Support</div>
+                    </div>
                   </div>
-                </div>
+                </AnimatedElement>
               </div>
 
               <h3 className="text-2xl font-semibold text-foreground mb-6">Informasi Kontak</h3>
               <div className="space-y-6">
                 {contactInfo.map((item, index) => (
-                  <Card key={index} className="group hover:shadow-elegant transition-all duration-300 border-0 shadow-md">
-                    <CardContent className="p-6">
-                      <div className="flex items-start space-x-4">
-                        <div className="flex-shrink-0">
-                          <div className="w-12 h-12 bg-gradient-hero rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                            <item.icon className="w-6 h-6 text-primary-foreground" />
+                  <AnimatedElement key={index} animation="fade-in-up" delay={index * 200}>
+                    <Card key={index} className="group hover:shadow-elegant transition-all duration-300 border-0 shadow-md">
+                      <CardContent className="p-6">
+                        <div className="flex items-start space-x-4">
+                          <div className="flex-shrink-0">
+                            <div className="w-12 h-12 bg-gradient-hero rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                              <item.icon className="w-6 h-6 text-primary-foreground" />
+                            </div>
+                          </div>
+                          <div className="flex-1">
+                            <h4 className="font-semibold text-foreground mb-1">{item.label}</h4>
+                            {item.href === "#" ? (
+                              <p className="text-muted-foreground leading-relaxed">{item.value}</p>
+                            ) : (
+                              <a href={item.href} className="text-primary hover:text-primary-dark transition-colors duration-200">
+                                {item.value}
+                              </a>
+                            )}
                           </div>
                         </div>
-                        <div className="flex-1">
-                          <h4 className="font-semibold text-foreground mb-1">{item.label}</h4>
-                          {item.href === "#" ? (
-                            <p className="text-muted-foreground leading-relaxed">{item.value}</p>
-                          ) : (
-                            <a href={item.href} className="text-primary hover:text-primary-dark transition-colors duration-200">
-                              {item.value}
-                            </a>
-                          )}
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+                      </CardContent>
+                    </Card>
+                  </AnimatedElement>
                 ))}
               </div>
             </div>
           </div>
 
           {/* Contact Form */}
-          <Card className="lg:col-span-2 shadow-elegant border-0">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-semibold text-foreground mb-6">Formulir Online</h3>
+          <Card className="lg:col-span-2 shadow-elegant border-0 shadow-2xl">
+            <AnimatedElement animation="fade-in-up" delay={300}>
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-semibold text-foreground mb-6">Formulir Online</h3>
 
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  <FormField
-                    control={form.control}
-                    name="name"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-foreground font-medium">Nama</FormLabel>
-                        <FormControl>
-                          <Input placeholder="Masukkan nama lengkap Anda" {...field} className="h-12 border-muted focus:border-primary transition-colors duration-200" />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                <Form {...form}>
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                    <FormField
+                      control={form.control}
+                      name="name"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-foreground font-medium">Nama</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Masukkan nama lengkap Anda" {...field} className="h-12 border-muted focus:border-primary transition-colors duration-200" />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
 
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-foreground font-medium">Email</FormLabel>
-                        <FormControl>
-                          <Input type="email" placeholder="nama@email.com" {...field} className="h-12 border-muted focus:border-primary transition-colors duration-200" />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                    <FormField
+                      control={form.control}
+                      name="email"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-foreground font-medium">Email</FormLabel>
+                          <FormControl>
+                            <Input type="email" placeholder="nama@email.com" {...field} className="h-12 border-muted focus:border-primary transition-colors duration-200" />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
 
-                  <FormField
-                    control={form.control}
-                    name="phone"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-foreground font-medium">Nomor Telepon</FormLabel>
-                        <FormControl>
-                          <Input type="tel" placeholder="+62 812 3456 7890" {...field} className="h-12 border-muted focus:border-primary transition-colors duration-200" />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                    <FormField
+                      control={form.control}
+                      name="phone"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-foreground font-medium">Nomor Telepon</FormLabel>
+                          <FormControl>
+                            <Input type="tel" placeholder="+62 812 3456 7890" {...field} className="h-12 border-muted focus:border-primary transition-colors duration-200" />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
 
-                  <FormField
-                    control={form.control}
-                    name="message"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-foreground font-medium">Pesan Anda</FormLabel>
-                        <FormControl>
-                          <Textarea placeholder="Ceritakan kebutuhan bisnis Anda..." className="min-h-[120px] border-muted focus:border-primary transition-colors duration-200" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                    <FormField
+                      control={form.control}
+                      name="message"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-foreground font-medium">Pesan Anda</FormLabel>
+                          <FormControl>
+                            <Textarea placeholder="Ceritakan kebutuhan bisnis Anda..." className="min-h-[120px] border-muted focus:border-primary transition-colors duration-200" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
 
-                  <Button type="submit" className="w-full h-12  hover:bg-gradient-to-r hover:from-primary-dark hover:to-primary transition-all duration-300 shadow-glow hover:shadow-elegant font-semibold">
-                    <Send className="w-5 h-5 mr-2" />
-                    Konsultasikan Kebutuhan Anda
-                  </Button>
-                </form>
-              </Form>
-            </CardContent>
+                    <Button type="submit" className="w-full h-12  hover:bg-gradient-to-r hover:from-primary-dark hover:to-primary transition-all duration-300 shadow-glow hover:shadow-elegant font-semibold">
+                      <Send className="w-5 h-5 mr-2" />
+                      Konsultasikan Kebutuhan Anda
+                    </Button>
+                  </form>
+                </Form>
+              </CardContent>
+            </AnimatedElement>
           </Card>
         </div>
       </div>
