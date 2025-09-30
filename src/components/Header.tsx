@@ -3,8 +3,34 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import logo from "@/assets/logo_maxbiz.svg";
-import { Cpu, Boxes, Briefcase, HeartHandshake, Database, Megaphone, ChevronDown, ChevronUp, Stethoscope, Landmark, Wallet, Home, GraduationCap, ShoppingBag, Plane, Cog, Scale, Utensils, HandHeart } from "lucide-react";
-
+import {
+  ChevronUp,
+  ChevronDown,
+  LayoutDashboard,
+  Calculator,
+  ShoppingCart,
+  Package,
+  Contact,
+  KanbanSquare,
+  Users2,
+  Globe,
+  Boxes,
+  BadgeDollarSign,
+  LifeBuoy,
+  Factory,
+  Stethoscope,
+  GraduationCap,
+  HandHeart,
+  Landmark,
+  Wallet,
+  Home,
+  ShoppingBag,
+  Briefcase,
+  Plane,
+  Cog,
+  Scale,
+  Utensils,
+} from "lucide-react";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -14,30 +40,39 @@ const Header = () => {
       icon: ChevronDown,
       href: "/",
       subItems: [
-        { label: "ERPNext", icon: Cpu, href: "/erpnext" },
-        { label: "Account & Finance", icon: Boxes, href: "/accounting-finance" },
-        { label: "Business Consulting", icon: Briefcase, href: "#consulting" },
-        { label: "ERP Implementation", icon: HeartHandshake, href: "#implementation" },
-        { label: "CRM", icon: Database, href: "#crm" },
-        { label: "Digital Marketing", icon: Megaphone, href: "#marketing" },
+        { label: "ERPNext Overview", icon: LayoutDashboard, href: "/erpnext" },
+        { label: "Accounting & Finance", icon: Calculator, href: "/accounting-finance" },
+        { label: "Selling (Sales)", icon: ShoppingCart, href: "/selling" },
+        { label: "Buying (Purchasing)", icon: Package, href: "/buying" },
+        { label: "CRM", icon: Contact, href: "/crm" },
+        { label: "Project Management", icon: KanbanSquare, href: "/project-management" },
+        { label: "HR & Payroll", icon: Users2, href: "/hr-payroll" },
+        { label: "Website & E-Commerce", icon: Globe, href: "/website-ecommerce" },
+        { label: "Inventory / Stock", icon: Boxes, href: "/inventory" },
+        { label: "Asset Management", icon: BadgeDollarSign, href: "/asset-management" },
+        { label: "Help Desk", icon: LifeBuoy, href: "/help-desk" },
+        { label: "Manufacturing", icon: Factory, href: "/manufacturing" },
+        { label: "Healthcare", icon: Stethoscope, href: "/healthcare" },
+        { label: "Education", icon: GraduationCap, href: "/education" },
+        { label: "Non Profit", icon: HandHeart, href: "/non-profit" },
       ],
     },
     {
       label: "Industry",
       icon: ChevronDown,
       subItems: [
-        { label: "Kesehatan", icon: Stethoscope, href: "#kesehatan" },
-        { label: "Government", icon: Landmark, href: "#government" },
-        { label: "Finance", icon: Wallet, href: "#finance" },
-        { label: "Properti", icon: Home, href: "#properti" },
-        { label: "Pendidikan", icon: GraduationCap, href: "#pendidikan" },
-        { label: "Retail", icon: ShoppingBag, href: "#retail" },
-        { label: "Agency", icon: Briefcase, href: "#agency" },
-        { label: "Travel", icon: Plane, href: "#travel" },
-        { label: "Utilitas", icon: Cog, href: "#utilitas" },
-        { label: "Legal & Konsultan", icon: Scale, href: "#legal" },
-        { label: "Food & Beverage", icon: Utensils, href: "#fnb" },
-        { label: "NGO", icon: HandHeart, href: "#ngo" },
+        { label: "Kesehatan", icon: Stethoscope, href: "/healthcare" },
+        { label: "Government", icon: Landmark, href: "/government" },
+        { label: "Finance", icon: Wallet, href: "/finance" },
+        { label: "Properti", icon: Home, href: "/property" },
+        { label: "Pendidikan", icon: GraduationCap, href: "/education" },
+        { label: "Retail", icon: ShoppingBag, href: "/retail" },
+        { label: "Agency", icon: Briefcase, href: "/agency" },
+        { label: "Travel & Hospitality", icon: Plane, href: "/travel-hospitality" },
+        { label: "Utilitas", icon: Cog, href: "/utilities" },
+        { label: "Legal & Konsultan", icon: Scale, href: "/legal-consultant" },
+        { label: "Food & Beverage", icon: Utensils, href: "/food-beverage" },
+        { label: "NGO / Non Profit", icon: HandHeart, href: "/ngo" },
       ],
     },
     { label: "About", href: "#tentang" },
@@ -52,12 +87,14 @@ const Header = () => {
       <div className="container-custom">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="flex h-12 w-12 items-center justify-center ">
-              <img src={logo} alt="MaxBiz Logo" className="" />
+          <a href="/" className="flex items-center">
+            <div className="flex items-center space-x-2">
+              <div className="flex h-12 w-12 items-center justify-center ">
+                <img src={logo} alt="MaxBiz Logo" className="" />
+              </div>
+              <span className="text-xl font-bold text-foreground">MaxBiz</span>
             </div>
-            <span className="text-xl font-bold text-foreground">MaxBiz</span>
-          </div>
+          </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
