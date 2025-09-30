@@ -1,0 +1,197 @@
+import FeatureCard from "@/components/module/ErpOverview/FeatureCard";
+import StatCard from "@/components/module/ErpOverview/StatCard";
+import { Button } from "@/components/ui/button";
+import heroImage from "@/assets/module/erpoverview/hero-erp.jpg";
+import dashboardIcon from "@/assets/module/erpoverview/dashboard-icon.jpg";
+import multiCompanyIcon from "@/assets/module/erpoverview/multi-company-icon.jpg";
+import currencyIcon from "@/assets/module/erpoverview/currency-icon.jpg";
+import reportsIcon from "@/assets/module/erpoverview/reports-icon.jpg";
+import unifiedIcon from "@/assets/module/erpoverview/unified-icon.jpg";
+import integrationIcon from "@/assets/module/erpoverview/integration-icon.jpg";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
+const Index = () => {
+  const features = [
+    {
+      icon: <img src={dashboardIcon} alt="Real-time Dashboard" className="w-full h-full object-cover" />,
+      title: "Dashboard Real-Time",
+      description: "Pantau seluruh operasi bisnis Anda dalam satu tampilan komprehensif yang update secara real-time",
+      features: [
+        "Visualisasi data bisnis interaktif dan dinamis",
+        "Monitoring performa departemen secara langsung",
+        "Notifikasi otomatis untuk aktivitas penting",
+        "Widget yang dapat dikustomisasi sesuai kebutuhan",
+        "Akses cepat ke laporan dan metrik kunci",
+      ],
+    },
+    {
+      icon: <img src={multiCompanyIcon} alt="Multi-Company" className="w-full h-full object-cover" />,
+      title: "Multi-Company Management",
+      description: "Kelola berbagai entitas bisnis dalam satu platform terpadu dengan mudah",
+      features: ["Manajemen terpusat untuk multiple perusahaan", "Konsolidasi laporan lintas entitas", "Setting independen per perusahaan", "Transfer antar perusahaan yang seamless", "Hak akses berbasis hierarki organisasi"],
+    },
+    {
+      icon: <img src={currencyIcon} alt="Multi-Currency" className="w-full h-full object-cover" />,
+      title: "Multi-Currency Support",
+      description: "Transaksi dalam berbagai mata uang dengan konversi otomatis dan akurat",
+      features: ["Support berbagai mata uang internasional", "Update kurs otomatis real-time", "Laporan keuangan multi-currency", "Perhitungan gain/loss otomatis", "Konversi mata uang yang fleksibel"],
+    },
+    {
+      icon: <img src={reportsIcon} alt="Automated Reports" className="w-full h-full object-cover" />,
+      title: "Laporan Otomatis",
+      description: "Generate laporan bisnis komprehensif secara otomatis dengan scheduling yang fleksibel",
+      features: ["Pembuatan laporan otomatis terjadwal", "Template laporan yang dapat dikustomisasi", "Export ke berbagai format (PDF, Excel, CSV)", "Analisis data mendalam dengan visualisasi", "Email laporan otomatis ke stakeholder"],
+    },
+    {
+      icon: <img src={unifiedIcon} alt="Unified Platform" className="w-full h-full object-cover" />,
+      title: "Platform Terpadu",
+      description: "Satu sistem terintegrasi untuk semua kebutuhan bisnis Anda, tanpa perlu multiple software",
+      features: ["Integrasi seamless antar modul", "Data terpusat dan konsisten", "Eliminasi duplikasi data entry", "Workflow otomatis antar departemen", "Single source of truth untuk semua data"],
+    },
+    {
+      icon: <img src={integrationIcon} alt="Process Integration" className="w-full h-full object-cover" />,
+      title: "Integrasi Proses Bisnis",
+      description: "Otomasi dan optimalisasi seluruh proses bisnis dengan workflow yang terkoneksi",
+      features: ["Otomasi proses end-to-end", "Approval workflow yang fleksibel", "Tracking proses real-time", "Notifikasi dan alert otomatis", "Integrasi dengan sistem eksternal via API"],
+    },
+  ];
+
+  const stats = [
+    { number: "100%", label: "Terintegrasi" },
+    { number: "24/7", label: "Real-Time Access" },
+    { number: "∞", label: "Scalability" },
+    { number: "1", label: "Unified Platform" },
+  ];
+
+  return (
+    <div className="min-h-screen">
+      <Header />
+      {/* Hero Section */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-hero opacity-95" />
+        <div
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage: `url(${heroImage})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
+
+        <div className="relative container mx-auto px-4 py-20 md:py-32">
+          <div className="max-w-4xl mx-auto text-center text-card">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">ERPNext Overview</h1>
+            <p className="text-xl md:text-2xl mb-4 text-card/90 animate-fade-in" style={{ animationDelay: "100ms" }}>
+              Sistem ERP All-in-One untuk Semua Proses Bisnis
+            </p>
+            <p className="text-lg md:text-xl mb-8 text-card/80 animate-fade-in max-w-3xl mx-auto" style={{ animationDelay: "200ms" }}>
+              Menyatukan data dan fungsi dalam satu platform terintegrasi yang powerful, menjadi fondasi semua departemen untuk mengurangi penggunaan software terpisah
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: "300ms" }}>
+              <Button size="lg" className="bg-card hover:bg-card/90 text-primary shadow-large">
+                Mulai Sekarang
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+              <Button size="lg" variant="outline" className="border-card text-card hover:bg-card/10">
+                Pelajari Lebih Lanjut
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-12 bg-card shadow-medium">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <StatCard key={index} number={stat.number} label={stat.label} delay={index * 100} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Main Benefits Section */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-primary bg-clip-text text-primary">Tujuan Utama ERPNext</h2>
+            <p className="text-lg text-muted-foreground">Menyediakan sistem ERP all-in-one yang mengintegrasikan semua proses bisnis, menyatukan data dan fungsi dalam satu platform yang powerful dan mudah digunakan</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {features.map((feature, index) => (
+              <FeatureCard key={index} icon={feature.icon} title={feature.title} description={feature.description} features={feature.features} delay={index * 100} />
+            ))}
+          </div>
+
+          {/* Additional Benefits */}
+          <div className="bg-gradient-hero rounded-2xl p-8 md:p-12 text-card shadow-large">
+            <h3 className="text-2xl md:text-3xl font-bold mb-8 text-center">Keunggulan Platform Terintegrasi</h3>
+            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="h-6 w-6 flex-shrink-0 mt-1" />
+                <div>
+                  <h4 className="font-semibold mb-1">Efisiensi Operasional</h4>
+                  <p className="text-sm text-card/80">Otomasi proses bisnis mengurangi pekerjaan manual dan meningkatkan produktivitas tim</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="h-6 w-6 flex-shrink-0 mt-1" />
+                <div>
+                  <h4 className="font-semibold mb-1">Data Terpusat</h4>
+                  <p className="text-sm text-card/80">Single source of truth untuk semua informasi bisnis, eliminasi data duplikat</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="h-6 w-6 flex-shrink-0 mt-1" />
+                <div>
+                  <h4 className="font-semibold mb-1">Skalabilitas Tinggi</h4>
+                  <p className="text-sm text-card/80">Berkembang bersama bisnis Anda dari startup hingga enterprise</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="h-6 w-6 flex-shrink-0 mt-1" />
+                <div>
+                  <h4 className="font-semibold mb-1">Cost Effective</h4>
+                  <p className="text-sm text-card/80">Satu platform untuk semua kebutuhan, mengurangi biaya lisensi multiple software</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="h-6 w-6 flex-shrink-0 mt-1" />
+                <div>
+                  <h4 className="font-semibold mb-1">Kolaborasi Tim</h4>
+                  <p className="text-sm text-card/80">Departemen bekerja seamless dengan akses ke data yang sama real-time</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="h-6 w-6 flex-shrink-0 mt-1" />
+                <div>
+                  <h4 className="font-semibold mb-1">Keputusan Data-Driven</h4>
+                  <p className="text-sm text-card/80">Insight real-time membantu pengambilan keputusan bisnis yang lebih baik</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-muted">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Siap Transformasi Bisnis Anda?</h2>
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">Bergabunglah dengan ribuan perusahaan yang telah meningkatkan efisiensi mereka dengan ERPNext</p>
+          <Button size="lg" className="shadow-large">
+            Hubungi Kami Sekarang
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
+        </div>
+      </section>
+      <Footer/>
+    </div>
+  );
+};
+
+export default Index;
