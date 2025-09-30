@@ -9,25 +9,27 @@ import FeaturesSection from "@/components/FeaturesSection";
 import ProductsSection from "@/components/ProductsSection";
 import ContactUs from "@/components/ContactUs";
 import AboutMaxBiz from "@/components/about/AboutMaxBiz";
+import PricingSection from "@/components/PricingSection";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main>
-        <HeroSection />
-
-        <FeaturesSection />
-        <ProductsSection />
-        <AboutMaxBiz />
-
-        <TestimonialsSection />
-        <LeadMagnetSection />
-        <FAQSection />
-        <CTASection />
-        <ContactUs />
-      </main>
-      <Footer />
+      <div className="overflow-x-hidden w-full">
+        <main>
+          <HeroSection />
+          <FeaturesSection />
+          <ProductsSection />
+          <AboutMaxBiz />
+          <TestimonialsSection />
+          {/* <LeadMagnetSection /> */}
+          <PricingSection />
+          <FAQSection />
+          <CTASection />
+          <ContactUs />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 };
