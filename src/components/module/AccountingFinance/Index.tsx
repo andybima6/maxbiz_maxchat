@@ -9,6 +9,7 @@ import taxManagement from "@/assets/module/AccountingFinance/tax-management.jpg"
 import accountsReceivable from "@/assets/module/AccountingFinance/accounts-receivable.jpg";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import BannerSection from "@/components/BannerSection";
 
 const Index = () => {
   const features = [
@@ -112,7 +113,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-        <Header />
+      <Header />
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-hero">
         <div className="absolute inset-0 bg-gradient-primary opacity-90"></div>
@@ -252,24 +253,13 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Siap Tingkatkan Efisiensi Keuangan?</h2>
-          <p className="text-xl text-muted-foreground mb-8">Bergabung dengan 500+ perusahaan yang telah mempercayakan sistem keuangan mereka kepada kami</p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-primary hover:shadow-glow">
-              <Calculator className="mr-2 h-5 w-5" />
-              Mulai Trial 30 Hari
-            </Button>
-            <Button size="lg" variant="outline">
-              <FileText className="mr-2 h-5 w-5" />
-              Request Demo
-            </Button>
-          </div>
-        </div>
-      </section>
-      <Footer/>
+      <BannerSection
+        title="Siap Tingkatkan Performa Penjualan Anda?"
+        description="Mulai otomasi proses penjualan Anda hari ini. Dapatkan akses penuh ke semua fitur tanpa biaya setup."
+        primaryAction={{ label: "Mulai Sekarang", onClick: () => console.log("Primary") }}
+        secondaryAction={{ label: "Hubungi Sales", onClick: () => console.log("Secondary") }}
+      />
+      <Footer />
     </div>
   );
 };

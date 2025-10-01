@@ -11,6 +11,7 @@ import integrationIcon from "@/assets/module/erpoverview/integration-icon.jpg";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import BannerSection from "@/components/BannerSection";
 
 const Index = () => {
   const features = [
@@ -72,9 +73,9 @@ const Index = () => {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-hero opacity-95" />
         <div
-          className="absolute inset-0 opacity-20"
+          className="absolute inset-0 opacity-20 bg-gradient-hero"
           style={{
-            backgroundImage: `url(${heroImage})`,
+            backgroundImage: `linear-gradient(var(--gradient-hero)), url(${heroImage})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -179,17 +180,13 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-muted">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Siap Transformasi Bisnis Anda?</h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">Bergabunglah dengan ribuan perusahaan yang telah meningkatkan efisiensi mereka dengan ERPNext</p>
-          <Button size="lg" className="shadow-large">
-            Hubungi Kami Sekarang
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
-        </div>
-      </section>
-      <Footer/>
+      <BannerSection
+        title="Siap Tingkatkan Performa Penjualan Anda?"
+        description="Mulai otomasi proses penjualan Anda hari ini. Dapatkan akses penuh ke semua fitur tanpa biaya setup."
+        primaryAction={{ label: "Mulai Sekarang", onClick: () => console.log("Primary") }}
+        secondaryAction={{ label: "Hubungi Sales", onClick: () => console.log("Secondary") }}
+      />
+      <Footer />
     </div>
   );
 };
