@@ -42,7 +42,7 @@ const Header = () => {
       subItems: [
         { label: "ERPNext Overview", icon: LayoutDashboard, href: "/erpnext" },
         { label: "Accounting & Finance", icon: Calculator, href: "/accounting-finance" },
-        { label: "Selling (Sales)", icon: ShoppingCart, href: "/selling" },
+        { label: "Selling (Sales)", icon: ShoppingCart, href: "/Sales" },
         { label: "Buying (Purchasing)", icon: Package, href: "/buying" },
         { label: "CRM", icon: Contact, href: "/crm" },
         { label: "Project Management", icon: KanbanSquare, href: "/project-management" },

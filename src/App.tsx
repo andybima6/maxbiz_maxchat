@@ -7,6 +7,10 @@ import Index from "./pages/Index";
 import ErpOverview from "./components/module/ErpOverview/Index";
 import AccountingFinance from "./components/module/AccountingFinance/Index";
 import NotFound from "./pages/NotFound";
+import Sales from "./components/module/Sales/Index";
+import Buying from "./components/module/Buying/Index";
+import CRM from "./components/module/Crm/Index";
+import ProjectManagement from "./components/module/ProjectManagement/Index";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +24,10 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/erpnext" element={<ErpOverview />} />
           <Route path="/accounting-finance" element={<AccountingFinance />} />
+          <Route path="/Sales" element={<Sales />} />
+          <Route path="/buying" element={<Buying />} />
+          <Route path="/crm" element={<CRM />} />
+          <Route path="/project-management" element={<ProjectManagement />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

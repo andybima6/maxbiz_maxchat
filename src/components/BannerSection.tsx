@@ -1,0 +1,55 @@
+import { Button } from "@/components/ui/button";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { Card, CardContent } from "./ui/card";
+
+interface BannerSectionProps {
+  title: string;
+  description: string;
+  primaryAction: {
+    label: string;
+    onClick?: () => void;
+  };
+  secondaryAction?: {
+    label: string;
+    onClick?: () => void;
+  };
+}
+
+const BannerSection = ({ title, description, primaryAction, secondaryAction }: BannerSectionProps) => {
+  return (
+    <section className="container mx-auto px-4 py-20">
+      <Card className="border-none shadow-[var(--shadow-medium)] overflow-hidden relative animate-scale-in bg-gradient-hero">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNm0wIDEyYzMuMzE0IDAgNiAyLjY4NiA2IDZzLTIuNjg2IDYtNiA2LTYtMi42ODYtNi02IDIuNjg2LTYgNi02bTAgMTJjMy4zMTQgMCA2IDIuNjg2IDYgNnMtMi42ODYgNi02IDYtNi0yLjY4Ni02LTYgMi42ODYtNiA2LTZNMTggMThjMy4zMTQgMCA2IDIuNjg2IDYgNnMtMi42ODYgNi02IDYtNi0yLjY4Ni02LTYgMi42ODYtNiA2LTZtMCAxMmMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNm0wIDEyYzMuMzE0IDAgNiAyLjY4NiA2IDZzLTIuNjg2IDYtNiA2LTYtMi42ODYtNi02IDIuNjg2LTYgNi02IiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMiIvPjwvZz48L3N2Zz4=')] opacity-20" />
+        </div>
+
+        {/* Floating decorative elements */}
+        <div className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full blur-xl animate-float" />
+        <div className="absolute bottom-10 right-10 w-32 h-32 bg-white/10 rounded-full blur-xl animate-float" style={{ animationDelay: "1s" }} />
+
+        <CardContent className="p-12 md:p-16 relative">
+          <div className="max-w-3xl mx-auto text-center space-y-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-white animate-fade-in">{title}</h2>
+            <p className="text-lg text-white/90 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+              {description}
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center pt-4 animate-fade-in" style={{ animationDelay: "0.4s" }}>
+              <Button variant="hero" size="lg" onClick={primaryAction.onClick} className="gap-2 hover:scale-105 transition-transform">
+                {primaryAction.label}
+                <ArrowRight className="w-5 h-5" />
+              </Button>
+
+              {secondaryAction && (
+                <Button variant="outline" size="lg" onClick={secondaryAction.onClick} className="hover:scale-105 transition-transform text-white">
+                  {secondaryAction.label}
+                </Button>
+              )}
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    </section>
+  );
+};  
+
+export default BannerSection;
