@@ -8,10 +8,11 @@ import currencyIcon from "@/assets/module/erpoverview/currency-icon.jpg";
 import reportsIcon from "@/assets/module/erpoverview/reports-icon.jpg";
 import unifiedIcon from "@/assets/module/erpoverview/unified-icon.jpg";
 import integrationIcon from "@/assets/module/erpoverview/integration-icon.jpg";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Calculator, CheckCircle2, FileText } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BannerSection from "@/components/BannerSection";
+import HeroSection from "../HeroSection";
 
 const Index = () => {
   const features = [
@@ -70,38 +71,26 @@ const Index = () => {
     <div className="min-h-screen">
       <Header />
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-hero opacity-95" />
-        <div
-          className="absolute inset-0 opacity-20 bg-gradient-hero"
-          style={{
-            backgroundImage: `linear-gradient(var(--gradient-hero)), url(${heroImage})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        />
-
-        <div className="relative container mx-auto px-4 py-20 md:py-32">
-          <div className="max-w-4xl mx-auto text-center text-card">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">ERPNext Overview</h1>
-            <p className="text-xl md:text-2xl mb-4 text-card/90 animate-fade-in" style={{ animationDelay: "100ms" }}>
-              Sistem ERP All-in-One untuk Semua Proses Bisnis
-            </p>
-            <p className="text-lg md:text-xl mb-8 text-card/80 animate-fade-in max-w-3xl mx-auto" style={{ animationDelay: "200ms" }}>
-              Menyatukan data dan fungsi dalam satu platform terintegrasi yang powerful, menjadi fondasi semua departemen untuk mengurangi penggunaan software terpisah
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: "300ms" }}>
-              <Button size="lg" className="bg-card hover:bg-card/90 text-primary shadow-large">
-                Mulai Sekarang
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button size="lg" variant="outline" className="border-card text-card hover:bg-card/10">
-                Pelajari Lebih Lanjut
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection
+        badge="ERPNext Overview"
+        title="Sistem ERP All-in-One untuk Semua Proses Bisnis"
+        description="Menyatukan data dan fungsi dalam satu platform terintegrasi yang powerful, menjadi   Menyatukan data dan fungsi dalam satu platform terintegrasi yang powerful, menjadi fondasi semua departemen untuk mengurangi penggunaan software terpisah"
+        primaryAction={{
+          label: "Mulai Gratis",
+          icon: <Calculator className="mr-2 h-5 w-5" />,
+          onClick: () => console.log("Mulai Gratis diklik!"),
+        }}
+        secondaryAction={{
+          label: "Lihat Demo",
+          icon: <FileText className="mr-2 h-5 w-5" />,
+          onClick: () => console.log("Lihat Demo diklik!"),
+        }}
+        heroImage={heroImage}
+        stats={[
+          { value: "98%", label: "Akurasi Order", subLabel: "Otomatis Terverifikasi", position: "bottom-left" },
+          { value: "50%", label: "Lebih Cepat", subLabel: "Proses Pembelian", position: "top-right", delay: "0.3s" },
+        ]}
+      />
 
       {/* Stats Section */}
       <section className="py-12 bg-card shadow-medium">
@@ -181,6 +170,7 @@ const Index = () => {
 
       {/* CTA Section */}
       <BannerSection
+        variant="simple"
         title="Siap Tingkatkan Performa Penjualan Anda?"
         description="Mulai otomasi proses penjualan Anda hari ini. Dapatkan akses penuh ke semua fitur tanpa biaya setup."
         primaryAction={{ label: "Mulai Sekarang", onClick: () => console.log("Primary") }}

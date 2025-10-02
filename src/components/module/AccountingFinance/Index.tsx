@@ -10,6 +10,7 @@ import accountsReceivable from "@/assets/module/AccountingFinance/accounts-recei
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BannerSection from "@/components/BannerSection";
+import HeroSection from "../HeroSection";
 
 const Index = () => {
   const features = [
@@ -115,35 +116,38 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-hero">
-        <div className="absolute inset-0 bg-gradient-primary opacity-90"></div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <div className="text-center">
-            <Badge className="mb-4 bg-white/20 text-white border-white/30">Accounting & Finance Management System</Badge>
-
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in">
-              Kelola Keuangan dengan
-              <span className="block bg-gradient-to-r from-white to-primary-light bg-clip-text text-transparent">Transparansi & Kepatuhan</span>
-            </h1>
-
-            <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Sistem akuntansi dan keuangan terintegrasi untuk mengelola general ledger, pajak, hingga laporan keuangan dengan otomasi penuh dan kepatuhan regulasi.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-primary hover:bg-white/90 shadow-elegant">
-                <Calculator className="mr-2 h-5 w-5" />
-                Mulai Gratis
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                <FileText className="mr-2 h-5 w-5" />
-                Lihat Demo
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection
+        badge="Accounting & Finance Management System"
+        title="Kelola Keuangan dengan Transparansi & Kepatuhan"
+        description="Sistem akuntansi dan keuangan terintegrasi untuk mengelola general ledger, pajak, hingga laporan keuangan dengan otomasi penuh dan kepatuhan regulasi."
+        primaryAction={{
+          label: "Mulai Gratis",
+          icon: <Calculator className="mr-2 h-5 w-5" />,
+          onClick: () => console.log("Mulai Gratis diklik!"),
+        }}
+        secondaryAction={{
+          label: "Lihat Demo",
+          icon: <FileText className="mr-2 h-5 w-5" />,
+          onClick: () => console.log("Lihat Demo diklik!"),
+        }}
+        heroImage={accountsReceivable}
+        stats={[
+          {
+            value: "98%",
+            label: "Akurasi Order",
+            subLabel: "Otomatis Terverifikasi",
+            position: "bottom-left",
+          },
+          {
+            value: "50%",
+            label: "Lebih Cepat",
+            subLabel: "Proses Pembelian",
+            position: "top-right",
+            delay: "0.3s",
+          },
+        ]}
+      />
 
       {/* Stats Section */}
       <section className="py-16 bg-muted/30">
@@ -254,6 +258,7 @@ const Index = () => {
 
       {/* CTA Section */}
       <BannerSection
+        variant="simple"
         title="Siap Tingkatkan Performa Penjualan Anda?"
         description="Mulai otomasi proses penjualan Anda hari ini. Dapatkan akses penuh ke semua fitur tanpa biaya setup."
         primaryAction={{ label: "Mulai Sekarang", onClick: () => console.log("Primary") }}

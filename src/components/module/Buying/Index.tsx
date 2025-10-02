@@ -7,6 +7,7 @@ import FeatureCard from "./FeatureCard";
 import StatsCard from "./StatsCard";
 import { Card } from "@/components/ui/card";
 import BannerSection from "@/components/BannerSection";
+import HeroSection from "../HeroSection";
 
 const integrations = [
   {
@@ -30,71 +31,37 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-primary">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 bg-gradient-hero"></div>
-        {/* Hero Content */}
-        <div className="container mx-auto px-4 py-16 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
-            <div className="text-center lg:text-left space-y-8 animate-fade-in">
-              <div className="inline-block">
-                <span className="px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-white text-sm font-medium border border-white/30">Procurement Management System</span>
-              </div>
-
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                Otomasi Pembelian dengan <span className="text-white/90">Efisiensi & Transparansi</span>
-              </h1>
-
-              <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto lg:mx-0">Platform pengadaan terintegrasi untuk mengelola supplier, purchase order, invoice, hingga pelaporan dengan kontrol penuh dan transparansi maksimal.</p>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Button size="lg" className="bg-white text-primary hover:bg-white/90 shadow-elegant text-base px-8 h-14">
-                  <Calculator className="mr-2 h-5 w-5" />
-                  Mulai Gratis
-                </Button>
-                <Button size="lg" variant="outline" className="bg-transparent border-2 border-white text-white hover:bg-white/10 text-base px-8 h-14">
-                  <FileText className="mr-2 h-5 w-5" />
-                  Lihat Demo
-                </Button>
-              </div>
-            </div>
-
-            {/* Right Content - Hero Image */}
-            <div className="relative animate-fade-in" style={{ animationDelay: "0.2s" }}>
-              <div className="relative rounded-2xl overflow-hidden shadow-elegant">
-                <img src={heroImage} alt="Purchasing Management System Dashboard" className="w-full h-auto object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
-              </div>
-
-              {/* Floating Stats Cards */}
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-elegant p-4 animate-scale-in hidden md:block">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-hero flex items-center justify-center">
-                    <span className="text-white font-bold text-lg">98%</span>
-                  </div>
-                  <div>
-                    <p className="text-xs text-muted-foreground">Akurasi Order</p>
-                    <p className="text-sm font-semibold text-foreground">Otomatis Terverifikasi</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="absolute -top-6 -right-6 bg-white rounded-xl shadow-elegant p-4 animate-scale-in hidden md:block" style={{ animationDelay: "0.3s" }}>
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-hero flex items-center justify-center">
-                    <span className="text-white font-bold text-lg">50%</span>
-                  </div>
-                  <div>
-                    <p className="text-xs text-muted-foreground">Lebih Cepat</p>
-                    <p className="text-sm font-semibold text-foreground">Proses Pembelian</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection
+        badge="Procurement Management System"
+        title="Otomasi Pembelian dengan Efisiensi & Transparansi"
+        description="Platform pengadaan terintegrasi untuk mengelola supplier, purchase order, invoice, hingga pelaporan dengan kontrol penuh dan transparansi maksimal."
+        primaryAction={{
+          label: "Mulai Gratis",
+          icon: <Calculator className="mr-2 h-5 w-5" />,
+          onClick: () => console.log("Mulai Gratis diklik"),
+        }}
+        secondaryAction={{
+          label: "Lihat Demo",
+          icon: <FileText className="mr-2 h-5 w-5" />,
+          onClick: () => console.log("Lihat Demo diklik"),
+        }}
+        heroImage={heroImage}
+        stats={[
+          {
+            value: "98%",
+            label: "Akurasi Order",
+            subLabel: "Otomatis Terverifikasi",
+            position: "bottom-left",
+          },
+          {
+            value: "50%",
+            label: "Lebih Cepat",
+            subLabel: "Proses Pembelian",
+            position: "top-right",
+            delay: "0.3s",
+          },
+        ]}
+      />
       <StatsCard />
       <FeatureCard />
       <section className="py-20 bg-gradient-hero relative overflow-hidden">
@@ -124,6 +91,7 @@ const Index = () => {
         </div>
       </section>
       <BannerSection
+        variant="simple"
         title="Siap Tingkatkan Performa Penjualan Anda?"
         description="Mulai otomasi proses penjualan Anda hari ini. Dapatkan akses penuh ke semua fitur tanpa biaya setup."
         primaryAction={{ label: "Mulai Sekarang", onClick: () => console.log("Primary") }}
