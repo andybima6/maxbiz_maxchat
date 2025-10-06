@@ -28,7 +28,7 @@ interface HeroSectionProps {
 
 const HeroSection = ({ badge, title, description, primaryAction, secondaryAction, heroImage, stats = [] }: HeroSectionProps) => {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-primary">
+    <section className="relative min-h-[95vh] flex items-center justify-center overflow-hidden bg-gradient-primary">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-gradient-hero"></div>
 
@@ -64,9 +64,9 @@ const HeroSection = ({ badge, title, description, primaryAction, secondaryAction
 
           {/* Right Content - Hero Image */}
           <div className="relative animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            <div className="relative rounded-2xl overflow-hidden shadow-elegant">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-black/50 border border-white/20 backdrop-blur-sm">
               <img src={heroImage} alt="Hero Dashboard" className="w-full h-auto object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
             </div>
 
             {/* Floating Stats */}
@@ -74,16 +74,9 @@ const HeroSection = ({ badge, title, description, primaryAction, secondaryAction
               const posClass = stat.position === "bottom-left" ? "absolute -bottom-6 -left-6" : "absolute -top-6 -right-6";
 
               return (
-                <div key={index} className={`${posClass} bg-white rounded-xl shadow-elegant p-4 animate-scale-in hidden md:block`} style={{ animationDelay: stat.delay || "0s" }}>
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-lg bg-gradient-hero flex items-center justify-center">
-                      <span className="text-white font-bold text-lg">{stat.value}</span>
-                    </div>
-                    <div>
-                      <p className="text-xs text-muted-foreground">{stat.label}</p>
-                      <p className="text-sm font-semibold text-foreground">{stat.subLabel}</p>
-                    </div>
-                  </div>
+                <div key={index} className={`${posClass} bg-white/95 backdrop-blur-md p-4 rounded-xl shadow-lg animate-bounce`} style={{ animationDelay: stat.delay || "0s" }}>
+                  <div className="text-sm text-muted-foreground">{stat.label}</div>
+                  <div className="text-2xl font-bold text-primary">{stat.value}</div>
                 </div>
               );
             })}
