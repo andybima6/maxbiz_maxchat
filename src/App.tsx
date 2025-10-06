@@ -16,6 +16,7 @@ import WebisteEcommerce from "./components/module/Commerce/Index";
 import AssetManagement from "./components/module/AssetManagement/Index";
 import HelpDesk from "./components/module/HelpDesk/Index";
 import Inventory from "./components/module/Inventory/Index";
+import Manufacturing from "./components/module/Manufacture/Index";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,7 @@ const App = () => (
           <Route path="/inventory" element={<Inventory />} />
           <Route path="/asset-management" element={<AssetManagement />} />
           <Route path="/help-desk" element={<HelpDesk />} />
+          <Route path="/manufacturing" element={<Manufacturing />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
