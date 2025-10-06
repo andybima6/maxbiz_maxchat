@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Clock, Calendar, Star, DollarSign, Users, FileText, UserCheck, Shield, User, Bell, Download, CheckCircle } from "lucide-react";
+import { ArrowRight, Clock, Calendar, Star, DollarSign, Users, FileText, UserCheck, Shield, User, Bell, Download, CheckCircle, Calculator } from "lucide-react";
 import heroImage from "@/assets/module/hr/hero-hr.jpg";
 import attendanceIcon from "@/assets/module/hr/attendance-icon.jpg";
 import leaveIcon from "@/assets/module/hr/leave-icon.jpg";
@@ -12,6 +12,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import StatCard from "./StatCard";
 import BannerSection from "@/components/BannerSection";
 import Footer from "@/components/Footer";
+import HeroSection from "../HeroSection";
 
 const Index = () => {
   const features = [
@@ -137,41 +138,38 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        {/* Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-hero opacity-95" />
 
-        {/* Index Image Overlay */}
-        <div className="absolute inset-0 opacity-20">
-          <img src={heroImage} alt="HR Team Collaboration" className="w-full h-full object-cover" />
-        </div>
-
-        {/* Content */}
-        <div className="relative z-10 container mx-auto px-4 py-20">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
-              HR & Payroll
-              <span className="block mt-2">Management System</span>
-            </h1>
-
-            <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl mx-auto">Manajemen SDM & penggajian otomatis untuk meningkatkan efisiensi bisnis Anda</p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button size="lg" className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-6">
-                Mulai Sekarang
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-
-              <Button size="lg" variant="outline" className="bg-transparent border-2 border-white text-white hover:bg-white/10 text-lg px-8 py-6">
-                Pelajari Lebih Lanjut
-              </Button>
-            </div>
-          </div>
-        </div>
-
-        {/* Decorative Elements */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
-      </section>
+      <HeroSection
+        badge="HR & Payroll Management System"
+        title="Manajemen SDM & penggajian otomatis untuk meningkatkan efisiensi bisnis Anda"
+        description="Sistem terintegrasi untuk absensi, payroll, kepatuhan regulasi, serta pengelolaan karyawan yang lebih cepat, akurat, dan efisien."
+        primaryAction={{
+          label: "Mulai Sekarang",
+          onClick: () => console.log("Start clicked"),
+          icon: <Calculator className="mr-2 h-5 w-5" />,
+        }}
+        secondaryAction={{
+          label: "Lihat Demo",
+          onClick: () => console.log("Demo clicked"),
+          icon: <FileText className="mr-2 h-5 w-5" />,
+        }}
+        heroImage={heroImage}
+        stats={[
+          {
+            value: "98%",
+            label: "Akurasi Order",
+            subLabel: "Otomatis Terverifikasi",
+            position: "bottom-left",
+          },
+          {
+            value: "50%",
+            label: "Lebih Cepat",
+            subLabel: "Proses Pembelian",
+            position: "top-right",
+            delay: "0.3s",
+          },
+        ]}
+      />
       <FeatureCard title="Fitur Lengkap untuk HR Modern" subtitle="Solusi komprehensif untuk mengelola seluruh aspek sumber daya manusia dalam satu platform" features={features} />
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
