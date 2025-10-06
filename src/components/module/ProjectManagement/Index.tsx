@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { FeatureCard } from "@/components/module/ProjectManagement/FeatureCard";
 import { StatCard } from "@/components/module/ProjectManagement/StatCard";
 import { IntegrationCard } from "@/components/module/ProjectManagement/IntegrationCard";
-import { CheckSquare, Milestone, Clock, Users, TrendingUp, Target, Timer, DollarSign, UserCheck, BarChart3, Building2, Wallet, ShoppingCart, ArrowRight } from "lucide-react";
+import { CheckSquare, Milestone, Clock, Users, TrendingUp, Target, Timer, DollarSign, UserCheck, BarChart3, Building2, Wallet, ShoppingCart, ArrowRight, Calculator, FileText } from "lucide-react";
 import heroDashboard from "@/assets/module/ProjectManagement/hero-dashboard.jpg";
 import ganttChart from "@/assets/module/ProjectManagement/gantt-chart.jpg";
 import timesheet from "@/assets/module/ProjectManagement/timesheet.jpg";
@@ -10,53 +10,37 @@ import resources from "@/assets/module/ProjectManagement/resources.jpg";
 import BannerSection from "@/components/BannerSection";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import HeroSection from "../HeroSection";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Header />
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-hero text-white">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE0YzAtMi4yMS0xLjc5LTQtNC00cy00IDEuNzktNCA0IDEuNzkgNCA0IDQgNC0xLjc5IDQtNHptLTggNGMtMi4yMSAwLTQgMS43OS00IDRzMS43OSA0IDQgNCA0LTEuNzkgNC00LTEuNzktNC00LTR6bTE2IDBjLTIuMjEgMC00IDEuNzktNCA0czEuNzkgNCA0IDQgNC0xLjc5IDQtNC0xLjc5LTQtNC00eiIvPjwvZz48L2c+PC9zdmc+')] opacity-30" />
-
-        <div className="container mx-auto px-4 py-20 relative">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-8 animate-fade-in">
-                <div className="space-y-4">
-                  <h1 className="text-5xl md:text-6xl font-bold leading-tight">
-                    Kelola Proyek dari
-                    <span className="block text-white/90">Planning hingga Delivery</span>
-                  </h1>
-                  <p className="text-xl text-white/80 leading-relaxed">Platform manajemen proyek komprehensif yang mengintegrasikan task management, timesheet, resource allocation, dan lebih banyak lagi dalam satu ekosistem.</p>
-                </div>
-
-                <div className="flex flex-wrap gap-4">
-                  <Button variant="hero" size="lg" className="group">
-                    Mulai Sekarang
-                    <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                  <Button variant="outline" size="lg" className="bg-white/10 border-white/30 text-white hover:bg-white/20 hover:text-white backdrop-blur-sm">
-                    Lihat Demo
-                  </Button>
-                </div>
-
-                <div className="grid grid-cols-3 gap-4 pt-8">
-                  <StatCard icon={Target} value="99%" label="On-Time Delivery" />
-                  <StatCard icon={Users} value="500+" label="Active Teams" />
-                  <StatCard icon={TrendingUp} value="40%" label="Produktivitas Meningkat" />
-                </div>
-              </div>
-
-              <div className="relative animate-fade-in">
-                <div className="absolute inset-0 bg-white/10 rounded-2xl blur-3xl" />
-                <img src={heroDashboard} alt="Project Management Dashboard" className="relative rounded-2xl shadow-2xl border border-white/20" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <HeroSection
+        badge="Project Management"
+        title="Kelola Proyek dari Planning hingga Delivery"
+        description="Platform manajemen proyek komprehensif yang mengintegrasikan task management, timesheet, resource allocation, dan lebih banyak lagi dalam satu ekosistem."
+        primaryAction={{ label: "Mulai Sekarang", onClick: () => console.log("Start clicked"), icon: <Calculator className="mr-2 h-5 w-5" /> }}
+        secondaryAction={{ label: "Lihat Demo", onClick: () => console.log("Demo clicked"), icon: <FileText className="mr-2 h-5 w-5" /> }}
+        heroImage={heroDashboard}
+        stats={[
+          {
+            value: "98%",
+            label: "Akurasi Order",
+            subLabel: "Otomatis Terverifikasi",
+            position: "bottom-left",
+          },
+          {
+            value: "50%",
+            label: "Lebih Cepat",
+            subLabel: "Proses Pembelian",
+            position: "top-right",
+            delay: "0.3s",
+          },
+        ]}
+      />
+  
       {/* Features Section */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
