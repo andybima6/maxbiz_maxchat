@@ -31,6 +31,7 @@ import {
   BookOpen,
   Scale,
   Utensils,
+  BedDouble,
 } from "lucide-react";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -55,7 +56,7 @@ const Header = () => {
         { label: "Service & Maintance", icon: ShoppingBag, href: "/service-maintenance" },
         { label: "Manufacturing", icon: Factory, href: "/manufacturing" },
         { label: "LMS ( Learning Management System )", icon: BookOpen, href: "/lms" },
-      ],  
+      ],
     },
     {
       label: "Industry",
@@ -64,13 +65,12 @@ const Header = () => {
         { label: "Kesehatan", icon: Stethoscope, href: "/healthcare" },
         { label: "Government", icon: Landmark, href: "/government" },
         { label: "Finance", icon: Wallet, href: "/finance" },
-        { label: "Properti", icon: Home, href: "/property" },
+        { label: "Properti ( Real Estate )", icon: Home, href: "/property" },
         { label: "Pendidikan", icon: GraduationCap, href: "/education" },
         { label: "Retail", icon: ShoppingBag, href: "/retail" },
         { label: "Agency", icon: Briefcase, href: "/agency" },
         { label: "Travel & Transportasi", icon: Plane, href: "/travel-trasnportasi" },
-        { label: "Hospitality", icon: Plane, href: "/hospitality" },
-        {label : "Real Estate", icon: Home, href: "/real-estate"},
+        { label: "Hospitality", icon: BedDouble, href: "/hospitality" },
         { label: "Utilitas", icon: Cog, href: "/utilities" },
         { label: "Legal & Konsultan", icon: Scale, href: "/legal-consultant" },
         { label: "Food & Beverage", icon: Utensils, href: "/food-beverage" },
