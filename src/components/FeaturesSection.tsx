@@ -7,6 +7,7 @@ import manufacturingFeature from "@/assets/manufacturing-feature.jpg";
 import accountingFeature from "@/assets/accounting-feature.jpg";
 import salesDistribution from "@/assets/Sales_Distribution.png";
 import AnimatedElement from "./AnimatedElement";
+import FeatureScrollShowcase from "./FeatureScrollShowcase";
 
 const mainFeatures = [
   {
@@ -139,6 +140,8 @@ const FeaturesSection = () => {
             })}
           </div>
         </AnimatedElement>
+        <FeatureScrollShowcase features={mainFeatures} stickyOffset={80} />
+
         {/* Supporting Features */}
         <AnimatedElement animation="fade-in-up" delay={300}>
           <div className="text-center mb-12">
