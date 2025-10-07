@@ -24,6 +24,13 @@ import Government from "./components/industry/Government/Index";
 import Finance from "./components/industry/Finance/Index";
 import Property from "./components/industry/Property/Index";
 import Education from "./components/industry/Education/Index";
+import Retail from "./components/industry/Retail/Index";
+import Agency from "./components/industry/Agency/Index";
+import TravelTrasnportasi from "./components/industry/TravelTrasnportasi/Index";
+import Hospitality from "./components/industry/Hospitality/Index";
+import Utilities from "./components/industry/Utilitas/Index";
+import LegalConsultant from "./components/industry/LegalKonsultan/Index";
+import FoodBeverage from "./components/industry/fnb/Index";
 
 const queryClient = new QueryClient();
 
@@ -54,6 +61,13 @@ const App = () => (
           <Route path="/finance" element={<Finance />} />
           <Route path="/property" element={<Property />} />
           <Route path="/education" element={<Education />} />
+          <Route path="/retail" element={<Retail />} />
+          <Route path="/agency" element={<Agency />} />
+          <Route path="/travel-trasnportasi" element={<TravelTrasnportasi />} />
+          <Route path="/hospitality" element={<Hospitality />} />
+          <Route path="/utilities" element={<Utilities />} />
+          <Route path="/legal-consultant" element={<LegalConsultant />} />
+          <Route path="/food-beverage" element={<FoodBeverage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
