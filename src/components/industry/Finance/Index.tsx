@@ -1,13 +1,15 @@
-import { Shield, Banknote, Users2, Briefcase } from "lucide-react";
+import { Shield, Banknote, Users2, Briefcase, Calculator } from "lucide-react";
 import heroImage from "@/assets/industry/Finance/hero-finance.jpg";
 import HeroSection from "../HeroSection";
 import ChallengesSection from "../ChallengesSection";
 import SolutionsSection from "../SolutionsSection";
 import ValuesSection from "../ValuesSection";
 import Accounting from "@/assets/industry/Finance/accounting-dashboard.jpg";
-import CRMImage from "@/assets/industry/Finance/crm-dashboard.jpg";
-import Compliance from "@/assets/industry/Finance/compliance.jpg";
-
+import CRMImage from "@/assets/industry/Finance/crm-banking.jpg";
+import Compliance from "@/assets/industry/Finance/compliance-finance.jpg";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import BannerSection from "@/components/BannerSection";
 
 // 🧩 Tantangan sektor keuangan
 const financeChallenges = [
@@ -31,21 +33,23 @@ const financeChallenges = [
 // ⚙️ Solusi ERPNext untuk sektor keuangan
 const financeSolutions = [
   {
+    icon: Calculator,
     title: "Accounting Terintegrasi",
     description: "Sistem akuntansi yang powerful untuk pencatatan finansial yang akurat, laporan real-time, dan manajemen aset yang efisien untuk operasional perbankan dan asuransi.",
-    bullets: ["Pencatatan transaksi otomatis & akurat", "Laporan keuangan real-time", "Multi-currency & multi-entity support"],
     image: Accounting,
+    benefits: ["Pencatatan transaksi otomatis & akurat", "Laporan keuangan real-time", "Multi-currency & multi-entity support"],
   },
   {
+    icon: Users2,
     title: "CRM untuk Layanan Nasabah",
     description: "Platform CRM lengkap untuk mengelola hubungan dengan nasabah, meningkatkan engagement, dan memantau seluruh aktivitas layanan di satu tempat.",
-    bullets: ["360° view profil nasabah", "Otomasi follow-up & reminder", "Analitik kepuasan nasabah"],
     image: CRMImage,
+    benefits: ["360° view profil nasabah", "Otomasi follow-up & reminder", "Analitik kepuasan nasabah"],
   },
   {
-    title: "Kustomisasi untuk Compliance",
-    description: "Framework fleksibel untuk memenuhi kebutuhan audit, keamanan data, dan standar industri finansial sesuai regulasi lokal maupun global.",
-    bullets: ["Audit trail lengkap & otomatis", "Role-based access control", "Reporting sesuai standar regulasi"],
+    icon: Banknote,
+    title: "Integrasi Sistem Perbankan",
+    description: "Framework fleksibel memungkinkan integrasi mudah dengan core banking system, payment gateway, dan layanan regulasi compliance.",
     image: Compliance,
   },
 ];
@@ -79,7 +83,8 @@ const financeStats = [
 
 export default function FinancePage() {
   return (
-    <>
+    <div className="min-h-screen bg-background">
+      <Header />
       <HeroSection
         title="Digitalisasi Sistem Keuangan Terpadu dengan ERPNext"
         subtitle="Solusi ERP untuk Sektor Finansial"
@@ -119,6 +124,15 @@ export default function FinancePage() {
         theme="secondary"
         gradientBg
       />
-    </>
+      <BannerSection
+        variant="simple"
+        title="Transformasi Digital Sektor Keuangan"
+        description="Optimalkan efisiensi operasional, kepatuhan regulasi, dan manajemen nasabah dengan solusi terintegrasi seperti Accounting, CRM, dan Compliance Framework."
+        primaryAction={{ label: "Coba Modul Finance", onClick: () => console.log("Coba Modul Finance clicked") }}
+        secondaryAction={{ label: "Lihat Solusi", onClick: () => console.log("Lihat Solusi clicked") }}
+      />
+
+      <Footer />
+    </div>
   );
 }

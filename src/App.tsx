@@ -19,8 +19,11 @@ import Inventory from "./components/module/Inventory/Index";
 import Manufacturing from "./components/module/Manufacture/Index";
 import Lms from "./components/module/Lms/Index";
 import ServiceMaintenance from "./components/module/ServiceMaintenance/Index";
+import HealthCare from "./components/industry/HealthCare/Index";
 import Government from "./components/industry/Government/Index";
 import Finance from "./components/industry/Finance/Index";
+import Property from "./components/industry/Property/Index";
+import Education from "./components/industry/Education/Index";
 
 const queryClient = new QueryClient();
 
@@ -46,8 +49,11 @@ const App = () => (
           <Route path="/manufacturing" element={<Manufacturing />} />
           <Route path="/lms" element={<Lms />} />
           <Route path="/service-maintenance" element={<ServiceMaintenance />} />
+          <Route path="/healthcare" element={<HealthCare />} />
           <Route path="/government" element={<Government />} />
           <Route path="/finance" element={<Finance />} />
+          <Route path="/property" element={<Property />} />
+          <Route path="/education" element={<Education />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
