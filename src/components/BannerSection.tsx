@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
+import AnimatedElement from "./AnimatedElement";
 
 interface BannerSectionProps {
   title: string;
@@ -20,18 +21,26 @@ const BannerSection = ({ title, description, primaryAction, secondaryAction, var
   if (variant === "simple") {
     return (
       <section className="container mx-auto px-4 py-20 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">{title}</h2>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">{description}</p>
+        <AnimatedElement animation="fade-in" delay={200} duration={800}>
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">{title}</h2>
+        </AnimatedElement>
+        <AnimatedElement animation="fade-in" delay={300} duration={800}>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">{description}</p>
+        </AnimatedElement>
 
         <div className="flex flex-wrap gap-4 justify-center mb-8">
-          <Button size="lg" onClick={primaryAction.onClick} className="gap-2">
-            {primaryAction.label}
-            <ArrowRight className="w-5 h-5" />
-          </Button>
-          {secondaryAction && (
-            <Button variant="outline" size="lg" onClick={secondaryAction.onClick}>
-              {secondaryAction.label}
+          <AnimatedElement animation="fade-in" delay={400} duration={800}>
+            <Button size="lg" onClick={primaryAction.onClick} className="gap-2">
+              {primaryAction.label}
+              <ArrowRight className="w-5 h-5" />
             </Button>
+          </AnimatedElement>
+          {secondaryAction && (
+            <AnimatedElement animation="fade-in" delay={500} duration={800}>
+              <Button variant="outline" size="lg" onClick={secondaryAction.onClick}>
+                {secondaryAction.label}
+              </Button>
+            </AnimatedElement>
           )}
         </div>
       </section>
@@ -51,19 +60,27 @@ const BannerSection = ({ title, description, primaryAction, secondaryAction, var
 
         <CardContent className="p-12 md:p-16 relative">
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-white animate-fade-in">{title}</h2>
-            <p className="text-lg text-white/90 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-              {description}
-            </p>
+            <AnimatedElement animation="fade-in" delay={200} duration={800}>
+              <h2 className="text-3xl md:text-4xl font-bold text-white animate-fade-in">{title}</h2>
+            </AnimatedElement>
+            <AnimatedElement animation="fade-in" delay={300} duration={800}>
+              <p className="text-lg text-white/90 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+                {description}
+              </p>
+            </AnimatedElement>
             <div className="flex flex-wrap gap-4 justify-center pt-4 animate-fade-in" style={{ animationDelay: "0.4s" }}>
-              <Button variant="hero" size="lg" onClick={primaryAction.onClick} className="gap-2 hover:scale-105 transition-transform">
-                {primaryAction.label}
-                <ArrowRight className="w-5 h-5" />
-              </Button>
-              {secondaryAction && (
-                <Button variant="outline" size="lg" onClick={secondaryAction.onClick} className="hover:scale-105 transition-transform text-white">
-                  {secondaryAction.label}
+              <AnimatedElement animation="fade-in" delay={400} duration={800}>
+                <Button variant="hero" size="lg" onClick={primaryAction.onClick} className="gap-2 hover:scale-105 transition-transform">
+                  {primaryAction.label}
+                  <ArrowRight className="w-5 h-5" />
                 </Button>
+              </AnimatedElement>
+              {secondaryAction && (
+                <AnimatedElement animation="fade-in" delay={500} duration={800}>
+                  <Button variant="outline" size="lg" onClick={secondaryAction.onClick} className="hover:scale-105 transition-transform text-white">
+                    {secondaryAction.label}
+                  </Button>
+                </AnimatedElement>
               )}
             </div>
           </div>
