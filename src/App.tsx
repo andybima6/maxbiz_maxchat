@@ -17,6 +17,10 @@ import AssetManagement from "./components/module/AssetManagement/Index";
 import HelpDesk from "./components/module/HelpDesk/Index";
 import Inventory from "./components/module/Inventory/Index";
 import Manufacturing from "./components/module/Manufacture/Index";
+import Lms from "./components/module/Lms/Index";
+import ServiceMaintenance from "./components/module/ServiceMaintenance/Index";
+import Government from "./components/industry/Government/Index";
+import Finance from "./components/industry/Finance/Index";
 
 const queryClient = new QueryClient();
 
@@ -40,6 +44,10 @@ const App = () => (
           <Route path="/asset-management" element={<AssetManagement />} />
           <Route path="/help-desk" element={<HelpDesk />} />
           <Route path="/manufacturing" element={<Manufacturing />} />
+          <Route path="/lms" element={<Lms />} />
+          <Route path="/service-maintenance" element={<ServiceMaintenance />} />
+          <Route path="/government" element={<Government />} />
+          <Route path="/finance" element={<Finance />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
