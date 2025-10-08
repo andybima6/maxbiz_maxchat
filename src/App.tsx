@@ -31,6 +31,8 @@ import Hospitality from "./components/industry/Hospitality/Index";
 import Utilities from "./components/industry/Utilitas/Index";
 import LegalConsultant from "./components/industry/LegalKonsultan/Index";
 import FoodBeverage from "./components/industry/fnb/Index";
+import Ngo from "./components/industry/Ngo/Index";
+import Cooperative from "./components/industry/Koperasi/Index";
 
 const queryClient = new QueryClient();
 
@@ -68,6 +70,8 @@ const App = () => (
           <Route path="/utilities" element={<Utilities />} />
           <Route path="/legal-consultant" element={<LegalConsultant />} />
           <Route path="/food-beverage" element={<FoodBeverage />} />
+          <Route path="/ngo" element={<Ngo />} />
+          <Route path="/koperasi" element={<Cooperative />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
