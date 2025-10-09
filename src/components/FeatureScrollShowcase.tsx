@@ -41,9 +41,42 @@ const FeatureScrollShowcase: React.FC<Props> = ({ features, stickyOffset = 96, d
       <div className="mx-auto max-w-7xl flex flex-col lg:flex-row gap-8 px-4">
         {/* LEFT: Scrollable Text */}
         <div ref={scrollRootRef} className="flex-1 h-[100vh] overflow-y-auto snap-y snap-proximity [scroll-snap-stop:always] pr-2 scrollbar-hide">
-          {features.map((feature, i) => (
-            <ScrollTextItem key={feature.id} index={i} feature={feature} onActive={setTextActiveIndex} root={scrollRootRef} stickyOffset={stickyOffset} />
-          ))}
+          {/* === MOBILE VERSION === */}
+          <div className="block lg:hidden">
+            {features.map((feature, i) => (
+              <section
+                key={feature.id}
+                className="min-h-[50vh] snap-center flex flex-col justify-center" // ⬅ ubah dari 100vh ke 75vh
+              >
+                <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, ease: "easeOut" }} viewport={{ once: true, amount: 0.4 }} className="w-full">
+                  <Card className="border-0 shadow-sm overflow-hidden">
+                    <CardContent className="p-0">
+                      {/* IMAGE */}
+                      {feature.image ? (
+                        <img src={feature.image} alt={feature.title} className="w-full aspect-[16/10] object-cover" />
+                      ) : (
+                        <div className="w-full aspect-[16/10] flex items-center justify-center bg-gradient-to-br from-primary/10 via-background to-secondary/10">
+                          <feature.icon className="h-16 w-16 text-primary" />
+                        </div>
+                      )}
+                      {/* TEXT */}
+                      <div className="p-6">
+                        <h3 className="mb-4 text-2xl font-bold text-foreground">{feature.title}</h3>
+                        <p className="text-muted-foreground text-lg leading-relaxed">{feature.description}</p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </section>
+            ))}
+          </div>
+
+          {/* === DESKTOP VERSION (scroll text only) === */}
+          <div className="hidden lg:block">
+            {features.map((feature, i) => (
+              <ScrollTextItem key={feature.id} index={i} feature={feature} onActive={setTextActiveIndex} root={scrollRootRef} stickyOffset={stickyOffset} />
+            ))}
+          </div>
         </div>
 
         {/* RIGHT: Sticky Image */}

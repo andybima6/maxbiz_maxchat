@@ -140,7 +140,13 @@ const FeaturesSection = () => {
             })}
           </div>
         </AnimatedElement>
-        <FeatureScrollShowcase features={mainFeatures} stickyOffset={80} />
+        <div className="">
+          <h1 className="text-3xl lg:text-5xl font-bold  text-center mb-12">
+            Satu Sistem Terintegrasi untuk <span className="text-primary">Operasional Bisnis Anda</span>
+          </h1>
+          <p className="text-muted-foreground text-lg text-center mb-12">Dari CRM hingga Akuntansi — kelola seluruh proses bisnis dalam satu platform yang efisien dan mudah digunakan.</p>
+          <FeatureScrollShowcase features={mainFeatures} stickyOffset={80} />
+        </div>
 
         {/* Supporting Features */}
         <AnimatedElement animation="fade-in-up" delay={300}>
