@@ -49,7 +49,7 @@ const FeatureScrollShowcase: React.FC<Props> = ({ features, stickyOffset = 96, d
                 className="min-h-[50vh] snap-center flex flex-col justify-center" // ⬅ ubah dari 100vh ke 75vh
               >
                 <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, ease: "easeOut" }} viewport={{ once: true, amount: 0.4 }} className="w-full">
-                  <Card className="border-0 shadow-sm overflow-hidden">
+                  <Card className="border-0 shadow-lg overflow-hidden ">
                     <CardContent className="p-0">
                       {/* IMAGE */}
                       {feature.image ? (
@@ -148,10 +148,20 @@ const ScrollTextItem: React.FC<ScrollTextItemProps> = ({ index, feature, onActiv
   return (
     <section ref={ref as React.LegacyRef<HTMLDivElement>} className="min-h-[100vh] snap-center flex items-center">
       <motion.div initial={{ y: 24, opacity: 0 }} animate={{ y: inView ? 0 : 24, opacity: inView ? 1 : 0.35 }} transition={{ duration: 0.45, ease: "easeOut" }} className="w-full" style={{ willChange: "transform, opacity" }}>
-        <Card className="border-0 shadow-sm hover:shadow-md transition-shadow overflow-hidden">
+        <Card className="relative border border-border/40 border-l-4 border-l-primary rounded-xl shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group bg-gradient-to-br from-background via-background to-muted/20">
           <CardContent className="p-0">
-            <div className="p-6 lg:p-8">
-              <h3 className="mb-4 text-2xl lg:text-3xl font-bold text-foreground">{feature.title}</h3>
+            <div className="p-6 lg:p-8 flex flex-col gap-4">
+              {/* Icon */}
+              {feature.icon && (
+                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
+                  <feature.icon className="w-6 h-6" />
+                </div>
+              )}
+
+              {/* Title */}
+              <h3 className="text-2xl lg:text-3xl font-bold text-foreground group-hover:text-primary transition-colors">{feature.title}</h3>
+
+              {/* Description */}
               <p className="text-muted-foreground text-lg leading-relaxed">{feature.description}</p>
             </div>
           </CardContent>

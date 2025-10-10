@@ -1,53 +1,90 @@
-import { Users, Package, ShoppingCart, Settings, Calculator, Building, CreditCard, FolderOpen } from "lucide-react";
+import { Users, Package, ShoppingCart, Settings, Calculator, Building, CreditCard, FolderOpen, Wrench, ClipboardList, UserCog, Truck } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import crmFeature from "@/assets/crm-feature.jpg";
-import inventoryFeature from "@/assets/inventory-feature.jpg";
 import manufacturingFeature from "@/assets/manufacturing-feature.jpg";
 import accountingFeature from "@/assets/accounting-feature.jpg";
-import salesDistribution from "@/assets/Sales_Distribution.png";
+import serviceFeature from "@/assets/module/ServiceMaintenance/hero-maintenance.jpg";
+import projectFeature from "@/assets/module/ProjectManagement/hero-dashboard.jpg";
+import hrFeature from "@/assets/module/Hr/hero-hr.jpg";
+import inventoryFeature from "@/assets/module/Inventory/hero-warehouse.jpg";
+import buyingFeature from "@/assets/module/Buying/hero-purchasing.jpg";
+import salesDistribution from "@/assets/module/Sales/sales-hero.jpg";
 import AnimatedElement from "./AnimatedElement";
 import FeatureScrollShowcase from "./FeatureScrollShowcase";
 
 const mainFeatures = [
   {
-    id: "crm",
-    icon: Users,
-    title: "CRM",
-    description: "Kelola hubungan pelanggan, lead, dan peluang penjualan dengan mudah.",
-    image: crmFeature,
+    id: "service",
+    icon: Wrench,
+    title: "Service Management",
+    description: "Kelola layanan pelanggan, jadwal perawatan, dan tiket servis dengan sistem terpusat untuk meningkatkan kepuasan pelanggan.",
+    image: serviceFeature,
     size: "normal",
   },
   {
-    id: "inventory",
-    icon: Package,
-    title: "Inventory Management",
-    description: "Pantau stok barang secara real-time dengan notifikasi otomatis.",
-    image: inventoryFeature,
-    size: "normal",
-  },
-  {
-    id: "sales",
-    icon: ShoppingCart,
-    title: "Sales & Distribution",
-    description: "Proses pesanan hingga distribusi lebih efisien dan terkontrol.",
-    image: salesDistribution,
+    id: "project",
+    icon: ClipboardList,
+    title: "Project Management",
+    description: "Rencanakan, pantau, dan kendalikan proyek dengan timeline, tugas, dan progres yang terintegrasi dalam satu sistem.",
+    image: projectFeature,
     size: "normal",
   },
   {
     id: "manufacturing",
     icon: Settings,
-    title: "Manufacturing Planning & Control",
-    description: "Rencanakan dan kontrol seluruh proses produksi dari bahan baku hingga produk jadi dengan sistem yang terintegrasi.",
+    title: "Manufacturing",
+    description: "Kelola perencanaan produksi, bill of materials, dan kontrol kualitas untuk efisiensi proses manufaktur dari bahan baku hingga produk jadi.",
     image: manufacturingFeature,
     size: "large",
   },
   {
-    id: "accounting",
+    id: "selling",
+    icon: ShoppingCart,
+    title: "Selling",
+    description: "Proses penjualan lebih cepat dengan integrasi penawaran, pesanan, faktur, dan pembayaran secara otomatis.",
+    image: salesDistribution,
+    size: "normal",
+  },
+  {
+    id: "buying",
+    icon: Package,
+    title: "Buying",
+    description: "Optimalkan proses pembelian dari permintaan, penawaran supplier, hingga penerimaan barang dan faktur.",
+    image: buyingFeature,
+    size: "normal",
+  },
+  {
+    id: "crm",
+    icon: Users,
+    title: "CRM",
+    description: "Bangun dan kelola hubungan pelanggan, pantau lead, dan tingkatkan peluang konversi penjualan dengan data real-time.",
+    image: crmFeature,
+    size: "normal",
+  },
+  {
+    id: "hr",
+    icon: UserCog,
+    title: "Human Resource",
+    description: "Atur data karyawan, absensi, gaji, cuti, dan penilaian kinerja dalam satu modul HR terintegrasi.",
+    image: hrFeature,
+    size: "normal",
+  },
+  {
+    id: "account",
     icon: Calculator,
-    title: "Accounting & Reporting",
-    description: "Sistem akuntansi lengkap dengan laporan keuangan real-time dan analisis bisnis mendalam.",
+    title: "Accounting",
+    description: "Kelola laporan keuangan, arus kas, dan analisis profitabilitas dengan sistem akuntansi otomatis dan transparan.",
     image: accountingFeature,
+    size: "normal",
+  },
+
+  {
+    id: "inventory",
+    icon: Package,
+    title: "Inventory",
+    description: "Kelola stok barang secara real-time, pantau pergerakan produk di setiap gudang, dan hindari kehabisan atau kelebihan stok.",
+    image: inventoryFeature,
     size: "normal",
   },
 ];
