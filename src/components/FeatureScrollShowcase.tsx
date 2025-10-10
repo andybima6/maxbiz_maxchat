@@ -44,10 +44,7 @@ const FeatureScrollShowcase: React.FC<Props> = ({ features, stickyOffset = 96, d
           {/* === MOBILE VERSION === */}
           <div className="block lg:hidden">
             {features.map((feature, i) => (
-              <section
-                key={feature.id}
-                className="min-h-[50vh] snap-center flex flex-col justify-center" // ⬅ ubah dari 100vh ke 75vh
-              >
+              <section key={feature.id} className="min-h-[75vh] snap-center flex flex-col justify-center">
                 <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, ease: "easeOut" }} viewport={{ once: true, amount: 0.4 }} className="w-full">
                   <Card className="border-0 shadow-lg overflow-hidden ">
                     <CardContent className="p-0">

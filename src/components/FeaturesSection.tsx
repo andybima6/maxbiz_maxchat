@@ -135,53 +135,8 @@ const FeaturesSection = () => {
         </div>
 
         {/* Main Features Grid */}
-        <AnimatedElement animation="fade-in-up" delay={500}>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 max-w-7xl mx-auto">
-            {mainFeatures.map((feature, index) => {
-              const Icon = feature.icon;
-              const isLarge = feature.size === "large";
 
-              return (
-                <Card
-                  key={feature.id}
-                  className={`group hover:shadow-colored transition-all duration-500 border-0 overflow-hidden animate-slide-up hover:-translate-y-2 ${isLarge ? "md:col-span-2 lg:col-span-2" : ""}`}
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  {feature.image && (
-                    <div className="relative h-48 overflow-hidden">
-                      <img src={feature.image} alt={`Ilustrasi ${feature.title}`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                      <div className="absolute top-4 left-4">
-                        <div className="p-3 rounded-full bg-primary/90 backdrop-blur-sm shadow-medium">
-                          <Icon className="h-6 w-6 text-white" />
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                  <CardContent className={`p-6 ${!feature.image ? "pt-8" : ""}`}>
-                    {!feature.image && (
-                      <div className="flex justify-center mb-4">
-                        <div className="p-4 rounded-full bg-gradient-primary shadow-medium">
-                          <Icon className="h-8 w-8 text-white" />
-                        </div>
-                      </div>
-                    )}
-
-                    <h3 className="text-xl font-bold text-foreground mb-3 text-center">{feature.title}</h3>
-
-                    <p className="text-muted-foreground leading-relaxed text-center">{feature.description}</p>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </AnimatedElement>
         <div className="">
-          <h1 className="text-3xl lg:text-5xl font-bold  text-center mb-12">
-            Satu Sistem Terintegrasi untuk <span className="text-primary">Operasional Bisnis Anda</span>
-          </h1>
-          <p className="text-muted-foreground text-lg text-center mb-12">Dari CRM hingga Akuntansi — kelola seluruh proses bisnis dalam satu platform yang efisien dan mudah digunakan.</p>
           <FeatureScrollShowcase features={mainFeatures} stickyOffset={80} />
         </div>
 
