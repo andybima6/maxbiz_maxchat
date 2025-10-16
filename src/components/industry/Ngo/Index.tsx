@@ -75,12 +75,12 @@ const ngoValues = [
 ];
 
 // 📊 Statistik sektor NGO
-const ngoStats = [
-  { label: "Program Sosial Dikelola", value: "500+" },
-  { label: "Donatur Terdaftar", value: "10.000+" },
-  { label: "Relawan Aktif", value: "5.000+" },
-  { label: "Pelaporan Real-time", value: "100%" },
-];
+// const ngoStats = [
+//   { label: "Program Sosial Dikelola", value: "500+" },
+//   { label: "Donatur Terdaftar", value: "10.000+" },
+//   { label: "Relawan Aktif", value: "5.000+" },
+//   { label: "Pelaporan Real-time", value: "100%" },
+// ];
 
 export default function FinancePage() {
   return (
@@ -120,7 +120,7 @@ export default function FinancePage() {
         title="Dampak Nyata Digitalisasi untuk NGO"
         subtitle="Dengan ERPNext, lembaga nirlaba dapat meningkatkan transparansi, mempercepat pelaporan, dan memperkuat kepercayaan publik."
         items={ngoValues}
-        stats={ngoStats}
+        // stats={ngoStats}
         theme="secondary"
         gradientBg
       />

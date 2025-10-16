@@ -72,12 +72,12 @@ const Index = () => {
     },
   ];
 
-  const governmentStats = [
-    { value: "70%", label: "Waktu Proses Berkurang" },
-    { value: "85%", label: "Kepuasan Masyarakat" },
-    { value: "60%", label: "Biaya Operasional Turun" },
-    { value: "100%", label: "Transparansi Anggaran" },
-  ];
+  // const governmentStats = [
+  //   { value: "70%", label: "Waktu Proses Berkurang" },
+  //   { value: "85%", label: "Kepuasan Masyarakat" },
+  //   { value: "60%", label: "Biaya Operasional Turun" },
+  //   { value: "100%", label: "Transparansi Anggaran" },
+  // ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -115,7 +115,7 @@ const Index = () => {
         title="Manfaat Nyata untuk Pemerintahan Anda"
         subtitle="Implementasi ERPNext memberikan dampak langsung pada kualitas layanan dan efisiensi operasional pemerintahan."
         items={governmentValues}
-        stats={governmentStats}
+        // stats={governmentStats}
         theme="primary"
         gradientBg
       />

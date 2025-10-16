@@ -74,12 +74,12 @@ const financeValues = [
 ];
 
 // 📊 Statistik sektor keuangan
-const financeStats = [
-  { value: "80%", label: "Efisiensi Pencatatan" },
-  { value: "65%", label: "Customer Retention" },
-  { value: "99%", label: "Akurasi Transaksi" },
-  { value: "100%", label: "Compliance Ready" },
-];
+// const financeStats = [
+//   { value: "80%", label: "Efisiensi Pencatatan" },
+//   { value: "65%", label: "Customer Retention" },
+//   { value: "99%", label: "Akurasi Transaksi" },
+//   { value: "100%", label: "Compliance Ready" },
+// ];
 
 export default function FinancePage() {
   return (
@@ -120,7 +120,7 @@ export default function FinancePage() {
         title="Manfaat Nyata untuk Institusi Keuangan Anda"
         subtitle="Implementasi ERPNext memberikan dampak langsung pada efisiensi operasional, kepuasan nasabah, dan kepatuhan regulasi."
         items={financeValues}
-        stats={financeStats}
+        // stats={financeStats}
         theme="secondary"
         gradientBg
       />

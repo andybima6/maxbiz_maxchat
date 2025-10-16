@@ -76,12 +76,12 @@ const hospitalityValues = [
 ];
 
 // 📊 Statistik sektor Hospitality
-const hospitalityStats = [
-  { label: "Hotel & Resort Terintegrasi", value: "150+" },
-  { label: "Reservasi Tercatat Setiap Bulan", value: "500.000+" },
-  { label: "Peningkatan Efisiensi Operasional", value: "35%" },
-  { label: "Kepuasan Tamu", value: "98%" },
-];
+// const hospitalityStats = [
+//   { label: "Hotel & Resort Terintegrasi", value: "150+" },
+//   { label: "Reservasi Tercatat Setiap Bulan", value: "500.000+" },
+//   { label: "Peningkatan Efisiensi Operasional", value: "35%" },
+//   { label: "Kepuasan Tamu", value: "98%" },
+// ];
 
 export default function FinancePage() {
   return (
@@ -122,7 +122,7 @@ export default function FinancePage() {
         title="Manfaat Nyata untuk Dunia Perhotelan"
         subtitle="Digitalisasi proses hotel dengan ERPNext menciptakan pengalaman tamu yang lebih baik, efisiensi tinggi, dan transparansi operasional penuh."
         items={hospitalityValues}
-        stats={hospitalityStats}
+        // stats={hospitalityStats}
         theme="secondary"
         gradientBg
       />

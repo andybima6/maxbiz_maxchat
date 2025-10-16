@@ -71,12 +71,12 @@ const retailValues = [
   },
 ];
 
-const retailStats = [
-  { label: "Cabang Ritel Terintegrasi", value: "500+" },
-  { label: "Transaksi Tercatat", value: "2.000.000+" },
-  { label: "Efisiensi Operasional", value: "40%" },
-  { label: "Analitik Penjualan", value: "Real-time" },
-];
+// const retailStats = [
+//   { label: "Cabang Ritel Terintegrasi", value: "500+" },
+//   { label: "Transaksi Tercatat", value: "2.000.000+" },
+//   { label: "Efisiensi Operasional", value: "40%" },
+//   { label: "Analitik Penjualan", value: "Real-time" },
+// ];
 
 export default function FinancePage() {
   return (
@@ -117,7 +117,7 @@ export default function FinancePage() {
         title="Manfaat Nyata untuk Dunia Ritel"
         subtitle="ERPNext memberikan efisiensi operasional, transparansi, dan insight bisnis real-time untuk pertumbuhan bisnis ritel Anda."
         items={retailValues}
-        stats={retailStats}
+        // stats={retailStats}
         theme="secondary"
         gradientBg
       />

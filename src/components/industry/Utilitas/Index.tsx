@@ -76,12 +76,12 @@ const utilitiesValues = [
 ];
 
 // 📊 Statistik sektor Utilities & Public Service
-const utilitiesStats = [
-  { label: "Instansi & Lembaga Terintegrasi", value: "120+" },
-  { label: "Efisiensi Penanganan Layanan", value: "40%" },
-  { label: "Proyek Infrastruktur Termanage", value: "500+" },
-  { label: "Transparansi Keuangan", value: "100%" },
-];
+// const utilitiesStats = [
+//   { label: "Instansi & Lembaga Terintegrasi", value: "120+" },
+//   { label: "Efisiensi Penanganan Layanan", value: "40%" },
+//   { label: "Proyek Infrastruktur Termanage", value: "500+" },
+//   { label: "Transparansi Keuangan", value: "100%" },
+// ];
 
 export default function FinancePage() {
   return (
@@ -122,7 +122,7 @@ export default function FinancePage() {
         title="Manfaat Nyata untuk Layanan Publik Modern"
         subtitle="Digitalisasi layanan publik dengan ERPNext memastikan efisiensi, transparansi, dan kontrol penuh terhadap proyek serta keuangan instansi."
         items={utilitiesValues}
-        stats={utilitiesStats}
+        // stats={utilitiesStats}
         theme="secondary"
         gradientBg
       />

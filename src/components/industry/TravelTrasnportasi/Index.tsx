@@ -76,12 +76,12 @@ const travelValues = [
 ];
 
 // 📊 Statistik sektor Travel & Transportasi
-const travelStats = [
-  { label: "Armada Dikelola", value: "500+" },
-  { label: "Rute Aktif", value: "1.200+" },
-  { label: "Tingkat Efisiensi", value: "40%" },
-  { label: "Reservasi Online", value: "Real-time" },
-];
+// const travelStats = [
+//   { label: "Armada Dikelola", value: "500+" },
+//   { label: "Rute Aktif", value: "1.200+" },
+//   { label: "Tingkat Efisiensi", value: "40%" },
+//   { label: "Reservasi Online", value: "Real-time" },
+// ];
 
 export default function FinancePage() {
   return (
@@ -121,7 +121,7 @@ export default function FinancePage() {
         title="Manfaat Nyata untuk Sektor Transportasi"
         subtitle="Digitalisasi sistem transportasi meningkatkan efisiensi, transparansi, dan kepuasan pelanggan melalui integrasi penuh antar departemen."
         items={travelValues}
-        stats={travelStats}
+        // stats={travelStats}
         theme="secondary"
         gradientBg
       />

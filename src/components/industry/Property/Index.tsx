@@ -75,12 +75,12 @@ const propertyValues = [
 ];
 
 // 📊 Statistik sektor keuangan
-const propertyStats = [
-  { label: "Developer & Agen Properti", value: "500+" },
-  { label: "Unit Properti Dikelola", value: "10,000+" },
-  { label: "Monitoring Dashboard", value: "Real-time" },
-  { label: "Support & Training", value: "24/7" },
-];
+// const propertyStats = [
+//   { label: "Developer & Agen Properti", value: "500+" },
+//   { label: "Unit Properti Dikelola", value: "10,000+" },
+//   { label: "Monitoring Dashboard", value: "Real-time" },
+//   { label: "Support & Training", value: "24/7" },
+// ];
 
 export default function FinancePage() {
   return (
@@ -121,7 +121,7 @@ export default function FinancePage() {
         title="Manfaat Nyata untuk Bisnis Properti Anda"
         subtitle="Tingkatkan efisiensi operasional dan profitabilitas dengan sistem manajemen properti yang terintegrasi."
         items={propertyValues}
-        stats={propertyStats}
+        // stats={propertyStats}
         theme="secondary"
         gradientBg
       />

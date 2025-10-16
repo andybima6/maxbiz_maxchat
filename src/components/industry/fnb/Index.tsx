@@ -76,12 +76,12 @@ const fnbValues = [
 ];
 
 // 📊 Statistik sektor Food & Beverage
-const fnbStats = [
-  { label: "Restoran & Katering Terintegrasi", value: "150+" },
-  { label: "Transaksi Diproses Otomatis", value: "1.000.000+" },
-  { label: "Efisiensi Operasional", value: "35%" },
-  { label: "Pelanggan Loyal", value: "80K+" },
-];
+// const fnbStats = [
+//   { label: "Restoran & Katering Terintegrasi", value: "150+" },
+//   { label: "Transaksi Diproses Otomatis", value: "1.000.000+" },
+//   { label: "Efisiensi Operasional", value: "35%" },
+//   { label: "Pelanggan Loyal", value: "80K+" },
+// ];
 
 export default function FinancePage() {
   return (
@@ -121,7 +121,7 @@ export default function FinancePage() {
         title="Manfaat Nyata untuk Bisnis Food & Beverage"
         subtitle="Digitalisasi proses restoran dan katering meningkatkan kecepatan layanan, kontrol stok, dan loyalitas pelanggan."
         items={fnbValues}
-        stats={fnbStats}
+        // stats={fnbStats}
         theme="secondary"
         gradientBg
       />

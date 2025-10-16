@@ -83,12 +83,12 @@ const healthcareValues = [
 ];
 
 // 📊 Statistik sektor kesehatan
-const healthcareStats = [
-  { label: "Rumah Sakit & Klinik Terintegrasi", value: "200+" },
-  { label: "Data Pasien Tersimpan Aman", value: "1.000.000+" },
-  { label: "Efisiensi Operasional", value: "30%" },
-  { label: "Akses Data Pasien", value: "Real-time" },
-];
+// const healthcareStats = [
+//   { label: "Rumah Sakit & Klinik Terintegrasi", value: "200+" },
+//   { label: "Data Pasien Tersimpan Aman", value: "1.000.000+" },
+//   { label: "Efisiensi Operasional", value: "30%" },
+//   { label: "Akses Data Pasien", value: "Real-time" },
+// ];
 
 export default function FinancePage() {
   return (
@@ -128,7 +128,7 @@ export default function FinancePage() {
         title="Manfaat Nyata untuk Dunia Kesehatan"
         subtitle="Digitalisasi layanan kesehatan dengan ERPNext meningkatkan kualitas pelayanan, efisiensi administrasi, dan kepuasan pasien."
         items={healthcareValues}
-        stats={healthcareStats}
+        // stats={healthcareStats}
         theme="secondary"
         gradientBg
       />

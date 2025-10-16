@@ -72,12 +72,12 @@ const educationValues = [
   },
 ];
 
-const educationStats = [
-  { label: "Sekolah & Kampus Terintegrasi", value: "150+" },
-  { label: "Data Siswa Tersimpan Aman", value: "500.000+" },
-  { label: "Efisiensi Administrasi", value: "40%" },
-  { label: "Monitoring Akademik", value: "Real-time" },
-];
+// const educationStats = [
+//   { label: "Sekolah & Kampus Terintegrasi", value: "150+" },
+//   { label: "Data Siswa Tersimpan Aman", value: "500.000+" },
+//   { label: "Efisiensi Administrasi", value: "40%" },
+//   { label: "Monitoring Akademik", value: "Real-time" },
+// ];
 
 export default function FinancePage() {
   return (
@@ -117,7 +117,7 @@ export default function FinancePage() {
         title="Manfaat Nyata untuk Dunia Pendidikan"
         subtitle="Digitalisasi sekolah dengan ERPNext meningkatkan efisiensi administrasi, transparansi data, dan kualitas pembelajaran."
         items={educationValues}
-        stats={educationStats}
+        // stats={educationStats}
         theme="secondary"
         gradientBg
       />

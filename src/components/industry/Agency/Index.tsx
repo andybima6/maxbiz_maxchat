@@ -93,12 +93,12 @@ const agencyValues = [
 ];
 
 // 📊 Statistik sektor Agency
-const agencyStats = [
-  { label: "Proyek Aktif Dikelola", value: "500+" },
-  { label: "Klien Terlayani", value: "300+" },
-  { label: "Efisiensi Manajemen Waktu", value: "40%" },
-  { label: "Freelancer Terdaftar", value: "1.000+" },
-];
+// const agencyStats = [
+//   { label: "Proyek Aktif Dikelola", value: "500+" },
+//   { label: "Klien Terlayani", value: "300+" },
+//   { label: "Efisiensi Manajemen Waktu", value: "40%" },
+//   { label: "Freelancer Terdaftar", value: "1.000+" },
+// ];
 
 export default function FinancePage() {
   return (
@@ -139,7 +139,7 @@ export default function FinancePage() {
         title="Manfaat Nyata untuk Agensi Kreatif & Digital"
         subtitle="ERPNext membantu agensi meningkatkan efisiensi, transparansi, dan profitabilitas dengan sistem manajemen terintegrasi."
         items={agencyValues}
-        stats={agencyStats}
+        // stats={agencyStats}
         theme="secondary"
         gradientBg
       />

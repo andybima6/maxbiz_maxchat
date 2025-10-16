@@ -76,12 +76,12 @@ const cooperativeValues = [
 ];
 
 // 📊 Statistik koperasi (contoh)
-const cooperativeStats = [
-  { label: "Koperasi Terintegrasi", value: "150+" },
-  { label: "Anggota Terdaftar", value: "50.000+" },
-  { label: "Efisiensi Administrasi", value: "40%" },
-  { label: "Laporan Real-time", value: "Ya" },
-];
+// const cooperativeStats = [
+//   { label: "Koperasi Terintegrasi", value: "150+" },
+//   { label: "Anggota Terdaftar", value: "50.000+" },
+//   { label: "Efisiensi Administrasi", value: "40%" },
+//   { label: "Laporan Real-time", value: "Ya" },
+// ];
 export default function FinancePage() {
   return (
     <div className="min-h-screen bg-background">
@@ -120,7 +120,7 @@ export default function FinancePage() {
         title="Manfaat Nyata untuk Koperasi"
         subtitle="Digitalisasi koperasi dengan ERPNext meningkatkan efisiensi administrasi, transparansi transaksi, dan pengambilan keputusan berbasis data."
         items={cooperativeValues}
-        stats={cooperativeStats}
+        // stats={cooperativeStats}
         theme="secondary"
       />
 
