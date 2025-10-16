@@ -71,36 +71,36 @@ const Sales = () => {
     },
   ];
 
-  const stats = [
-    {
-      label: "Monthly Revenue",
-      value: "Rp 2.4M",
-      change: "+12% from last month",
-      trend: "up",
-      icon: TrendingUp,
-    },
-    {
-      label: "Outstanding Invoices",
-      value: "24",
-      change: "-8% from last month",
-      trend: "down",
-      icon: Receipt,
-    },
-    {
-      label: "Conversion Rate",
-      value: "68%",
-      change: "All requirements met",
-      trend: "stable",
-      icon: Target,
-    },
-    {
-      label: "Active Customers",
-      value: "156",
-      change: "+5% this quarter",
-      trend: "up",
-      icon: Users,
-    },
-  ];
+  // const stats = [
+  //   {
+  //     label: "Monthly Revenue",
+  //     value: "Rp 2.4M",
+  //     change: "+12% from last month",
+  //     trend: "up",
+  //     icon: TrendingUp,
+  //   },
+  //   {
+  //     label: "Outstanding Invoices",
+  //     value: "24",
+  //     change: "-8% from last month",
+  //     trend: "down",
+  //     icon: Receipt,
+  //   },
+  //   {
+  //     label: "Conversion Rate",
+  //     value: "68%",
+  //     change: "All requirements met",
+  //     trend: "stable",
+  //     icon: Target,
+  //   },
+  //   {
+  //     label: "Active Customers",
+  //     value: "156",
+  //     change: "+5% this quarter",
+  //     trend: "up",
+  //     icon: Users,
+  //   },
+  // ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
@@ -143,7 +143,7 @@ const Sales = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="container mx-auto px-4 -mt-16 relative z-10">
+      {/* <section className="container mx-auto px-4 -mt-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((stat, index) => (
             <Card key={index} className="border-border/50 shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)] transition-all duration-300 hover:-translate-y-1 animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
@@ -167,7 +167,7 @@ const Sales = () => {
             </Card>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* Features Section */}
       <section className="container mx-auto px-4 py-20">

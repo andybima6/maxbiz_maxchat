@@ -4,7 +4,7 @@ import heroImage from "@/assets/module/Buying/hero-purchasing.jpg";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FeatureCard from "./FeatureCard";
-import StatsCard from "./StatsCard";
+// import StatsCard from "./StatsCard";
 import { Card } from "@/components/ui/card";
 import BannerSection from "@/components/BannerSection";
 import HeroSection from "../HeroSection";
@@ -62,7 +62,7 @@ const Index = () => {
           },
         ]}
       />
-      <StatsCard />
+      {/* <StatsCard /> */}
       <FeatureCard />
       <section className="py-20 bg-gradient-hero relative overflow-hidden">
         {/* Background Pattern */}

@@ -44,9 +44,9 @@ const Index = () => {
       />
 
       <FeaturesCard />
-      <StatsCard />
+      {/* <StatsCard /> */}
       <BannerSection
-        variant="simple"
+        variant="gradient"
         title="Bangun & Kelola Pembelajaran Karyawan"
         description="Susun kurikulum, kelola materi, uji kompetensi, dan terbitkan sertifikat—semua dalam satu platform LMS."
         primaryAction={{ label: "Coba Modul LMS", onClick: () => console.log("LMS: Coba clicked") }}

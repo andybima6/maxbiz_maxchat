@@ -60,12 +60,12 @@ const Index = () => {
     },
   ];
 
-  const stats = [
-    { number: "100%", label: "Terintegrasi" },
-    { number: "24/7", label: "Real-Time Access" },
-    { number: "∞", label: "Scalability" },
-    { number: "1", label: "Unified Platform" },
-  ];
+  // const stats = [
+  //   { number: "100%", label: "Terintegrasi" },
+  //   { number: "24/7", label: "Real-Time Access" },
+  //   { number: "∞", label: "Scalability" },
+  //   { number: "1", label: "Unified Platform" },
+  // ];
 
   return (
     <div className="min-h-screen">
@@ -93,7 +93,7 @@ const Index = () => {
       />
 
       {/* Stats Section */}
-      <section className="py-12 bg-card shadow-medium">
+      {/* <section className="py-12 bg-card shadow-medium">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -101,7 +101,7 @@ const Index = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Main Benefits Section */}
       <section className="py-16 md:py-24">

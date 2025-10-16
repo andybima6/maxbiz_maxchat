@@ -60,36 +60,36 @@ const Index = () => {
     },
   ];
 
-  const stats = [
-    {
-      title: "Total Leads",
-      value: "2,847",
-      change: "+12.5% dari bulan lalu",
-      icon: UserPlus,
-      trend: "up" as const,
-    },
-    {
-      title: "Active Opportunities",
-      value: "184",
-      change: "+8.2% dari bulan lalu",
-      icon: Target,
-      trend: "up" as const,
-    },
-    {
-      title: "Conversion Rate",
-      value: "24.8%",
-      change: "+3.1% dari bulan lalu",
-      icon: TrendingUp,
-      trend: "up" as const,
-    },
-    {
-      title: "Avg. Deal Size",
-      value: "$12,450",
-      change: "+15.3% dari bulan lalu",
-      icon: Award,
-      trend: "up" as const,
-    },
-  ];
+  // const stats = [
+  //   {
+  //     title: "Total Leads",
+  //     value: "2,847",
+  //     change: "+12.5% dari bulan lalu",
+  //     icon: UserPlus,
+  //     trend: "up" as const,
+  //   },
+  //   {
+  //     title: "Active Opportunities",
+  //     value: "184",
+  //     change: "+8.2% dari bulan lalu",
+  //     icon: Target,
+  //     trend: "up" as const,
+  //   },
+  //   {
+  //     title: "Conversion Rate",
+  //     value: "24.8%",
+  //     change: "+3.1% dari bulan lalu",
+  //     icon: TrendingUp,
+  //     trend: "up" as const,
+  //   },
+  //   {
+  //     title: "Avg. Deal Size",
+  //     value: "$12,450",
+  //     change: "+15.3% dari bulan lalu",
+  //     icon: Award,
+  //     trend: "up" as const,
+  //   },
+  // ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -120,7 +120,7 @@ const Index = () => {
       />
 
       {/* Stats Section */}
-      <section className="py-16 bg-muted/30">
+      {/* <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
@@ -130,7 +130,7 @@ const Index = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Features Section */}
       <section className="py-20">

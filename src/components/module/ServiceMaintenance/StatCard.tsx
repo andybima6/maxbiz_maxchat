@@ -3,22 +3,22 @@ import { TrendingUp, Clock, CheckCircle, Shield } from "lucide-react";
 const stats = [
   {
     icon: TrendingUp,
-    value: "45%",
+    // value: "45%",
     label: "Peningkatan Reliability",
   },
   {
     icon: Clock,
-    value: "60%",
+    // value: "60%",
     label: "Pengurangan Downtime",
   },
   {
     icon: CheckCircle,
-    value: "35%",
+    // value: "35%",
     label: "Penurunan Biaya Perawatan",
   },
   {
     icon: Shield,
-    value: "99.8%",
+    // value: "99.8%",
     label: "Kepatuhan Operasional",
   },
 ];

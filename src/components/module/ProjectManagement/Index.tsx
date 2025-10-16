@@ -55,7 +55,7 @@ const Index = () => {
                 icon={CheckSquare}
                 title="Task Management"
                 description="Kelola semua task proyek dengan sistem yang terorganisir dan mudah digunakan"
-                image={ganttChart}
+                // image={ganttChart}
                 subFeatures={[
                   {
                     title: "Kanban Board",
@@ -104,7 +104,7 @@ const Index = () => {
                 icon={Clock}
                 title="Timesheet & Expense Tracking"
                 description="Catat waktu kerja dan kelola pengeluaran proyek dengan akurat"
-                image={timesheet}
+                // image={timesheet}
                 subFeatures={[
                   {
                     title: "Time Logging",
@@ -129,7 +129,7 @@ const Index = () => {
                 icon={Users}
                 title="Resource Allocation"
                 description="Optimalkan penggunaan sumber daya tim untuk hasil maksimal"
-                image={resources}
+                // image={resources}
                 subFeatures={[
                   {
                     title: "Team Capacity Planning",

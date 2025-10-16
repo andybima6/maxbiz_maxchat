@@ -38,36 +38,36 @@ const Index = () => {
     },
   ];
 
-  const statsData = [
-    {
-      title: "Monthly Revenue",
-      value: "Rp 2.4M",
-      change: "+12% from last month",
-      trend: "up" as const,
-      icon: TrendingUp,
-    },
-    {
-      title: "Outstanding Invoices",
-      value: "24",
-      change: "-8% from last month",
-      trend: "down" as const,
-      icon: Receipt,
-    },
-    {
-      title: "Tax Compliance",
-      value: "100%",
-      change: "All requirements met",
-      trend: "up" as const,
-      icon: Shield,
-    },
-    {
-      title: "Active Clients",
-      value: "156",
-      change: "+5% this quarter",
-      trend: "up" as const,
-      icon: Users,
-    },
-  ];
+  // const statsData = [
+  //   {
+  //     title: "Monthly Revenue",
+  //     value: "Rp 2.4M",
+  //     change: "+12% from last month",
+  //     trend: "up" as const,
+  //     icon: TrendingUp,
+  //   },
+  //   {
+  //     title: "Outstanding Invoices",
+  //     value: "24",
+  //     change: "-8% from last month",
+  //     trend: "down" as const,
+  //     icon: Receipt,
+  //   },
+  //   {
+  //     title: "Tax Compliance",
+  //     value: "100%",
+  //     change: "All requirements met",
+  //     trend: "up" as const,
+  //     icon: Shield,
+  //   },
+  //   {
+  //     title: "Active Clients",
+  //     value: "156",
+  //     change: "+5% this quarter",
+  //     trend: "up" as const,
+  //     icon: Users,
+  //   },
+  // ];
 
   const subFeatures = [
     {
@@ -150,7 +150,7 @@ const Index = () => {
       />
 
       {/* Stats Section */}
-      <section className="py-16 bg-muted/30">
+      {/* <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {statsData.map((stat, index) => (
@@ -160,7 +160,7 @@ const Index = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Main Features */}
       <section className="py-20">

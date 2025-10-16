@@ -87,12 +87,12 @@ const Index = () => {
     },
   ];
 
-  const stats = [
-    { value: "40%", label: "Downtime Reduction" },
-    { value: "25%", label: "Maintenance Cost Savings" },
-    { value: "+18%", label: "Asset Utilization" },
-    { value: "100%", label: "Audit-ready" },
-  ];
+  // const stats = [
+  //   { value: "40%", label: "Downtime Reduction" },
+  //   { value: "25%", label: "Maintenance Cost Savings" },
+  //   { value: "+18%", label: "Asset Utilization" },
+  //   { value: "100%", label: "Audit-ready" },
+  // ];
 
   const benefits = ["Reduce asset downtime by 40%", "Optimize maintenance costs", "Improve asset utilization efficiency", "Ensure regulatory compliance", "Accurate financial reporting", "Extend asset lifespan"];
 
@@ -192,7 +192,7 @@ const Index = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-muted/50">
+      {/* <section className="py-16 bg-muted/50">
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {stats.map((s, i) => (
@@ -200,7 +200,7 @@ const Index = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Benefits Section */}
       <section className="py-20">

@@ -7,42 +7,42 @@ const StatsCard = () => {
       icon: TrendingUp,
       title: "Tingkatkan Penjualan",
       description: "Optimalkan konversi dengan checkout yang mudah dan fitur marketing terintegrasi",
-      stat: "+150%",
+      // stat: "+150%",
       statLabel: "Rata-rata peningkatan penjualan"
     },
     {
       icon: Shield,
       title: "Keamanan Terjamin",
       description: "Enkripsi SSL, PCI-DSS compliance, dan perlindungan data pelanggan",
-      stat: "99.9%",
+      // stat: "99.9%",
       statLabel: "Security uptime"
     },
     {
       icon: Zap,
       title: "Performa Cepat",
       description: "Loading time optimal untuk pengalaman berbelanja yang lebih baik",
-      stat: "<2s",
+      // stat: "<2s",
       statLabel: "Average page load"
     },
     {
       icon: Users,
       title: "Mudah Digunakan",
       description: "Interface intuitif yang memudahkan pengelolaan toko online Anda",
-      stat: "4.9/5",
+      // stat: "4.9/5",
       statLabel: "User satisfaction"
     },
     {
       icon: HeadphonesIcon,
       title: "Support 24/7",
       description: "Tim support siap membantu Anda kapan saja",
-      stat: "<15min",
+      // stat: "<15min",
       statLabel: "Response time"
     },
     {
       icon: Layers,
       title: "Skalabilitas Tinggi",
       description: "Infrastruktur yang dapat berkembang sesuai pertumbuhan bisnis",
-      stat: "∞",
+      // stat: "∞",
       statLabel: "Unlimited scaling"
     }
   ];

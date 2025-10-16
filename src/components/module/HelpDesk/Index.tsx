@@ -3,7 +3,7 @@ import heroImage from "@/assets/module/HelpDesk/hero-helpdesk.jpg";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FeaturesCard from "./FeatureCard";
-import StatsCard from "./StatCard";
+// import StatsCard from "./StatCard";
 import BannerSection from "@/components/BannerSection";
 import HeroSection from "../HeroSection";
 
@@ -44,7 +44,7 @@ const Index = () => {
       />
 
       <FeaturesCard />
-      <StatsCard />
+      {/* <StatsCard /> */}
       <BannerSection
         variant="simple"
         title="Tingkatkan Layanan Pelanggan dengan Help Desk"
