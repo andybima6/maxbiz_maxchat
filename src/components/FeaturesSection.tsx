@@ -172,7 +172,7 @@ const FeaturesSection = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="text-center bg-gradient-hero rounded-3xl p-12 animate-scale-in">
+        {/* <div className="text-center bg-gradient-hero rounded-3xl p-12 animate-scale-in">
           <AnimatedElement animation="fade-in-up" delay={300}>
             <h3 className="text-2xl lg:text-3xl font-bold text-primary-foreground mb-4">Siap mengembangkan bisnis Anda dengan ERP yang fleksibel dan lengkap?</h3>
           </AnimatedElement>
@@ -182,17 +182,21 @@ const FeaturesSection = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <AnimatedElement animation="fade-in-up" delay={500}>
-              <Button size="lg" className="bg-white text-primary hover:bg-white/90 shadow-medium">
-                📅 Jadwalkan Demo Gratis
-              </Button>
+              <a href="#kontak">
+                <Button size="lg" className="bg-white text-primary hover:bg-white/90 shadow-medium">
+                  📅 Jadwalkan Demo Gratis
+                </Button>
+              </a>
             </AnimatedElement>
             <AnimatedElement animation="fade-in-up" delay={600}>
-              <Button size="lg" variant="accent" className="border-white text-white">
-                📞 Hitung Estimasi
-              </Button>
+              <a href="#harga">
+                <Button size="lg" variant="accent" className="border-white text-white">
+                  📞 Hitung Estimasi
+                </Button>
+              </a>
             </AnimatedElement>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -15,38 +15,32 @@ export type FeatureItem = {
 
 type Props = {
   features: FeatureItem[];
-  stickyOffset?: number; // jarak dari atas untuk kompensasi navbar
-  defaultIndex?: number; // index awal aktif
+  stickyOffset?: number;
+  defaultIndex?: number;
 };
 
-/**
- * Behaviour:
- * - Kiri: teks scrollable penuh, snap tiap section
- * - Kanan: gambar sticky di tengah viewport
- * - Gambar berubah mengikuti teks aktif
- */
 const FeatureScrollShowcase: React.FC<Props> = ({ features, stickyOffset = 96, defaultIndex = 0 }) => {
-  const [textActiveIndex, setTextActiveIndex] = React.useState(defaultIndex);
-  const [imageActiveIndex, setImageActiveIndex] = React.useState(defaultIndex);
-  const scrollRootRef = React.useRef<HTMLDivElement | null>(null);
+  const [activeIndex, setActiveIndex] = React.useState(defaultIndex);
+  const [isSectionInView, setIsSectionInView] = React.useState(false);
 
-  // Delay kecil supaya transisi gambar halus
-  React.useEffect(() => {
-    const t = setTimeout(() => setImageActiveIndex(textActiveIndex), 150);
-    return () => clearTimeout(t);
-  }, [textActiveIndex]);
+  // Observer untuk mendeteksi kapan section ini masuk viewport
+  const { ref: sectionRef } = useInView({
+    threshold: 0.1,
+    triggerOnce: false,
+    onChange: (inView) => setIsSectionInView(inView),
+  });
 
   return (
-    <section className="relative w-full">
+    <section ref={sectionRef} className="relative w-full">
       <div className="mx-auto max-w-7xl flex flex-col lg:flex-row gap-8 px-4">
-        {/* LEFT: Scrollable Text */}
-        <div ref={scrollRootRef} className="flex-1 h-[100vh] overflow-y-auto snap-y snap-proximity [scroll-snap-stop:always] pr-2 scrollbar-hide">
+        {/* LEFT: Scrollable Text - mengambil 1/2 width */}
+        <div className="flex-1 lg:w-1/2">
           {/* === MOBILE VERSION === */}
           <div className="block lg:hidden">
             {features.map((feature, i) => (
-              <section key={feature.id} className="min-h-[75vh] snap-center flex flex-col justify-center">
+              <section key={feature.id} className="min-h-[75vh] snap-center flex flex-col justify-center mb-8">
                 <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, ease: "easeOut" }} viewport={{ once: true, amount: 0.4 }} className="w-full">
-                  <Card className="border-0 shadow-lg overflow-hidden ">
+                  <Card className="border-0 shadow-lg overflow-hidden">
                     <CardContent className="p-0">
                       {/* IMAGE */}
                       {feature.image ? (
@@ -68,40 +62,50 @@ const FeatureScrollShowcase: React.FC<Props> = ({ features, stickyOffset = 96, d
             ))}
           </div>
 
-          {/* === DESKTOP VERSION (scroll text only) === */}
-          <div className="hidden lg:block">
+          {/* === DESKTOP VERSION === */}
+          <div className="hidden lg:block -translate-y-28">
             {features.map((feature, i) => (
-              <ScrollTextItem key={feature.id} index={i} feature={feature} onActive={setTextActiveIndex} root={scrollRootRef} stickyOffset={stickyOffset} />
+              <ScrollTextItem key={feature.id} index={i} feature={feature} onActive={setActiveIndex} stickyOffset={stickyOffset} />
             ))}
           </div>
         </div>
 
-        {/* RIGHT: Sticky Image */}
-        <div className="hidden lg:block flex-1 relative">
-          <div className="sticky flex items-center justify-center" style={{ top: stickyOffset, height: `calc(100vh - ${stickyOffset}px)` }}>
-            <Card className="border-0 shadow-sm overflow-hidden w-full max-w-lg">
+        {/* RIGHT: Fixed Image - HANYA AKTIF KETIKA SECTION INI DI VIEWPORT */}
+        <div className="hidden lg:block lg:w-1/2">
+          {/* Fixed Container */}
+          <div
+            className="fixed flex items-center justify-center transition-opacity duration-300"
+            style={{
+              top: stickyOffset,
+              right: "5%",
+              width: "45%",
+              height: `calc(100vh - ${stickyOffset}px)`,
+              opacity: isSectionInView ? 1 : 0,
+              pointerEvents: isSectionInView ? 'auto' : 'none',
+            }}
+          >
+            <Card className="border-0 shadow-lg overflow-hidden w-full max-w-lg">
               <CardContent className="p-0">
                 <div className="relative aspect-[16/10] w-full">
                   <AnimatePresence mode="wait">
                     {features.map((f, idx) => {
-                      const isActive = idx === imageActiveIndex;
+                      const isActive = idx === activeIndex && isSectionInView;
+                      if (!isActive) return null;
+
                       return (
-                        <motion.div
-                          key={idx}
-                          className="absolute inset-0"
-                          initial={{ opacity: 0, scale: 1.02 }}
-                          animate={{
-                            opacity: isActive ? 1 : 0,
-                            scale: isActive ? 1 : 1.02,
-                          }}
-                          exit={{ opacity: 0, scale: 0.98 }}
-                          transition={{ duration: 0.45, ease: "easeOut" }}
+                        <motion.div 
+                          key={idx} 
+                          className="absolute inset-0" 
+                          initial={{ opacity: 0, scale: 1.05 }} 
+                          animate={{ opacity: 1, scale: 1 }} 
+                          exit={{ opacity: 0, scale: 0.95 }} 
+                          transition={{ duration: 0.4, ease: "easeOut" }}
                         >
                           {f.image ? (
                             <img src={f.image} alt={f.title} className="h-full w-full object-cover" />
                           ) : (
                             <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-primary/10 via-background to-secondary/10">
-                              <f.icon className="h-16 w-16 text-primary" />
+                              <f.icon className="h-24 w-24 text-primary" />
                             </div>
                           )}
                         </motion.div>
@@ -120,21 +124,17 @@ const FeatureScrollShowcase: React.FC<Props> = ({ features, stickyOffset = 96, d
 
 export default FeatureScrollShowcase;
 
-/* ====================== ITEM TEKS ======================= */
-
 type ScrollTextItemProps = {
   index: number;
   feature: FeatureItem;
   onActive: (index: number) => void;
   stickyOffset: number;
-  root: React.RefObject<HTMLElement | null>;
 };
 
-const ScrollTextItem: React.FC<ScrollTextItemProps> = ({ index, feature, onActive, root, stickyOffset }) => {
+const ScrollTextItem: React.FC<ScrollTextItemProps> = ({ index, feature, onActive, stickyOffset }) => {
   const { ref, inView } = useInView({
-    threshold: 0.55,
+    threshold: 0.6,
     triggerOnce: false,
-    root: root.current ?? undefined,
     rootMargin: `-${stickyOffset / 2}px 0px -${stickyOffset / 2}px 0px`,
   });
 
@@ -143,11 +143,16 @@ const ScrollTextItem: React.FC<ScrollTextItemProps> = ({ index, feature, onActiv
   }, [inView, index, onActive]);
 
   return (
-    <section ref={ref as React.LegacyRef<HTMLDivElement>} className="min-h-[100vh] snap-center flex items-center">
-      <motion.div initial={{ y: 24, opacity: 0 }} animate={{ y: inView ? 0 : 24, opacity: inView ? 1 : 0.35 }} transition={{ duration: 0.45, ease: "easeOut" }} className="w-full" style={{ willChange: "transform, opacity" }}>
-        <Card className="relative border border-border/40 border-l-4 border-l-primary rounded-xl shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group bg-gradient-to-br from-background via-background to-muted/20">
+    <section ref={ref as React.LegacyRef<HTMLDivElement>} className="min-h-[100vh] flex items-center py-8">
+      <motion.div
+        initial={{ y: 30, opacity: 0 }}
+        animate={{ y: inView ? 0 : 30, opacity: inView ? 1 : 0.3 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="w-full max-w-2xl"
+      >
+        <Card className="relative border border-border/40 border-l-4 border-l-primary rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden group bg-gradient-to-br from-background via-background to-muted/10">
           <CardContent className="p-0">
-            <div className="p-6 lg:p-8 flex flex-col gap-4">
+            <div className="p-8 flex flex-col gap-4">
               {/* Icon */}
               {feature.icon && (
                 <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
@@ -156,7 +161,7 @@ const ScrollTextItem: React.FC<ScrollTextItemProps> = ({ index, feature, onActiv
               )}
 
               {/* Title */}
-              <h3 className="text-2xl lg:text-3xl font-bold text-foreground group-hover:text-primary transition-colors">{feature.title}</h3>
+              <h3 className="text-2xl lg:text-3xl font-bold text-foreground">{feature.title}</h3>
 
               {/* Description */}
               <p className="text-muted-foreground text-lg leading-relaxed">{feature.description}</p>
