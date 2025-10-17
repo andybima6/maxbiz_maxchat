@@ -19,11 +19,13 @@ const CTASection = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <AnimatedElement animation="fade-in-up" delay={200}>
-              <Button variant="hero" size="lg" className="group">
-                <Calendar className="w-5 h-5 mr-2" />
-                Jadwalkan Demo Gratis
-                <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
-              </Button>
+              <a href="#kontak">
+                <Button variant="hero" size="lg" className="group">
+                  <Calendar className="w-5 h-5 mr-2" />
+                  Jadwalkan Demo Gratis
+                  <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </a>
             </AnimatedElement>
             <AnimatedElement animation="fade-in-up" delay={300}>
               <Button variant="accent" size="lg" className="group">
@@ -69,7 +71,7 @@ const CTASection = () => {
 
           {/* No commitment message */}
           <AnimatedElement animation="fade-in-up" delay={700}>
-          <p className="text-sm text-muted-foreground">* Tidak ada biaya tersembunyi • Cancel kapan saja • Data aman terjamin</p>
+            <p className="text-sm text-muted-foreground">* Tidak ada biaya tersembunyi • Cancel kapan saja • Data aman terjamin</p>
           </AnimatedElement>
         </div>
       </div>

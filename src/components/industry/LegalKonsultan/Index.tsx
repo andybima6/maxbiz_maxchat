@@ -76,12 +76,12 @@ const legalValues = [
 ];
 
 // 📊 Statistik sektor Legal & Consultant
-// const legalStats = [
-//   { label: "Kasus Terselesaikan", value: "500+" },
-//   { label: "Klien Aktif", value: "200+" },
-//   { label: "Efisiensi Operasional", value: "35%" },
-//   { label: "Dokumen Digital Aman", value: "100%" },
-// ];
+const legalStats = [
+  { label: "Kasus Terselesaikan", value: "500+" },
+  { label: "Klien Aktif", value: "200+" },
+  { label: "Efisiensi Operasional", value: "35%" },
+  { label: "Dokumen Digital Aman", value: "100%" },
+];
 
 export default function FinancePage() {
   return (
@@ -122,7 +122,7 @@ export default function FinancePage() {
         title="Manfaat Nyata untuk Dunia Legal & Konsultasi"
         subtitle="Digitalisasi proses hukum dan konsultasi dengan ERPNext menghadirkan efisiensi, transparansi, dan profesionalisme yang lebih tinggi."
         items={legalValues}
-        // stats={legalStats}
+        stats={legalStats}
         theme="secondary"
         gradientBg
       />

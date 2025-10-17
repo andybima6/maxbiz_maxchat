@@ -30,16 +30,20 @@ const BannerSection = ({ title, description, primaryAction, secondaryAction, var
 
         <div className="flex flex-wrap gap-4 justify-center mb-8">
           <AnimatedElement animation="fade-in" delay={400} duration={800}>
-            <Button size="lg" onClick={primaryAction.onClick} className="gap-2">
-              {primaryAction.label}
-              <ArrowRight className="w-5 h-5" />
-            </Button>
+            <a href="/#kontak" onClick={() => (window.location.href = "/#kontak")}>
+              <Button size="lg" onClick={primaryAction.onClick} className="gap-2">
+                {primaryAction.label}
+                <ArrowRight className="w-5 h-5" />
+              </Button>
+            </a>
           </AnimatedElement>
           {secondaryAction && (
             <AnimatedElement animation="fade-in" delay={500} duration={800}>
-              <Button variant="outline" size="lg" onClick={secondaryAction.onClick}>
-                {secondaryAction.label}
-              </Button>
+              <a href="https://wa.me/6281234511449?text=Halo%2C%20saya%20tertarik%20untuk%20mengetahui%20lebih%20lanjut%20tentang%20ERP%20perusahaan%20Anda." target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" size="lg" onClick={secondaryAction.onClick}>
+                  {secondaryAction.label}
+                </Button>
+              </a>
             </AnimatedElement>
           )}
         </div>
@@ -70,16 +74,20 @@ const BannerSection = ({ title, description, primaryAction, secondaryAction, var
             </AnimatedElement>
             <div className="flex flex-wrap gap-4 justify-center pt-4 animate-fade-in" style={{ animationDelay: "0.4s" }}>
               <AnimatedElement animation="fade-in" delay={400} duration={800}>
-                <Button variant="hero" size="lg" onClick={primaryAction.onClick} className="gap-2 hover:scale-105 transition-transform">
-                  {primaryAction.label}
-                  <ArrowRight className="w-5 h-5" />
-                </Button>
+                <a href="/#kontak"  onClick={() => window.location.href = '/#kontak'}>
+                  <Button variant="hero" size="lg" onClick={primaryAction.onClick} className="gap-2 hover:scale-105 transition-transform">
+                    {primaryAction.label}
+                    <ArrowRight className="w-5 h-5" />
+                  </Button>
+                </a>
               </AnimatedElement>
               {secondaryAction && (
                 <AnimatedElement animation="fade-in" delay={500} duration={800}>
-                  <Button variant="outline" size="lg" onClick={secondaryAction.onClick} className="hover:scale-105 transition-transform text-white">
-                    {secondaryAction.label}
-                  </Button>
+                  <a href="https://wa.me/6281234511449?text=Halo%2C%20saya%20tertarik%20untuk%20mengetahui%20lebih%20lanjut%20tentang%20ERP%20perusahaan%20Anda." target="_blank" rel="noopener noreferrer">
+                    <Button variant="outline" size="lg" onClick={secondaryAction.onClick} className="hover:scale-105 transition-transform text-white">
+                      {secondaryAction.label}
+                    </Button>
+                  </a>
                 </AnimatedElement>
               )}
             </div>

@@ -55,7 +55,7 @@ const ChallengesSection: React.FC<ChallengesSectionProps> = ({ title = "Tantanga
                   <item.icon className={`w-8 h-8 ${colorClass.split(" ")[0]}`} />
                 </div>
                 <h3 className="text-2xl font-bold mb-4 lg:min-h-[70px]">{item.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+                <p className="text-muted-foreground leading-relaxed lg:min-h-[120px]">{item.description}</p>
               </Card>
             </AnimatedElement>
           ))}

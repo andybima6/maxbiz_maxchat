@@ -5,10 +5,10 @@ import logo from "@/assets/logo_maxbiz.svg";
 
 const Footer = () => {
   const footerLinks = {
-    "Produk": ["Fitur ERP", "Industri", "Pricing", "Demo"],
-    "Resources": ["Blog", "Case Studies", "E-book Gratis", "Webinar"],
-    "Perusahaan": ["Tentang Kami", "Tim", "Karir", "Partner"],
-    "Legal": ["Privacy Policy", "Terms of Service", "SLA", "Security"]
+    Produk: ["Fitur ERP", "Industri", "Pricing", "Demo"],
+    Resources: ["Blog", "Case Studies", "E-book Gratis", "Webinar"],
+    Perusahaan: ["Tentang Kami", "Tim", "Karir", "Partner"],
+    Legal: ["Privacy Policy", "Terms of Service", "SLA", "Security"],
   };
 
   return (
@@ -107,7 +107,7 @@ const Footer = () => {
       {/* Floating WhatsApp */}
       <div className="fixed bottom-6 right-6 z-50">
         <a
-          href="https://wa.me/6281234567890"
+          href="https://wa.me/6281234511449?text=Halo%2C%20saya%20tertarik%20untuk%20mengetahui%20lebih%20lanjut%20tentang%20ERP%20perusahaan%20Anda."
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center w-14 h-14 bg-secondary text-secondary-foreground rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-110"

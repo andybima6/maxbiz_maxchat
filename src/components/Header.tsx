@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -40,7 +40,7 @@ const Header = () => {
     {
       label: "Fitur",
       icon: ChevronDown,
-      href: "/",
+      href: "/#fitur",
       subItems: [
         { label: "ERPNext Overview", icon: LayoutDashboard, href: "/erpnext" },
         { label: "Accounting & Finance", icon: Calculator, href: "/accounting-finance" },
@@ -61,6 +61,7 @@ const Header = () => {
     {
       label: "Industry",
       icon: ChevronDown,
+      href: "/#industry",
       subItems: [
         { label: "Kesehatan", icon: Stethoscope, href: "/healthcare" },
         { label: "Government", icon: Landmark, href: "/government" },
@@ -83,7 +84,17 @@ const Header = () => {
     { label: "Benefit", href: "#benefit" },
     { label: "Kontak", href: "#kontak" },
   ];
-
+  useEffect(() => {
+    if (window.location.hash) {
+      const el = document.querySelector(window.location.hash);
+      if (el) {
+        // kasih delay dikit biar element sudah muncul dulu
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: "smooth" });
+        }, 200);
+      }
+    }
+  }, []);
   const [language, setLanguage] = useState("ID");
 
   return (
@@ -137,9 +148,11 @@ const Header = () => {
             {/* <Button variant="ghost" size="sm">
               Masuk
             </Button> */}
-            <Button variant="hero" size="sm" className="gap-2">
-              📞 Demo Gratis
-            </Button>
+            <a href="#kontak">
+              <Button size="sm" className="gap-2 bg-gradient-hero">
+                Demo Gratis
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -182,12 +195,14 @@ const Header = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col space-y-2 pt-4">
-              <Button variant="ghost" size="sm">
+              {/* <Button variant="ghost" size="sm">
                 Masuk
-              </Button>
-              <Button variant="hero" size="sm">
-                🎥 Demo Gratis
-              </Button>
+              </Button> */}
+              <a href="#kontak">
+                <Button className="bg-gradient-hero" size="sm">
+                  🎥 Demo Gratis
+                </Button>
+              </a>
             </div>
           </nav>
         </div>

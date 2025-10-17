@@ -74,7 +74,7 @@ const Index = () => {
       <HeroSection
         badge="ERPNext Overview"
         title="Sistem ERP All-in-One untuk Semua Proses Bisnis"
-        description="Menyatukan data dan fungsi dalam satu platform terintegrasi yang powerful, menjadi   Menyatukan data dan fungsi dalam satu platform terintegrasi yang powerful, menjadi fondasi semua departemen untuk mengurangi penggunaan software terpisah"
+        description="Menyatukan data dan fungsi dalam satu platform terintegrasi yang powerful, menjadi fondasi bagi setiap departemen untuk mengurangi ketergantungan pada software terpisah"
         primaryAction={{
           label: "Mulai Gratis",
           icon: <Calculator className="mr-2 h-5 w-5" />,

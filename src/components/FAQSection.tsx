@@ -9,11 +9,6 @@ const FAQSection = () => {
         "MaxBiz tersedia dalam 3 opsi deployment: Cloud (SaaS), On-premise, dan Hybrid. Untuk UMKM kami rekomendasikan cloud karena lebih cost-effective. Untuk enterprise dengan compliance ketat, kami menyediakan on-premise installation.",
     },
     {
-      question: "Bagaimana integrasi dengan e-Faktur dan sistem existing lainnya?",
-      answer:
-        "MaxBiz sudah terintegrasi dengan e-Faktur Pajak, e-Bupot, dan berbagai API Indonesian compliance. Kami juga menyediakan 50+ connector untuk integrasi dengan aplikasi populer seperti WhatsApp Business, Tokopedia, Shopee, dan sistem perbankan.",
-    },
-    {
       question: "Berapa lama estimasi migrasi data dari sistem lama?",
       answer:
         "Estimasi migrasi data: 1-2 minggu untuk UMKM (< 20 user), 2-4 minggu untuk business (20-100 user), dan 4-8 minggu untuk enterprise (100+ user). Kami menyediakan template import dan assistance team untuk memastikan data accuracy 99.9%.",
@@ -26,7 +21,7 @@ const FAQSection = () => {
     {
       question: "Bagaimana policy trial dan cancelation?",
       answer:
-        "Kami menyediakan 30-hari free trial dengan full features (tanpa CC required). Setelah berlangganan, cancelation bisa dilakukan kapan saja dengan notice 30 hari. Data Anda akan di-export dalam format Excel/CSV sebelum account closure.",
+        "Kami menyediakan demo selama 2 minggu untuk mencoba seluruh fitur. Periode trial sudah termasuk dalam masa berlangganan, sehingga tidak ada biaya tambahan. Pembatalan dapat dilakukan kapan saja sesuai ketentuan berlangganan, dan data Anda dapat diekspor dalam format Excel/CSV sebelum akun ditutup.",
     },
   ];
 
