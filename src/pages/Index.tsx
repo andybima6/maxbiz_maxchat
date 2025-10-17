@@ -6,7 +6,7 @@ import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import FeaturesSection from "@/components/FeaturesSection";
-import ProductsSection from "@/components/ProductsSection";
+import ProductsSection from "@/components/IndustriesSection";
 import ContactUs from "@/components/ContactUs";
 import AboutMaxBiz from "@/components/about/AboutMaxBiz";
 import PricingSection from "@/components/PricingSection";
@@ -20,7 +20,7 @@ const Index = () => {
           <HeroSection />
           <FeaturesSection />
           <ProductsSection />
-          <AboutMaxBiz />
+          {/* <AboutMaxBiz /> */}
           <TestimonialsSection />
           {/* <LeadMagnetSection /> */}
           <PricingSection />
