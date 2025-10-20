@@ -4,6 +4,7 @@ import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Card, CardContent } from "@/components/ui/card";
+import { ArrowRight } from "lucide-react";
 
 export type FeatureItem = {
   id: string | number;
@@ -11,6 +12,8 @@ export type FeatureItem = {
   description: string;
   image?: string;
   icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  bullets?: string[];
+  href?: string; // NEW
 };
 
 type Props = {
@@ -52,8 +55,22 @@ const FeatureScrollShowcase: React.FC<Props> = ({ features, stickyOffset = 96, d
                       )}
                       {/* TEXT */}
                       <div className="p-6">
-                        <h3 className="mb-4 text-2xl font-bold text-foreground">{feature.title}</h3>
-                        <p className="text-muted-foreground text-lg leading-relaxed">{feature.description}</p>
+                        <h3 className="mb-3 text-2xl font-bold text-foreground">{feature.title}</h3>
+                        <p className="text-muted-foreground">{feature.description}</p>
+
+                        {feature.bullets?.length ? (
+                          <ul className="mt-4 grid list-disc gap-2 pl-5 text-sm text-foreground/80">
+                            {feature.bullets.slice(0, 5).map((b, idx) => (
+                              <li key={idx}>{b}</li>
+                            ))}
+                          </ul>
+                        ) : null}
+
+                        {feature.href ? (
+                          <a href={feature.href} className="mt-4 inline-flex items-center gap-1 text-primary hover:underline">
+                            Pelajari lebih lanjut <ArrowRight className="h-4 w-4" />
+                          </a>
+                        ) : null}
                       </div>
                     </CardContent>
                   </Card>
@@ -63,7 +80,7 @@ const FeatureScrollShowcase: React.FC<Props> = ({ features, stickyOffset = 96, d
           </div>
 
           {/* === DESKTOP VERSION === */}
-          <div className="hidden lg:block -translate-y-28">
+          <div className="hidden lg:block ">
             {features.map((feature, i) => (
               <ScrollTextItem key={feature.id} index={i} feature={feature} onActive={setActiveIndex} stickyOffset={stickyOffset} />
             ))}
@@ -81,7 +98,7 @@ const FeatureScrollShowcase: React.FC<Props> = ({ features, stickyOffset = 96, d
               width: "45%",
               height: `calc(100vh - ${stickyOffset}px)`,
               opacity: isSectionInView ? 1 : 0,
-              pointerEvents: isSectionInView ? 'auto' : 'none',
+              pointerEvents: isSectionInView ? "auto" : "none",
             }}
           >
             <Card className="border-0 shadow-lg overflow-hidden w-full max-w-lg">
@@ -93,14 +110,7 @@ const FeatureScrollShowcase: React.FC<Props> = ({ features, stickyOffset = 96, d
                       if (!isActive) return null;
 
                       return (
-                        <motion.div 
-                          key={idx} 
-                          className="absolute inset-0" 
-                          initial={{ opacity: 0, scale: 1.05 }} 
-                          animate={{ opacity: 1, scale: 1 }} 
-                          exit={{ opacity: 0, scale: 0.95 }} 
-                          transition={{ duration: 0.4, ease: "easeOut" }}
-                        >
+                        <motion.div key={idx} className="absolute inset-0" initial={{ opacity: 0, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} transition={{ duration: 0.4, ease: "easeOut" }}>
                           {f.image ? (
                             <img src={f.image} alt={f.title} className="h-full w-full object-cover" />
                           ) : (
@@ -144,12 +154,7 @@ const ScrollTextItem: React.FC<ScrollTextItemProps> = ({ index, feature, onActiv
 
   return (
     <section ref={ref as React.LegacyRef<HTMLDivElement>} className="min-h-[100vh] flex items-center py-8">
-      <motion.div
-        initial={{ y: 30, opacity: 0 }}
-        animate={{ y: inView ? 0 : 30, opacity: inView ? 1 : 0.3 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        className="w-full max-w-2xl"
-      >
+      <motion.div initial={{ y: 30, opacity: 0 }} animate={{ y: inView ? 0 : 30, opacity: inView ? 1 : 0.3 }} transition={{ duration: 0.5, ease: "easeOut" }} className="w-full max-w-2xl">
         <Card className="relative border border-border/40 border-l-4 border-l-primary rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden group bg-gradient-to-br from-background via-background to-muted/10">
           <CardContent className="p-0">
             <div className="p-8 flex flex-col gap-4">
@@ -164,7 +169,25 @@ const ScrollTextItem: React.FC<ScrollTextItemProps> = ({ index, feature, onActiv
               <h3 className="text-2xl lg:text-3xl font-bold text-foreground">{feature.title}</h3>
 
               {/* Description */}
-              <p className="text-muted-foreground text-lg leading-relaxed">{feature.description}</p>
+              <p className="text-muted-foreground">{feature.description}</p>
+
+              {/* Bullets */}
+              {feature.bullets?.length ? (
+                <ul className="mt-2 grid gap-2 pl-5 list-disc text-foreground/80">
+                  {feature.bullets.slice(0, 5).map((b, i) => (
+                    <li key={i} className="text-base">
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+
+              {/* CTA link */}
+              {feature.href ? (
+                <a href={feature.href} className="mt-3 inline-flex items-center gap-1 text-primary hover:underline">
+                  Pelajari lebih lanjut <ArrowRight className="h-4 w-4" />
+                </a>
+              ) : null}
             </div>
           </CardContent>
         </Card>

@@ -17,75 +17,101 @@ const mainFeatures = [
   {
     id: "service",
     icon: Wrench,
-    title: "Service Management",
-    description: "Kelola layanan pelanggan, jadwal perawatan, dan tiket servis dengan sistem terpusat untuk meningkatkan kepuasan pelanggan.",
+    title: "Service & Maintenance",
+    description:
+      "Kelola seluruh aktivitas layanan purna jual dengan mudah. Dari tiket pelanggan, penjadwalan teknisi, hingga perawatan berkala semua bisa diatur otomatis. Modul ini memastikan setiap permintaan layanan tertangani tepat waktu, lengkap dengan tracking SLA dan histori pekerjaan.",
     image: serviceFeature,
     size: "normal",
+    bullets: ["Tiket & SLA otomatis", "Penjadwalan teknisi", "Riwayat perbaikan lengkap"],
+    href: "/service-maintenance",
   },
   {
     id: "project",
     icon: ClipboardList,
     title: "Project Management",
-    description: "Rencanakan, pantau, dan kendalikan proyek dengan timeline, tugas, dan progres yang terintegrasi dalam satu sistem.",
+    description:
+      "Rencanakan, jalankan, dan pantau proyek secara kolaboratif dalam satu tempat. Atur timeline, assign task, pantau progres, dan kelola anggaran proyek dengan transparan. Sistem ini membantu memastikan proyek selesai tepat waktu dan sesuai target.",
     image: projectFeature,
     size: "normal",
+    bullets: ["Timeline & Gantt", "Task & dependency", "Progress & burn-down"],
+    href: "/project-management",
   },
   {
     id: "manufacturing",
     icon: Settings,
     title: "Manufacturing",
-    description: "Kelola perencanaan produksi, bill of materials, dan kontrol kualitas untuk efisiensi proses manufaktur dari bahan baku hingga produk jadi.",
+    description:
+      "Atur perencanaan produksi, pengadaan bahan, hingga kontrol kualitas dengan efisien. Modul ini mendukung perhitungan kebutuhan material (MPS & MRP), multi-level BOM, dan work order yang terintegrasi. Pastikan produksi berjalan lancar tanpa bottleneck.",
     image: manufacturingFeature,
     size: "large",
+    bullets: ["MPS & work order", "BOM multi-level", "QC di setiap station"],
+    href: "/manufacturing",
   },
   {
     id: "selling",
     icon: ShoppingCart,
-    title: "Selling",
-    description: "Proses penjualan lebih cepat dengan integrasi penawaran, pesanan, faktur, dan pembayaran secara otomatis.",
+    title: "Selling (Sales)",
+    description:
+      "Tingkatkan efisiensi proses penjualan dari pembuatan penawaran hingga penerimaan pembayaran. Semua tahapan — mulai dari Quotation, Sales Order, hingga Invoice — bisa dikelola otomatis dengan harga dan diskon yang terintegrasi. Cocok untuk tim sales yang butuh kecepatan dan akurasi.",
     image: salesDistribution,
     size: "normal",
+    bullets: ["Quotation → SO → Invoice", "Integrasi pembayaran", "Harga & diskon otomatis"],
+    href: "/sales",
   },
   {
     id: "buying",
     icon: Package,
-    title: "Buying",
-    description: "Optimalkan proses pembelian dari permintaan, penawaran supplier, hingga penerimaan barang dan faktur.",
+    title: "Buying (Purchasing)",
+    description:
+      "Kelola seluruh siklus pembelian dari permintaan barang (PR) hingga penerimaan (GRN). Modul ini membantu melakukan evaluasi supplier, mengontrol harga, dan memastikan pembelian sesuai anggaran perusahaan. Transparan, efisien, dan terintegrasi dengan stok & akuntansi.",
     image: buyingFeature,
     size: "normal",
+    bullets: ["PR → RFQ → PO", "Perbandingan supplier", "3-way match invoice"],
+    href: "/buying",
   },
   {
     id: "crm",
     icon: Users,
     title: "CRM",
-    description: "Bangun dan kelola hubungan pelanggan, pantau lead, dan tingkatkan peluang konversi penjualan dengan data real-time.",
+    description:
+      "Bangun hubungan pelanggan yang lebih kuat dengan CRM yang memantau setiap interaksi, mulai dari lead hingga deal. Modul ini menyediakan pipeline visual, aktivitas follow-up, dan forecast otomatis, membantu tim sales fokus pada peluang dengan potensi tertinggi.",
     image: crmFeature,
     size: "normal",
+    bullets: ["Lead scoring", "Pipeline & forecast", "Aktivitas & follow-up"],
+    href: "/crm",
   },
   {
     id: "hr",
     icon: UserCog,
-    title: "Human Resource",
-    description: "Atur data karyawan, absensi, gaji, cuti, dan penilaian kinerja dalam satu modul HR terintegrasi.",
+    title: "HR & Payroll",
+    description:
+      "Kelola seluruh data karyawan, absensi, cuti, hingga penggajian dalam satu sistem. HR module memastikan transparansi, efisiensi, dan akurasi tinggi untuk seluruh proses SDM — dari rekrutmen hingga payroll dan laporan PPh21 otomatis.",
     image: hrFeature,
     size: "normal",
+    bullets: ["Data & absensi", "Cuti & approval", "Payroll & PPh21"],
+    href: "/hr-payroll",
   },
   {
     id: "account",
     icon: Calculator,
-    title: "Accounting",
-    description: "Kelola laporan keuangan, arus kas, dan analisis profitabilitas dengan sistem akuntansi otomatis dan transparan.",
+    title: "Accounting & Finance",
+    description:
+      "Pantau kondisi keuangan perusahaan secara real-time dengan laporan yang komprehensif. Semua transaksi dari modul lain otomatis tercatat di jurnal, memudahkan pembuatan laporan Laba/Rugi, Neraca, dan Arus Kas. Akurat, transparan, dan selalu up-to-date.",
     image: accountingFeature,
     size: "normal",
+    bullets: ["Jurnal otomatis", "L/R, Neraca, Arus Kas", "Rekonsiliasi bank"],
+    href: "/accounting-finance",
   },
-
   {
     id: "inventory",
     icon: Package,
-    title: "Inventory",
-    description: "Kelola stok barang secara real-time, pantau pergerakan produk di setiap gudang, dan hindari kehabisan atau kelebihan stok.",
+    title: "Inventory / Stock",
+    description:
+      "Kelola stok di berbagai gudang secara real-time. Modul ini memantau pergerakan barang, batch, dan lot, serta memberi notifikasi otomatis ketika stok minimum tercapai. Proses picking, transfer, dan penyesuaian stok kini jadi jauh lebih mudah dan cepat.",
     image: inventoryFeature,
     size: "normal",
+    bullets: ["Multi-gudang & batch", "Minimum stock alert", "Stock move & picking"],
+    href: "/inventory",
   },
 ];
 
@@ -121,7 +147,7 @@ const FeaturesSection = () => {
     <section className="py-20 bg-background" id="fitur">
       <div className="container mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-16 animate-fade-in">
+        <div className="text-center mb-16 animate-fade-in translate-y-44">
           <AnimatedElement animation="fade-in-up" delay={100}>
             <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full mb-4">
               <Settings className="h-5 w-5 text-primary" />
