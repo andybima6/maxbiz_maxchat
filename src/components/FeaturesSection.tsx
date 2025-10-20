@@ -1,5 +1,5 @@
-import { Users, Package, ShoppingCart, Settings, Calculator, Building, CreditCard, FolderOpen, Wrench, ClipboardList, UserCog, Truck } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Users, Package, ShoppingCart, Settings, Calculator, Wrench, ClipboardList, UserCog, BarChart3, Headphones, GraduationCap, ArrowRight } from "lucide-react";
+import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import crmFeature from "@/assets/crm-feature.jpg";
 import manufacturingFeature from "@/assets/manufacturing-feature.jpg";
@@ -10,6 +10,11 @@ import hrFeature from "@/assets/module/Hr/hero-hr.jpg";
 import inventoryFeature from "@/assets/module/Inventory/hero-warehouse.jpg";
 import buyingFeature from "@/assets/module/Buying/hero-purchasing.jpg";
 import salesDistribution from "@/assets/module/Sales/sales-hero.jpg";
+import erpImage from "@/assets/erp-overview.jpg";
+import ecommerceImage from "@/assets/ecommerce.jpg";
+import assetImage from "@/assets/asset-management.jpg";
+import helpDeskImage from "@/assets/help-desk.jpg";
+import lmsImage from "@/assets/lms.jpg";
 import AnimatedElement from "./AnimatedElement";
 import FeatureScrollShowcase from "./FeatureScrollShowcase";
 
@@ -117,28 +122,39 @@ const mainFeatures = [
 
 const supportingFeatures = [
   {
-    id: "asset",
-    icon: Building,
+    title: "ERPNext Overview",
+    description: "Comprehensive business management solution with real-time insights and automation",
+    icon: BarChart3,
+    image: erpImage,
+    link: "/erpnext",
+  },
+  {
+    title: "Website & E-Commerce",
+    description: "Build stunning online stores with integrated payment and inventory management",
+    icon: ShoppingCart,
+    image: ecommerceImage,
+    link: "/website-ecommerce",
+  },
+  {
     title: "Asset Management",
-    description: "Kelola aset perusahaan dengan tracking dan maintenance scheduling.",
+    description: "Track and maintain your company assets with powerful monitoring tools",
+    icon: Package,
+    image: assetImage,
+    link: "/asset-management",
   },
   {
-    id: "hrm",
-    icon: Users,
-    title: "Human Resource Management",
-    description: "Manajemen karyawan dari rekrutmen hingga payroll system.",
+    title: "Help Desk",
+    description: "Deliver exceptional customer support with intelligent ticket management",
+    icon: Headphones,
+    image: helpDeskImage,
+    link: "/help-desk",
   },
   {
-    id: "pos",
-    icon: CreditCard,
-    title: "PoS System",
-    description: "Point of Sale terintegrasi untuk retail dan outlet.",
-  },
-  {
-    id: "project",
-    icon: FolderOpen,
-    title: "Project Management",
-    description: "Kelola proyek dengan timeline, resource allocation, dan monitoring.",
+    title: "LMS (Learning Management System)",
+    description: "Create and deliver engaging online courses with comprehensive tracking",
+    icon: GraduationCap,
+    image: lmsImage,
+    link: "/lms",
   },
 ];
 
@@ -167,35 +183,41 @@ const FeaturesSection = () => {
         </div>
 
         {/* Supporting Features */}
-        <AnimatedElement animation="fade-in-up" delay={300}>
-          <div className="text-center mb-12">
-            <h3 className="text-2xl font-bold text-foreground mb-4">Fitur Pendukung Lainnya</h3>
-          </div>
-        </AnimatedElement>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 max-w-6xl mx-auto">
-          {supportingFeatures.map((feature, index) => {
-            const Icon = feature.icon;
-
-            return (
-              <AnimatedElement key={feature.id} animation="fade-in-up" delay={index * 200} className="mb-4">
-                <Card className="group hover:shadow-2xl transition-all duration-500 border-0 hover:-translate-y-2 animate-slide-up bg-card/50 backdrop-blur-sm">
-                  <CardContent className="p-6 text-center">
-                    <div className="flex justify-center mb-4">
-                      <div className="p-3 rounded-full bg-secondary/20 group-hover:bg-secondary transition-colors duration-300">
-                        <Icon className="h-6 w-6 text-secondary group-hover:text-secondary-foreground transition-colors duration-300" />
+        <section className="py-20 px-4">
+          <div className="container mx-auto ">
+            <AnimatedElement animation="fade-in-up" delay={300}>
+              <div className="text-center mb-12">
+                <h3 className="text-2xl font-bold text-foreground mb-4">Fitur Pendukung Lainnya</h3>
+              </div>
+            </AnimatedElement>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+              {supportingFeatures.map((industry, index) => {
+                const Icon = industry.icon;
+                return (
+                  <Card key={industry.title} className="group overflow-hidden border-border hover:shadow-[var(--shadow-hover)] transition-all duration-300 animate-fade-in hover-scale" style={{ animationDelay: `${index * 0.1}s` }}>
+                    <div className="relative h-48 overflow-hidden">
+                      <img src={industry.image} alt={industry.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-card/90 to-transparent" />
+                      <div className="absolute bottom-4 left-4 p-3 rounded-lg bg-primary/90 backdrop-blur-sm">
+                        <Icon className="h-6 w-6 text-primary-foreground" />
                       </div>
                     </div>
-
-                    <h4 className="font-semibold text-foreground mb-3">{feature.title}</h4>
-
-                    <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
-                  </CardContent>
-                </Card>
-              </AnimatedElement>
-            );
-          })}
-        </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-semibold mb-2 text-card-foreground group-hover:text-primary transition-colors">{industry.title}</h3>
+                      <p className="text-muted-foreground mb-4 text-sm leading-relaxed">{industry.description}</p>
+                      <Button variant="link" className="p-0 h-auto text-primary hover:text-primary/80 group/btn" asChild>
+                        <a href={industry.link}>
+                          Learn more
+                          <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                        </a>
+                      </Button>
+                    </div>
+                  </Card>
+                );
+              })}
+            </div>
+          </div>
+        </section>
 
         {/* CTA Section */}
         {/* <div className="text-center bg-gradient-hero rounded-3xl p-12 animate-scale-in">
