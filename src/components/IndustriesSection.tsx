@@ -23,84 +23,98 @@ const industries = [
     title: "Kesehatan",
     description: "Sistem terintegrasi untuk manajemen rumah sakit, klinik, dan fasilitas kesehatan dengan pencatatan medis digital dan pengelolaan inventaris farmasi.",
     image: healthcareImg,
+    href: "/healthcare",
   },
   {
     icon: Landmark,
     title: "Government",
     description: "Solusi digital untuk transformasi pelayanan publik, manajemen anggaran daerah, dan peningkatan transparansi administrasi pemerintahan.",
     image: governmentImg,
+    href: "/government",
   },
   {
     icon: Building2,
     title: "Finance",
     description: "Platform komprehensif untuk lembaga keuangan dengan fitur akuntansi terintegrasi, manajemen risiko, dan pelaporan keuangan real-time.",
     image: financeImg,
+    href: "/finance",
   },
   {
     icon: Home,
     title: "Properti (Real Estate)",
     description: "Sistem manajemen properti end-to-end untuk developer, agen, dan pengelola gedung dengan CRM dan tracking konstruksi terintegrasi.",
     image: realestateImg,
+    href: "/property",
   },
   {
     icon: GraduationCap,
     title: "Pendidikan",
     description: "Platform digital untuk institusi pendidikan dengan manajemen akademik, keuangan sekolah, dan sistem informasi siswa yang terpadu.",
     image: educationImg,
+    href: "/education",
   },
   {
     icon: ShoppingBag,
     title: "Retail",
     description: "Solusi POS dan inventory management untuk retail dengan integrasi e-commerce, loyalty program, dan analitik penjualan real-time.",
     image: retailImg,
+    href: "/retail",
   },
   {
     icon: Palette,
     title: "Agency",
     description: "Sistem manajemen proyek kreatif dengan time tracking, client management, dan resource planning untuk agensi digital dan kreatif.",
     image: agencyImg,
+    href: "/agency",
   },
   {
     icon: Plane,
     title: "Travel & Transportasi",
     description: "Platform terintegrasi untuk booking, fleet management, dan customer service dalam industri travel dan transportasi.",
     image: travelImg,
+    href: "/travel-transportasi",
   },
   {
     icon: Hotel,
     title: "Hospitality",
     description: "Sistem manajemen hotel dan resort dengan booking engine, housekeeping management, dan guest experience optimization.",
     image: hospitalityImg,
+    href: "/hospitality",
   },
   {
     icon: Lightbulb,
     title: "Utilitas",
     description: "Solusi untuk manajemen energi, air, dan utilitas publik dengan monitoring real-time, billing automation, dan maintenance scheduling.",
     image: utilitiesImg,
+    href: "/utilities",
   },
   {
     icon: Scale,
     title: "Legal & Konsultan",
     description: "Sistem manajemen kasus hukum, document management, time billing, dan client relationship untuk firma hukum dan konsultan.",
     image: legalImg,
+    href: "/legal-consultant",
   },
   {
     icon: UtensilsCrossed,
     title: "Food & Beverage",
     description: "Solusi F&B dengan recipe management, kitchen display system, online ordering, dan supply chain management terintegrasi.",
     image: fnbImg,
+    href: "/food-beverage",
   },
   {
     icon: Heart,
     title: "NGO / Non Profit",
     description: "Platform untuk manajemen donatur, volunteer coordination, program tracking, dan impact reporting untuk organisasi nirlaba.",
     image: ngoImg,
+    href: "/ngo",
   },
   {
     icon: Users,
     title: "Koperasi",
     description: "Sistem simpan pinjam, membership management, dan akuntansi terintegrasi untuk koperasi dengan transparansi penuh.",
     image: cooperativeImg,
+    href: "/koperasi",
   },
 ];
 
@@ -128,23 +142,27 @@ const IndustriesSection = () => {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
           {industries.map((industry, index) => (
-            <Card key={index} className="group overflow-hidden hover:shadow-elegant transition-all duration-300 hover:-translate-y-2 border-border/50 bg-card">
-              <div className="relative h-48 overflow-hidden">
-                <img src={industry.image} alt={industry.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="p-2 rounded-lg bg-primary/20 backdrop-blur-sm">
-                      <industry.icon className="w-6 h-6 text-primary" />
+            <a href={industry.href} className="block" target="_blank" rel="noopener noreferrer">
+              <Card key={index} className="group overflow-hidden hover:shadow-elegant transition-all duration-300 hover:-translate-y-2 border-border/50 bg-card relative cursor-pointer">
+                <div className="relative h-48 overflow-hidden">
+                  <img src={industry.image} alt={industry.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="p-2 rounded-lg bg-primary/20 backdrop-blur-sm">
+                        <industry.icon className="w-6 h-6 text-primary" />
+                      </div>
                     </div>
+                    <h3 className="text-xl font-bold text-foreground">{industry.title}</h3>
                   </div>
-                  <h3 className="text-xl font-bold text-foreground">{industry.title}</h3>
                 </div>
-              </div>
-              <div className="p-6">
-                <p className="text-sm text-muted-foreground leading-relaxed">{industry.description}</p>
-              </div>
-            </Card>
+
+                {/* Deskripsi muncul hanya saat hover */}
+                <div className="absolute inset-0 bg-background/90 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center p-6 text-center">
+                  <p className="text-sm text-muted-foreground leading-relaxed">{industry.description}</p>
+                </div>
+              </Card>
+            </a>
           ))}
         </div>
       </div>
