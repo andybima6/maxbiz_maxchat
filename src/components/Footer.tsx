@@ -62,24 +62,12 @@ const Footer = () => {
               </ul>
             </div>
           ))}
-          {/* Newsletter Signup */}
-          <div className="space-y-4">
-            <h4 className="font-semibold text-background">Newsletter & E-book</h4>
-            <p className="text-sm text-background/70 max-w-sm">Dapatkan tips bisnis digital dan e-book "10 Hal sebelum Pilih ERP" gratis.</p>
-            <div className="space-y-3">
-              <Input type="email" placeholder="Email Anda" className="bg-background/10 border-background/20 text-background placeholder:text-background/50" />
-              <Button variant="hero" size="sm" className="w-full">
-                <Download className="w-4 h-4 mr-2" />
-                Dapatkan E-book
-              </Button>
-            </div>
-          </div>
         </div>
 
         {/* Bottom Footer */}
         <div className="py-6 border-t border-background/10">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-sm text-background/70">© 2024 MaxBiz. All rights reserved. Made with ❤️ in Indonesia.</p>
+            <p className="text-sm text-background/70">© {new Date().getFullYear()} MaxBiz. All rights reserved.</p>
             <div className="flex items-center space-x-6">
               <div className="flex space-x-6 text-sm text-background/70">
                 <a href="#privacy" className="hover:text-primary transition-colors">
@@ -95,8 +83,7 @@ const Footer = () => {
               <div className="flex items-center space-x-2 text-xs text-background/50">
                 <span>🔒 SSL Secured</span>
                 <span>|</span>
-                <span>💾 Daily Backup</span>
-                <span>|</span>
+
                 <span>🇮🇩 GDPR Ready</span>
               </div>
             </div>

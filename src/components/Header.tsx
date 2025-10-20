@@ -53,7 +53,7 @@ const Header = () => {
         { label: "Inventory / Stock", icon: Boxes, href: "/inventory" },
         { label: "Asset Management", icon: BadgeDollarSign, href: "/asset-management" },
         { label: "Help Desk", icon: LifeBuoy, href: "/help-desk" },
-        { label: "Service & Maintance", icon: ShoppingBag, href: "/service-maintenance" },
+        { label: "Service & Maintenance", icon: ShoppingBag, href: "/service-maintenance" },
         { label: "Manufacturing", icon: Factory, href: "/manufacturing" },
         { label: "LMS ( Learning Management System )", icon: BookOpen, href: "/lms" },
       ],
