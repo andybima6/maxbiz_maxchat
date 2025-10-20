@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Download } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import businessConsultation from "@/assets/business-consultation.jpg";
 import customerSupport from "@/assets/customer-support.jpg";
@@ -16,9 +16,11 @@ import AnimatedElement from "./AnimatedElement";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Nama harus minimal 2 karakter" }),
-  email: z.string().email({ message: "Format email tidak valid" }),
+  perusahaan: z.string().min(2, { message: "Perusahaan harus minimal 2 karakter" }),
+  industri: z.string().min(2, { message: "Industri harus minimal 2 karakter" }),
+  email: z.string().email({ message: "Format email tidak valid" }).optional().or(z.literal("")),
   phone: z.string().min(10, { message: "Nomor telepon harus minimal 10 digit" }),
-  message: z.string().min(10, { message: "Pesan harus minimal 10 karakter" }),
+  message: z.string().min(10, { message: "Pesan harus minimal 10 karakter" }).optional().or(z.literal("")),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -30,6 +32,8 @@ const ContactUs = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
+      perusahaan: "",
+      industri: "",
       email: "",
       phone: "",
       message: "",
@@ -102,7 +106,7 @@ const ContactUs = () => {
                   <img src={customerSupport} alt="Customer support representative" className="w-full h-80 object-cover rounded-2xl shadow-elegant" />
                 </AnimatedElement>
                 <AnimatedElement animation="fade-in-up" delay={300}>
-                  <div className="absolute -bottom-12 -right-4 bg-gradient-hero text-primary-foreground p-4 rounded-xl shadow-glow z-10 ">
+                  <div className="absolute -bottom-8 -right-4 bg-gradient-hero text-primary-foreground p-4 rounded-xl shadow-glow z-10 ">
                     <div className="text-center">
                       <div className="text-lg font-bold">24/7</div>
                       <div className="text-sm">Support</div>
@@ -112,10 +116,10 @@ const ContactUs = () => {
               </div>
 
               <h3 className="text-2xl font-semibold text-foreground mb-6">Informasi Kontak</h3>
-              <div className="space-y-6">
+              <div className="space-y-2 bg-white hover:shadow-elegant transition-all duration-300 border-0 shadow-md rounded-2xl">
                 {contactInfo.map((item, index) => (
                   <AnimatedElement key={index} animation="fade-in-up" delay={index * 200}>
-                    <Card key={index} className="group hover:shadow-elegant transition-all duration-300 border-0 shadow-md">
+                    <div>
                       <CardContent className="p-6">
                         <div className="flex items-start space-x-4">
                           <div className="flex-shrink-0">
@@ -135,9 +139,21 @@ const ContactUs = () => {
                           </div>
                         </div>
                       </CardContent>
-                    </Card>
+                    </div>
                   </AnimatedElement>
                 ))}
+              </div>
+            </div>
+            <h3 className="text-2xl font-semibold text-foreground mb-6">Daftarkan Berlangganan</h3>
+            <div className="space-y-4 bg-white p-4">
+              <h4 className="font-semibold text-foreground">Newsletter & E-book</h4>
+              <p className="text-sm text-foreground max-w-sm">Dapatkan tips bisnis digital dan e-book "10 Hal sebelum Pilih ERP" gratis.</p>
+              <div className="space-y-3">
+                <Input type="email" placeholder="Email Anda" className="bg-slate-400 border-background/20 text-foreground placeholder:text-background/50" />
+                <Button size="sm" className="w-full">
+                  <Download className="w-4 h-4 mr-2" />
+                  Dapatkan E-book
+                </Button>
               </div>
             </div>
           </div>
@@ -146,7 +162,7 @@ const ContactUs = () => {
           <Card className="lg:col-span-2 shadow-elegant border-0 shadow-2xl">
             <AnimatedElement animation="fade-in-up" delay={300}>
               <CardContent className="p-8">
-                <h3 className="text-2xl font-semibold text-foreground mb-6">Formulir Online</h3>
+                <h3 className="text-2xl font-semibold text-foreground mb-6">Formulir Demo</h3>
 
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -155,7 +171,10 @@ const ContactUs = () => {
                       name="name"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-foreground font-medium">Nama</FormLabel>
+                          <FormLabel className="text-foreground font-medium">
+                            Nama
+                            <span className="text-destructive ml-1">*</span>
+                          </FormLabel>
                           <FormControl>
                             <Input placeholder="Masukkan nama lengkap Anda" {...field} className="h-12 border-muted focus:border-primary transition-colors duration-200" />
                           </FormControl>
@@ -163,7 +182,38 @@ const ContactUs = () => {
                         </FormItem>
                       )}
                     />
-
+                    <FormField
+                      control={form.control}
+                      name="perusahaan"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-foreground font-medium">
+                            Perusahaan
+                            <span className="text-destructive ml-1">*</span>
+                          </FormLabel>
+                          <FormControl>
+                            <Input type="perusahaan" placeholder="PT ...." {...field} className="h-12 border-muted focus:border-primary transition-colors duration-200" />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="industri"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-foreground font-medium">
+                            Industri
+                            <span className="text-destructive ml-1">*</span>
+                          </FormLabel>
+                          <FormControl>
+                            <Input type="industri" placeholder="nama@email.com" {...field} className="h-12 border-muted focus:border-primary transition-colors duration-200" />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
                     <FormField
                       control={form.control}
                       name="email"
@@ -183,7 +233,10 @@ const ContactUs = () => {
                       name="phone"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-foreground font-medium">Nomor Telepon</FormLabel>
+                          <FormLabel className="text-foreground font-medium">
+                            Nomor Telepon (whatsapp active)
+                            <span className="text-destructive ml-1">*</span>
+                          </FormLabel>
                           <FormControl>
                             <Input type="tel" placeholder="+62 812 3456 7890" {...field} className="h-12 border-muted focus:border-primary transition-colors duration-200" />
                           </FormControl>
