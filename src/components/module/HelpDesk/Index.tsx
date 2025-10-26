@@ -46,7 +46,7 @@ const Index = () => {
       <FeaturesCard />
       {/* <StatsCard /> */}
       <BannerSection
-        variant="simple"
+        variant="gradient"
         title="Tingkatkan Layanan Pelanggan dengan Help Desk"
         description="Sediakan SLA yang jelas, kelola tiket, dan gunakan knowledge base untuk resolusi lebih cepat."
         primaryAction={{ label: "Buka Tiket Sekarang", onClick: () => console.log("Help Desk: Buka Tiket clicked") }}

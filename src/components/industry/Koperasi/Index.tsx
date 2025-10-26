@@ -87,13 +87,13 @@ export default function FinancePage() {
     <div className="min-h-screen bg-background">
       <Header />
       <HeroSection
-        title="Transparansi dan Efisiensi Operasional Lembaga Nirlaba dengan ERPNext"
-        subtitle="Solusi ERP untuk Koperasi & Organisasi Sosial Modern"
-        description="Kelola donasi, relawan, program sosial, dan laporan dampak dalam satu sistem terintegrasi untuk meningkatkan transparansi, akuntabilitas, dan efisiensi organisasi nirlaba."
-        image={heroImage} // ganti dengan ilustrasi bertema sosial: orang bergandengan tangan, simbol hati, atau kegiatan sosial di lapangan
+        title="Efisiensi dan Transparansi Operasional Koperasi dengan ERPNext"
+        subtitle="Solusi ERP untuk Koperasi Simpan Pinjam & Serba Usaha"
+        description="Kelola anggota, simpanan, pinjaman, transaksi keuangan, dan laporan tahunan dalam satu sistem terintegrasi untuk mendukung pertumbuhan koperasi yang sehat dan transparan."
+        image={heroImage}
         badge={{
-          icon: <Handshake className="w-4 h-4" />,
-          text: "Tantangan Organisasi Nirlaba",
+          icon: <Users className="w-4 h-4" />,
+          text: "Tantangan Manajemen Koperasi",
         }}
         primaryAction={{ label: "Coba Sekarang" }}
         secondaryAction={{ label: "Pelajari Solusi" }}
@@ -123,14 +123,13 @@ export default function FinancePage() {
         // stats={cooperativeStats}
         theme="secondary"
       />
-
       <BannerSection
         variant="simple"
-        title="Transformasi Digital untuk Organisasi Nirlaba"
-        description="ERPNext membantu NGO mengelola donasi, relawan, dan laporan program dengan transparansi penuh. Jadikan setiap kontribusi tercatat dengan akurat dan berdampak nyata bagi masyarakat."
+        title="Digitalisasi Manajemen Koperasi Modern"
+        description="ERPNext membantu koperasi mengelola simpan pinjam, anggota, dan laporan keuangan dengan transparansi penuh. Wujudkan tata kelola koperasi yang efisien, akuntabel, dan berkelanjutan."
         primaryAction={{
-          label: "Coba Modul NGO",
-          onClick: () => console.log("Coba Modul NGO clicked"),
+          label: "Coba Modul Koperasi",
+          onClick: () => console.log("Coba Modul Koperasi clicked"),
         }}
         secondaryAction={{
           label: "Lihat Solusi",

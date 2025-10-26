@@ -1,4 +1,4 @@
-import { Building2, FileBarChart2, FileSignature, FileText, Handshake, UserRound, BriefcaseBusiness, BadgeCheck, Users, Briefcase, FileSpreadsheet } from "lucide-react";
+import { Building2, FileBarChart2, FileSignature, FileText, Handshake, UserRound, BriefcaseBusiness, BadgeCheck, Users, Briefcase, FileSpreadsheet, Scale3D } from "lucide-react";
 import heroImage from "@/assets/industry/LegalKonsultan/legal-hero.jpg";
 import HeroSection from "../HeroSection";
 import ChallengesSection from "../ChallengesSection";
@@ -88,13 +88,13 @@ export default function FinancePage() {
     <div className="min-h-screen bg-background">
       <Header />
       <HeroSection
-        title="Digitalisasi Manajemen Properti Terpadu dengan ERPNext"
-        subtitle="Solusi ERP untuk Industri Real Estate"
-        description="Kelola proyek pembangunan, penjualan unit, dan keuangan properti dalam satu sistem terintegrasi untuk efisiensi dan transparansi maksimal."
+        title="Manajemen Legal & Konsultan Terpadu dengan ERPNext"
+        subtitle="Solusi ERP untuk Firma Hukum dan Konsultan"
+        description="Kelola kontrak, klien, proyek konsultasi, dan keuangan secara terpusat dalam satu sistem terpadu untuk meningkatkan produktivitas dan akurasi layanan."
         image={heroImage}
         badge={{
-          icon: <Building2 className="w-4 h-4" />,
-          text: "Tantangan Industri Properti",
+          icon: <Scale3D className="w-4 h-4" />, 
+          text: "Tantangan Industri Legal & Konsultan",
         }}
         primaryAction={{ label: "Coba Sekarang" }}
         secondaryAction={{ label: "Pelajari Solusi" }}
@@ -128,9 +128,9 @@ export default function FinancePage() {
       />
       <BannerSection
         variant="simple"
-        title="Digitalisasi Manajemen Properti & Real Estate"
-        description="Kelola proyek pembangunan, penjualan unit, dan laporan keuangan properti secara efisien dan transparan dengan solusi terintegrasi seperti CRM, Project Management, dan Accounting."
-        primaryAction={{ label: "Coba Modul Properti", onClick: () => console.log("Coba Modul Properti clicked") }}
+        title="Digitalisasi Layanan Hukum & Konsultansi"
+        description="Optimalkan manajemen dokumen, kontrak, dan klien dengan solusi terintegrasi untuk firma hukum dan konsultan. Tingkatkan efisiensi operasional serta transparansi dalam pengelolaan kasus dan layanan konsultasi."
+        primaryAction={{ label: "Coba Modul Legal", onClick: () => console.log("Coba Modul Legal clicked") }}
         secondaryAction={{ label: "Lihat Solusi", onClick: () => console.log("Lihat Solusi clicked") }}
       />
 
