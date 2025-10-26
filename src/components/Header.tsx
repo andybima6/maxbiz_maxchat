@@ -80,7 +80,7 @@ const Header = () => {
       ],
     },
     { label: "About", href: "#tentang" },
-    { label: "Integration", href: "#tentang" },
+    { label: "Integration", href: "/integration" },
     { label: "Benefit", href: "#benefit" },
     { label: "Kontak", href: "#kontak" },
   ];

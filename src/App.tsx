@@ -33,6 +33,7 @@ import LegalConsultant from "./components/industry/LegalKonsultan/Index";
 import FoodBeverage from "./components/industry/fnb/Index";
 import Ngo from "./components/industry/Ngo/Index";
 import Cooperative from "./components/industry/Koperasi/Index";
+import IntegrationSection from "./components/IntegrationSection";
 
 const queryClient = new QueryClient();
 
@@ -72,6 +73,7 @@ const App = () => (
           <Route path="/food-beverage" element={<FoodBeverage />} />
           <Route path="/ngo" element={<Ngo />} />
           <Route path="/koperasi" element={<Cooperative />} />
+          <Route path="/integration" element={<IntegrationSection />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
