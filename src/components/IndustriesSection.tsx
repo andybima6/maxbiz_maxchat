@@ -1,20 +1,20 @@
 import { Card } from "@/components/ui/card";
 import { Building2, Stethoscope, Landmark, GraduationCap, Home, ShoppingBag, Palette, Plane, Hotel, Lightbulb, Scale, UtensilsCrossed, Heart, Users, Settings } from "lucide-react";
 
-import healthcareImg from "@/assets/industry/industry-healthcare.jpg";
-import governmentImg from "@/assets/industry/industry-government.jpg";
-import financeImg from "@/assets/industry/industry-finance.jpg";
-import realestateImg from "@/assets/industry/industry-realestate.jpg";
-import educationImg from "@/assets/industry/industry-education.jpg";
-import retailImg from "@/assets/industry/industry-retail.jpg";
-import agencyImg from "@/assets/industry/industry-agency.jpg";
-import travelImg from "@/assets/industry/industry-travel.jpg";
-import hospitalityImg from "@/assets/industry/industry-hospitality.jpg";
-import utilitiesImg from "@/assets/industry/industry-utilities.jpg";
-import legalImg from "@/assets/industry/industry-legal.jpg";
-import fnbImg from "@/assets/industry/industry-fnb.jpg";
-import ngoImg from "@/assets/industry/Ngo/hero-ngo.jpg";
-import cooperativeImg from "@/assets/industry/Koperasi/hero-cooperative.jpg";
+import healthcareImg from "@/assets/industry/HealthCare/kesehatan.webp";
+import governmentImg from "@/assets/industry/Government/Government.jpg";
+import financeImg from "@/assets/industry/Finance/finance.webp";
+import realestateImg from "@/assets/industry/Property/properti.webp";
+import educationImg from "@/assets/industry/Education/pendidikan.jpg";
+import retailImg from "@/assets/industry/Retail/retail.webp";
+import agencyImg from "@/assets/industry/Agency/agency.webp";
+import travelImg from "@/assets/industry/TravelTrasnportasi/travel.webp";
+import hospitalityImg from "@/assets/industry/Hospitality/hospitality.webp";
+import utilitiesImg from "@/assets/industry/utilitas/utilitas.webp";
+import legalImg from "@/assets/industry/LegalKonsultan/Konsultan.webp";
+import fnbImg from "@/assets/industry/fnb/fnb.webp";
+import ngoImg from "@/assets/industry/Ngo/Ngo.jpg";
+import cooperativeImg from "@/assets/industry/Koperasi/Koperasi.webp";
 import AnimatedElement from "./AnimatedElement";
 
 const industries = [

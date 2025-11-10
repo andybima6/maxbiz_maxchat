@@ -21,9 +21,9 @@ const Index = () => {
           <FeaturesSection />
           <ProductsSection />
           {/* <AboutMaxBiz /> */}
-          <TestimonialsSection />
+          {/* <TestimonialsSection /> */}
           {/* <LeadMagnetSection /> */}
-          <PricingSection />
+          {/* <PricingSection /> */}
           <FAQSection />
           <CTASection />
           <ContactUs />

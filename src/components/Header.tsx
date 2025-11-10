@@ -38,8 +38,8 @@ const Header = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const navItems = [
     {
-      label: "Fitur",
-      icon: ChevronDown,
+      // label: "Fitur",
+      // icon: ChevronDown,
       href: "/#fitur",
       subItems: [
         { label: "ERPNext Overview", icon: LayoutDashboard, href: "/erpnext" },
@@ -59,8 +59,8 @@ const Header = () => {
       ],
     },
     {
-      label: "Industry",
-      icon: ChevronDown,
+      // label: "Industry",
+      // icon: ChevronDown,
       href: "/#industry",
       subItems: [
         { label: "Kesehatan", icon: Stethoscope, href: "/healthcare" },
@@ -79,10 +79,10 @@ const Header = () => {
         { label: "Koperasi", icon: BadgeDollarSign, href: "/koperasi" },
       ],
     },
-    { label: "About", href: "#tentang" },
-    { label: "Integration", href: "/integration" },
-    { label: "Benefit", href: "#benefit" },
-    { label: "Kontak", href: "#kontak" },
+    // { label: "About", href: "#tentang" },
+    // { label: "Integration", href: "/integration" },
+    // { label: "Benefit", href: "#benefit" },
+    // { label: "Kontak", href: "#kontak" },
   ];
   useEffect(() => {
     if (window.location.hash) {
