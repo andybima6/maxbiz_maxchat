@@ -183,7 +183,7 @@ const FeaturesSection = () => {
         </div>
 
         {/* Supporting Features */}
-        <section className="py-20 px-4">
+        {/* <section className="py-20 px-4">
           <div className="container mx-auto ">
             <AnimatedElement animation="fade-in-up" delay={300}>
               <div className="text-center mb-12">
@@ -217,7 +217,7 @@ const FeaturesSection = () => {
               })}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* CTA Section */}
         {/* <div className="text-center bg-gradient-hero rounded-3xl p-12 animate-scale-in">
