@@ -1,5 +1,5 @@
 import { Calculator, Building2, ClipboardCheck, HardHat, Wallet, BarChart3, Ruler, FileSearch, PenLine } from "lucide-react";
-import heroImage from "@/assets/industry/property/hero-property.jpg";
+import heroImage from "@/assets/industry/Property/hero-property.jpg";
 import HeroSection from "../HeroSection";
 import ChallengesSection from "../ChallengesSection";
 import SolutionsSection from "../SolutionsSection";
