@@ -1,5 +1,5 @@
 import { Wallet, HeartPulse, ClipboardList, BookOpen, BarChart3, Presentation, Database, ClipboardCheck, GraduationCap, Users2 } from "lucide-react";
-import heroImage from "@/assets/industry/education/hero-education.jpg";
+import heroImage from "@/assets/industry/Education/hero-education.jpg";
 import HeroSection from "../HeroSection";
 import ChallengesSection from "../ChallengesSection";
 import SolutionsSection from "../SolutionsSection";
@@ -7,9 +7,9 @@ import ValuesSection from "../ValuesSection";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BannerSection from "@/components/BannerSection";
-import SISDashboard from "@/assets/industry/education/student-information-system.jpg";
-import FinanceDashboard from "@/assets/industry/education/school-finance.jpg";
-import LMSDashboard from "@/assets/industry/education/learning-management.jpg";
+import SISDashboard from "@/assets/industry/Education/student-information-system.jpg";
+import FinanceDashboard from "@/assets/industry/Education/school-finance.jpg";
+import LMSDashboard from "@/assets/industry/Education/learning-management.jpg";
 
 const educationChallenges = [
   {

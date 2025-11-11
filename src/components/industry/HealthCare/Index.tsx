@@ -6,10 +6,10 @@ import SolutionsSection from "../SolutionsSection";
 import ValuesSection from "../ValuesSection";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import EMRDashboard from "@/assets/industry/healthcare/medical-records.jpg";
-import InventoryDashboard from "@/assets/industry/healthcare/inventory-management.jpg";
-import BillingDashboard from "@/assets/industry/healthcare/billing-system.jpg";
-import AppointmentDashboard from "@/assets/industry/healthcare/appointment-system.jpg";
+import EMRDashboard from "@/assets/industry/HealthCare/medical-records.jpg";
+import InventoryDashboard from "@/assets/industry/HealthCare/inventory-management.jpg";
+import BillingDashboard from "@/assets/industry/HealthCare/billing-system.jpg";
+import AppointmentDashboard from "@/assets/industry/HealthCare/appointment-system.jpg";
 import BannerSection from "@/components/BannerSection";
 
 // 🩺 Tantangan di sektor kesehatan

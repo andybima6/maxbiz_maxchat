@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Clock, Calendar, Star, DollarSign, Users, FileText, UserCheck, Shield, User, Bell, Download, CheckCircle, Calculator } from "lucide-react";
-import heroImage from "@/assets/module/hr/hero-hr.jpg";
-import attendanceIcon from "@/assets/module/hr/attendance-icon.jpg";
-import leaveIcon from "@/assets/module/hr/leave-icon.jpg";
-import appraisalIcon from "@/assets/module/hr/appraisal-icon.jpg";
-import payrollIcon from "@/assets/module/hr/payroll-icon.jpg";
-import recruitmentIcon from "@/assets/module/hr/recruitment-icon.jpg";
+import heroImage from "@/assets/module/Hr/hero-hr.jpg";
+import attendanceIcon from "@/assets/module/Hr/attendance-icon.jpg";
+import leaveIcon from "@/assets/module/Hr/leave-icon.jpg";
+import appraisalIcon from "@/assets/module/Hr/appraisal-icon.jpg";
+import payrollIcon from "@/assets/module/Hr/payroll-icon.jpg";
+import recruitmentIcon from "@/assets/module/Hr/recruitment-icon.jpg";
 import Header from "@/components/Header";
 import FeatureCard from "./FeatureCard";
 import { Card, CardContent } from "@/components/ui/card";

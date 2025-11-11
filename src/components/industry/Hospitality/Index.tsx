@@ -9,7 +9,6 @@ import PropertyDashboard from "@/assets/industry/Hospitality/inventory-managemen
 import GuestDashboard from "@/assets/industry/Hospitality/guest-management.jpg";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
 import BannerSection from "@/components/BannerSection";
 
 // 🏨 Tantangan di sektor Hospitality
