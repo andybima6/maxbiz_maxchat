@@ -6,9 +6,9 @@ import SolutionsSection from "../SolutionsSection";
 import ValuesSection from "../ValuesSection";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import POSDashboard from "@/assets/industry/retail/pos-system.jpg";
-import InventoryDashboard from "@/assets/industry/retail/warehouse-management.jpg";
-import LoyaltyDashboard from "@/assets/industry/retail/customer-loyalty.jpg";
+import POSDashboard from "@/assets/industry/Retail/pos-system.jpg";
+import InventoryDashboard from "@/assets/industry/Retail/warehouse-management.jpg";
+import LoyaltyDashboard from "@/assets/industry/Retail/customer-loyalty.jpg";
 import BannerSection from "@/components/BannerSection";
 
 const retailChallenges = [
