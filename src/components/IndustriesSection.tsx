@@ -126,13 +126,13 @@ const IndustriesSection = () => {
           <AnimatedElement animation="fade-in-up" delay={100}>
             <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full mb-4">
               <Settings className="h-5 w-5 text-primary" />
-              <span className="text-primary font-medium">Industry MaxBiz ERP</span>
+              <span className="text-primary font-medium">Supported Industry</span>
             </div>
           </AnimatedElement>
           <AnimatedElement animation="fade-in-up" delay={200}>
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
-              Industry
-              <span className="text-primary"> MaxBiz ERP</span>
+            <h2 className="text-3xl lg:text-4xl font-bold  mb-6 text-primary">
+              Maxbiz ERP
+              <span className="text-foreground"> mendukung berbagai industri</span>
             </h2>
           </AnimatedElement>
           <AnimatedElement animation="fade-in-up" delay={400}>
