@@ -10,7 +10,7 @@ import retailImg from "@/assets/industry/Retail/Retail.webp";
 import agencyImg from "@/assets/industry/Agency/Agency.webp";
 import travelImg from "@/assets/industry/TravelTrasnportasi/travel.webp";
 import hospitalityImg from "@/assets/industry/Hospitality/Hospitality.webp";
-import utilitiesImg from "@/assets/industry/utilitas/Utilitas.webp";
+import utilitiesImg from "@/assets/industry/Utilitas/Utilitas.webp";
 import legalImg from "@/assets/industry/LegalKonsultan/Konsultan.webp";
 import fnbImg from "@/assets/industry/fnb/fnb.webp";
 import ngoImg from "@/assets/industry/Ngo/Ngo.jpg";
