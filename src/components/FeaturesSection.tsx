@@ -1,7 +1,7 @@
 import { Users, Package, ShoppingCart, Settings, Calculator, Wrench, ClipboardList, UserCog, BarChart3, Headphones, GraduationCap, ArrowRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import crmFeature from "@/assets/module/CRM/crm.webp";
+import crmFeature from "@/assets/module/Crm/crm.webp";
 import manufacturingFeature from "@/assets/module/Manufacture/manufacture.webp";
 import accountingFeature from "@/assets/module/AccountingFinance/Accounting.webp";
 import serviceFeature from "@/assets/module/ServiceMaintenance/ServiceMaintenance.webp";
