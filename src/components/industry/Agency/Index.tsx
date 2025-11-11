@@ -6,9 +6,9 @@ import SolutionsSection from "../SolutionsSection";
 import ValuesSection from "../ValuesSection";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ProjectDashboard from "@/assets/industry/agency/challenge-multi-project.png";
-import CRMDashboard from "@/assets/industry/agency/challenge-documentation.png";
-import HRDashboard from "@/assets/industry/agency/challenge-freelance.png";
+import ProjectDashboard from "@/assets/industry/Agency/challenge-multi-project.png";
+import CRMDashboard from "@/assets/industry/Agency/challenge-documentation.png";
+import HRDashboard from "@/assets/industry/Agency/challenge-freelance.png";
 import BannerSection from "@/components/BannerSection";
 
 const agencyhallenges = [
