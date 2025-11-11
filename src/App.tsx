@@ -48,7 +48,7 @@ const App = () => (
           <Route path="/erpnext" element={<ErpOverview />} />
           <Route path="/accounting-finance" element={<AccountingFinance />} />
           <Route path="/Sales" element={<Sales />} />
-          <Route path="/buying" element={<Buying />} />
+          <Route path="/buying" element={<Buying />} /> 
           <Route path="/crm" element={<CRM />} />
           <Route path="/project-management" element={<ProjectManagement />} />
           <Route path="/hr-payroll" element={<HrPayroll />} />
