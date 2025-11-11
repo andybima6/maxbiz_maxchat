@@ -44,7 +44,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
+          <Route path="/erp" element={<Index />} />
           <Route path="/erpnext" element={<ErpOverview />} />
           <Route path="/accounting-finance" element={<AccountingFinance />} />
           <Route path="/Sales" element={<Sales />} />
