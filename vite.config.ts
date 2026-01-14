@@ -4,10 +4,9 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  base: '/erp/',  // HARUS ADA INI
   server: {
     host: "::",
-    port: 8080,
+    port: 5173,
     strictPort: true,
     hmr: {
       clientPort: 443,
