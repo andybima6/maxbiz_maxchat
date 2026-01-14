@@ -4,9 +4,10 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
+  base: '/',  // HARUS ADA INI
   server: {
     host: "::",
-    port: 5173,
+    port: 8080,
     strictPort: true,
     hmr: {
       clientPort: 443,
