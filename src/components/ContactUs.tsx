@@ -1,4 +1,3 @@
-import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -6,27 +5,55 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Mail, Phone, MapPin, Send, Download } from "lucide-react";
+import { Checkbox } from "@/components/ui/checkbox";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+  FormCheckbox,
+} from "@/components/ui/form";
+import { Mail, Phone, MapPin, Send, Download, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import businessConsultation from "@/assets/business-consultation.jpg";
 import customerSupport from "@/assets/customer-support.jpg";
 import digitalPattern from "@/assets/digital-pattern.jpg";
 import AnimatedElement from "./AnimatedElement";
+import { useState } from "react";
+import { industries_options } from "@/constants/industries";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Nama harus minimal 2 karakter" }),
-  perusahaan: z.string().min(2, { message: "Perusahaan harus minimal 2 karakter" }),
+  perusahaan: z
+    .string()
+    .min(2, { message: "Perusahaan harus minimal 2 karakter" }),
   industri: z.string().min(2, { message: "Industri harus minimal 2 karakter" }),
-  email: z.string().email({ message: "Format email tidak valid" }).optional().or(z.literal("")),
-  phone: z.string().min(10, { message: "Nomor telepon harus minimal 10 digit" }),
-  message: z.string().min(10, { message: "Pesan harus minimal 10 karakter" }).optional().or(z.literal("")),
+  email: z
+    .string()
+    .email({ message: "Format email tidak valid" })
+    .optional()
+    .or(z.literal("")),
+  phone: z
+    .string()
+    .min(10, { message: "Nomor telepon harus minimal 10 digit" }),
+  notes: z
+    .string()
+    .min(10, { message: "Pesan harus minimal 10 karakter" })
+    .optional()
+    .or(z.literal("")),
+  subscribeNewsletter: z.boolean().default(false),
 });
 
 type FormData = z.infer<typeof formSchema>;
 
 const ContactUs = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const industry_options = industries_options;
+  const API_URL = import.meta.env.VITE_URL_LOCAL;
+  const LISTMONK_URL = import.meta.env.VITE_LISTMONK_URL;
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -36,17 +63,53 @@ const ContactUs = () => {
       industri: "",
       email: "",
       phone: "",
-      message: "",
+      notes: "",
+      subscribeNewsletter: false,
     },
   });
 
-  const onSubmit = (data: FormData) => {
-    console.log(data);
-    toast({
-      title: "Pesan Terkirim!",
-      description: "Tim kami akan segera menghubungi Anda.",
-    });
-    form.reset();
+  const onSubmit = async (data: FormData) => {
+    setIsSubmitting(true);
+
+    try {
+      // deliver ke gateway ERP
+      const erpResponse = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          first_name: data.name,
+          company_name: data.perusahaan,
+          industry: data.industri,
+          email_id: data.email,
+          whatsapp_no: data.phone,
+          custom_note: data.notes,
+        }),
+      });
+
+      if (!erpResponse.ok) {
+        throw new Error("Failed to submit form");
+      }
+
+      const result = await erpResponse.json();
+      console.log("ERP Response:", result);
+
+      if (result && result.created_demo) {
+        toast({
+          title: "Pesan Terkirim!",
+          description: "Tim kami akan segera menghubungi Anda.",
+        });
+        form.reset();
+      }
+    } catch (error) {
+      toast({
+        title: "Terjadi kesalahan",
+        description: "Silakan coba lagi nanti.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -71,10 +134,17 @@ const ContactUs = () => {
   ];
 
   return (
-    <section className="relative py-20 px-4 bg-gradient-to-br from-background to-muted overflow-hidden" id="kontak">
+    <section
+      className="relative py-20 px-4 bg-gradient-to-br from-background to-muted overflow-hidden"
+      id="kontak"
+    >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
-        <img src={digitalPattern} alt="" className="w-full h-full object-cover" />
+        <img
+          src={digitalPattern}
+          alt=""
+          className="w-full h-full object-cover"
+        />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -85,14 +155,24 @@ const ContactUs = () => {
             <div className="absolute inset-0 bg-gradient-hero opacity-10 rounded-3xl transform rotate-3"></div>
 
             <AnimatedElement animation="bounce-in" delay={200}>
-              <img src={businessConsultation} alt="Tim MaxBiz sedang berkonsultasi dengan klien" className="relative w-full max-w-4xl mx-auto h-64 md:h-80 object-cover rounded-3xl shadow-elegant" />
+              <img
+                src={businessConsultation}
+                alt="Tim MaxBiz sedang berkonsultasi dengan klien"
+                className="relative w-full max-w-4xl mx-auto h-64 md:h-80 object-cover rounded-3xl shadow-elegant"
+              />
             </AnimatedElement>
           </div>
           <AnimatedElement animation="fade-in-up" delay={400}>
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">Hubungi Kami</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+              Hubungi Kami
+            </h2>
           </AnimatedElement>
           <AnimatedElement animation="fade-in-down" delay={500}>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">Ingin tahu lebih banyak tentang solusi kami? Tim MaxBiz siap membantu Anda setiap langkah dalam perjalanan digitalisasi bisnis Anda.</p>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Ingin tahu lebih banyak tentang solusi kami? Tim MaxBiz siap
+              membantu Anda setiap langkah dalam perjalanan digitalisasi bisnis
+              Anda.
+            </p>
           </AnimatedElement>
         </div>
 
@@ -103,7 +183,11 @@ const ContactUs = () => {
               {/* Support Representative Image */}
               <div className="mb-8">
                 <AnimatedElement animation="fade-in-up" delay={100}>
-                  <img src={customerSupport} alt="Customer support representative" className="w-full h-80 object-cover rounded-2xl shadow-elegant" />
+                  <img
+                    src={customerSupport}
+                    alt="Customer support representative"
+                    className="w-full h-80 object-cover rounded-2xl shadow-elegant"
+                  />
                 </AnimatedElement>
                 <AnimatedElement animation="fade-in-up" delay={300}>
                   <div className="absolute -bottom-8 -right-4 bg-gradient-hero text-primary-foreground p-4 rounded-xl shadow-glow z-10 ">
@@ -115,10 +199,16 @@ const ContactUs = () => {
                 </AnimatedElement>
               </div>
 
-              <h3 className="text-2xl font-semibold text-foreground mb-6">Informasi Kontak</h3>
+              <h3 className="text-2xl font-semibold text-foreground mb-6">
+                Informasi Kontak
+              </h3>
               <div className="space-y-2 bg-white hover:shadow-elegant transition-all duration-300 border-0 shadow-md rounded-2xl">
                 {contactInfo.map((item, index) => (
-                  <AnimatedElement key={index} animation="fade-in-up" delay={index * 200}>
+                  <AnimatedElement
+                    key={index}
+                    animation="fade-in-up"
+                    delay={index * 200}
+                  >
                     <div>
                       <CardContent className="p-6">
                         <div className="flex items-start space-x-4">
@@ -128,11 +218,18 @@ const ContactUs = () => {
                             </div>
                           </div>
                           <div className="flex-1">
-                            <h4 className="font-semibold text-foreground mb-1">{item.label}</h4>
+                            <h4 className="font-semibold text-foreground mb-1">
+                              {item.label}
+                            </h4>
                             {item.href === "#" ? (
-                              <p className="text-muted-foreground leading-relaxed">{item.value}</p>
+                              <p className="text-muted-foreground leading-relaxed">
+                                {item.value}
+                              </p>
                             ) : (
-                              <a href={item.href} className="text-primary hover:text-primary-dark transition-colors duration-200">
+                              <a
+                                href={item.href}
+                                className="text-primary hover:text-primary-dark transition-colors duration-200"
+                              >
                                 {item.value}
                               </a>
                             )}
@@ -144,7 +241,7 @@ const ContactUs = () => {
                 ))}
               </div>
             </div>
-            <h3 className="text-2xl font-semibold text-foreground mb-6">Daftarkan Berlangganan</h3>
+            {/* <h3 className="text-2xl font-semibold text-foreground mb-6">Daftarkan Berlangganan</h3>
             <div className="space-y-4 bg-white p-4">
               <h4 className="font-semibold text-foreground">Newsletter & E-book</h4>
               <p className="text-sm text-foreground max-w-sm">Dapatkan tips bisnis digital dan e-book "10 Hal sebelum Pilih ERP" gratis.</p>
@@ -155,17 +252,22 @@ const ContactUs = () => {
                   Dapatkan E-book
                 </Button>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Contact Form */}
           <Card className="lg:col-span-2 shadow-elegant border-0 shadow-2xl">
             <AnimatedElement animation="fade-in-up" delay={300}>
               <CardContent className="p-8">
-                <h3 className="text-2xl font-semibold text-foreground mb-6">Formulir Demo</h3>
+                <h3 className="text-2xl font-semibold text-foreground mb-6">
+                  Formulir Demo
+                </h3>
 
                 <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                  <form
+                    onSubmit={form.handleSubmit(onSubmit)}
+                    className="space-y-6"
+                  >
                     <FormField
                       control={form.control}
                       name="name"
@@ -176,7 +278,11 @@ const ContactUs = () => {
                             <span className="text-destructive ml-1">*</span>
                           </FormLabel>
                           <FormControl>
-                            <Input placeholder="Masukkan nama lengkap Anda" {...field} className="h-12 border-muted focus:border-primary transition-colors duration-200" />
+                            <Input
+                              placeholder="Masukkan nama lengkap Anda"
+                              {...field}
+                              className="h-12 focus:border-primary transition-colors duration-200"
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -192,7 +298,12 @@ const ContactUs = () => {
                             <span className="text-destructive ml-1">*</span>
                           </FormLabel>
                           <FormControl>
-                            <Input type="perusahaan" placeholder="PT ...." {...field} className="h-12 border-muted focus:border-primary transition-colors duration-200" />
+                            <Input
+                              type="text"
+                              placeholder="PT ...."
+                              {...field}
+                              className="h-12 focus:border-primary transition-colors duration-200"
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -208,7 +319,12 @@ const ContactUs = () => {
                             <span className="text-destructive ml-1">*</span>
                           </FormLabel>
                           <FormControl>
-                            <Input type="industri" placeholder="nama@email.com" {...field} className="h-12 border-muted focus:border-primary transition-colors duration-200" />
+                            <Input
+                              type="text"
+                              placeholder="Manufaktur"
+                              {...field}
+                              className="h-12 focus:border-primary transition-colors duration-200"
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -219,9 +335,17 @@ const ContactUs = () => {
                       name="email"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-foreground font-medium">Email</FormLabel>
+                          <FormLabel className="text-foreground font-medium">
+                            Email
+                          </FormLabel>
+                          <span className="text-destructive ml-1">*</span>
                           <FormControl>
-                            <Input type="email" placeholder="nama@email.com" {...field} className="h-12 border-muted focus:border-primary transition-colors duration-200" />
+                            <Input
+                              type="email"
+                              placeholder="nama@email.com"
+                              {...field}
+                              className="h-12 focus:border-primary transition-colors duration-200"
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -238,7 +362,12 @@ const ContactUs = () => {
                             <span className="text-destructive ml-1">*</span>
                           </FormLabel>
                           <FormControl>
-                            <Input type="tel" placeholder="+62 812 3456 7890" {...field} className="h-12 border-muted focus:border-primary transition-colors duration-200" />
+                            <Input
+                              type="tel"
+                              placeholder="+62 812 3456 7890"
+                              {...field}
+                              className="h-12 focus:border-primary transition-colors duration-200"
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -247,21 +376,58 @@ const ContactUs = () => {
 
                     <FormField
                       control={form.control}
-                      name="message"
+                      name="notes"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-foreground font-medium">Pesan Anda</FormLabel>
+                          <FormLabel className="text-foreground font-medium">
+                            Pesan Anda
+                          </FormLabel>
                           <FormControl>
-                            <Textarea placeholder="Ceritakan kebutuhan bisnis Anda..." className="min-h-[120px] border-muted focus:border-primary transition-colors duration-200" {...field} />
+                            <Textarea
+                              placeholder="Ceritakan kebutuhan bisnis Anda..."
+                              className="min-h-[120px] focus:border-primary transition-colors duration-200"
+                              {...field}
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
+                    <FormField
+                      control={form.control}
+                      name="subscribeNewsletter"
+                      render={({ field }) => (
+                        <FormItem className="flex gap-3 items-center">
+                          <FormControl>
+                            <FormCheckbox
+                              checked={field.value}
+                              onCheckedChange={field.onChange}
+                            />
+                          </FormControl>
+                          <FormLabel className="text-foreground font-medium !mt-0 cursor-pointer leading-relaxed">
+                            Dapatkan tips bisnis digital dan e-book "10 Hal
+                            sebelum Pilih ERP" gratis.
+                          </FormLabel>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
 
-                    <Button type="submit" className="w-full h-12  hover:bg-gradient-to-r hover:from-primary-dark hover:to-primary transition-all duration-300 shadow-glow hover:shadow-elegant font-semibold">
-                      <Send className="w-5 h-5 mr-2" />
-                      Konsultasikan Kebutuhan Anda
+                    <Button
+                      type="submit"
+                      className="w-full h-12  hover:bg-gradient-to-r hover:from-primary-dark hover:to-primary transition-all duration-300 shadow-glow hover:shadow-elegant font-semibold"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                          Mohon Tunggu...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-5 h-5 mr-2" />
+                          Konsultasikan Kebutuhan Anda
+                        </>
+                      )}
                     </Button>
                   </form>
                 </Form>

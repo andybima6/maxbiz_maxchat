@@ -1,5 +1,16 @@
 # Welcome to your Lovable project
 
+## For Development
+
+add this in vite.config
+
+    // HMR config di-comment untuk development lokal
+    // hmr: {
+    //   clientPort: 443,
+    //   host: "max.biz.id",
+    //   protocol: "wss",
+    // },
+
 ## Project info
 
 **URL**: https://lovable.dev/projects/73f143a7-fab5-4144-ae84-fd876d30dc67
