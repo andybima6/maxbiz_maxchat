@@ -23,6 +23,13 @@ import digitalPattern from "@/assets/digital-pattern.jpg";
 import AnimatedElement from "./AnimatedElement";
 import { useState } from "react";
 import { industries_options } from "@/constants/industries";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Nama harus minimal 2 karakter" }),
@@ -318,14 +325,26 @@ const ContactUs = () => {
                             Industri
                             <span className="text-destructive ml-1">*</span>
                           </FormLabel>
-                          <FormControl>
-                            <Input
-                              type="text"
-                              placeholder="Manufaktur"
-                              {...field}
-                              className="h-12 focus:border-primary transition-colors duration-200"
-                            />
-                          </FormControl>
+                          <Select
+                            onValueChange={field.onChange}
+                            value={field.value}
+                          >
+                            <FormControl>
+                              <SelectTrigger className="h-12 focus:border-primary transition-colors duration-200">
+                                <SelectValue placeholder="Pilih industri Anda" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              {industry_options.map((industry) => (
+                                <SelectItem
+                                  key={industry.value}
+                                  value={industry.value}
+                                >
+                                  {industry.label}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
                           <FormMessage />
                         </FormItem>
                       )}
