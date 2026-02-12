@@ -34,6 +34,7 @@ import FoodBeverage from "./components/industry/fnb/Index";
 import Ngo from "./components/industry/Ngo/Index";
 import Cooperative from "./components/industry/Koperasi/Index";
 import IntegrationSection from "./components/IntegrationSection";
+import Thankyou from "./components/module/Thankyou/index";
 
 const queryClient = new QueryClient();
 
@@ -74,6 +75,7 @@ const App = () => (
           <Route path="/ngo" element={<Ngo />} />
           <Route path="/koperasi" element={<Cooperative />} />
           <Route path="/integration" element={<IntegrationSection />} />
+          <Route path="/demo-thank-you" element={<Thankyou />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
-import { Checkbox } from "@/components/ui/checkbox";
+import { useNavigate } from "react-router-dom";
 import {
   Form,
   FormControl,
@@ -58,9 +58,11 @@ type FormData = z.infer<typeof formSchema>;
 const ContactUs = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate();
   const industry_options = industries_options;
-  const API_URL = import.meta.env.VITE_URL_LOCAL;
-  const LISTMONK_URL = import.meta.env.VITE_LISTMONK_URL;
+  const API_URL = import.meta.env.VITE_URL_PROD; // VITE_URL_LOCAL for development
+  const WEBHOOK_URL = import.meta.env.VITE_WEBHOOK_PROD_URL; // VITE_WEBHOOK_TEST_URL for development
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -100,19 +102,62 @@ const ContactUs = () => {
       }
 
       const result = await erpResponse.json();
-      console.log("ERP Response:", result);
 
-      if (result && result.created_demo) {
-        toast({
-          title: "Pesan Terkirim!",
-          description: "Tim kami akan segera menghubungi Anda.",
-        });
-        form.reset();
+      // cek error result ERP gateway
+      if (!result.created_demo) {
+        setError(result.message || "Gagal membuat permintaan demo");
+        return;
       }
+
+      // default newsletter status
+      let newsletterData = {
+        status: "not_subscribed",
+        message: "",
+      };
+
+      // deliver ke listmonk jika user centang subscribeNewsletter
+      if (
+        result &&
+        result.created_demo &&
+        data.subscribeNewsletter &&
+        WEBHOOK_URL
+      ) {
+        try {
+          const listmonkResponse = await fetch(WEBHOOK_URL, {
+            method: "POST",
+            body: JSON.stringify({
+              email: data.email,
+              name: data.name,
+            }),
+          });
+          const res = await listmonkResponse.json();
+
+          res.success
+            ? (newsletterData.status = "success")
+            : ((newsletterData.status = "failed"),
+              (newsletterData.message = res.message));
+        } catch (error) {
+          newsletterData.status = "failed";
+          newsletterData.message =
+            "Gagal berlangganan newsletter, silakan coba lagi.";
+        }
+      }
+
+      navigate("/demo-thank-you", {
+        state: {
+          name: data.name,
+          newsletterStatus: newsletterData.status,
+          isNewsletter: data.subscribeNewsletter,
+          message: newsletterData.message || "",
+          timestamp: Date.now(),
+        },
+      });
     } catch (error) {
       toast({
         title: "Terjadi kesalahan",
-        description: "Silakan coba lagi nanti.",
+        description:
+          "Maaf, terjadi kesalahan saat mengirimkan formulir. Silakan coba lagi nanti.",
+        variant: "destructive",
       });
     } finally {
       setIsSubmitting(false);
@@ -339,6 +384,7 @@ const ContactUs = () => {
                                 <SelectItem
                                   key={industry.value}
                                   value={industry.value}
+                                  className="focus:bg-primary"
                                 >
                                   {industry.label}
                                 </SelectItem>
@@ -383,7 +429,7 @@ const ContactUs = () => {
                           <FormControl>
                             <Input
                               type="tel"
-                              placeholder="+62 812 3456 7890"
+                              placeholder="6281234567890"
                               {...field}
                               className="h-12 focus:border-primary transition-colors duration-200"
                             />
@@ -431,10 +477,15 @@ const ContactUs = () => {
                         </FormItem>
                       )}
                     />
+                    {/* error handling for email or phoneNum */}
+                    {error && (
+                      <div className="text-destructive mb-4">{error}</div>
+                    )}
 
                     <Button
                       type="submit"
                       className="w-full h-12  hover:bg-gradient-to-r hover:from-primary-dark hover:to-primary transition-all duration-300 shadow-glow hover:shadow-elegant font-semibold"
+                      disabled={isSubmitting}
                     >
                       {isSubmitting ? (
                         <>

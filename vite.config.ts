@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 5173,
     strictPort: true,
-    // HMR config di-comment untuk development lokal
+    // comment HMR config untuk development lokal
     hmr: {
       clientPort: 443,
       host: "max.biz.id",
