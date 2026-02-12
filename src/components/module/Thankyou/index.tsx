@@ -1,4 +1,4 @@
-import { useLocation, Link, Navigate, useNavigate } from "react-router-dom";
+import { useLocation, Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, Mail, ArrowLeft } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";

@@ -61,8 +61,11 @@ const ContactUs = () => {
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
   const industry_options = industries_options;
-  const API_URL = import.meta.env.VITE_URL_PROD; // VITE_URL_LOCAL for development
-  const WEBHOOK_URL = import.meta.env.VITE_WEBHOOK_PROD_URL; // VITE_WEBHOOK_TEST_URL for development
+  const API_URL =
+    import.meta.env.VITE_URL_PROD || import.meta.env.VITE_URL_LOCAL; // fallback to local
+  const WEBHOOK_URL =
+    import.meta.env.VITE_WEBHOOK_PROD_URL ||
+    import.meta.env.VITE_WEBHOOK_TEST_URL; // fallback to test webhook url
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
