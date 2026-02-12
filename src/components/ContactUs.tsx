@@ -40,7 +40,6 @@ const formSchema = z.object({
   email: z
     .string()
     .email({ message: "Format email tidak valid" })
-    .optional()
     .or(z.literal("")),
   phone: z
     .string()
